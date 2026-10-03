@@ -153,7 +153,7 @@ func _local_move(delta: float) -> void:
 	_send_acc += delta
 	if _send_acc >= 1.0 / 30.0:
 		_send_acc = 0.0
-		world.send_input(position, dash_pending)
+		world.send_input(position, dash_pending, aim_vector())
 		dash_pending = false
 
 
@@ -216,6 +216,23 @@ func _spell_input(delta: float) -> void:
 ## Point visé par les sorts actifs : le curseur de la souris ; à la manette, la direction du stick droit
 ## (sinon Vector2.INF : le serveur vise l'ennemi le plus proche).
 const AIM_STICK_RANGE := 420.0
+
+
+## Direction de visée : vers le curseur (souris) ou le stick droit (manette, sinon la dernière direction).
+var _last_aim := Vector2.RIGHT
+
+
+func aim_vector() -> Vector2:
+	if Settings.using_pad:
+		var stick := Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down") if InputMap.has_action("aim_left") \
+			else Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y))
+		if stick.length() > 0.3:
+			_last_aim = stick.normalized()
+		return _last_aim
+	var d := get_global_mouse_position() - position
+	if d.length() > 4.0:
+		_last_aim = d.normalized()
+	return _last_aim
 
 
 func aim_point() -> Vector2:

@@ -25,6 +25,7 @@ func _ready() -> void:
 		v.add_child(Ui.label("(la partie continue en multijoueur !)", 18, Ui.C_MUTED, HORIZONTAL_ALIGNMENT_CENTER))
 	var resume := Ui.button("Reprendre", _close, 0, 26)
 	v.add_child(resume)
+	v.add_child(Ui.button("Guide du jeu (F3)", func(): Ui.open_guide(), 0, 24))
 	v.add_child(Ui.button("Paramètres", _settings, 0, 24))
 	v.add_child(Ui.button("Amis & messages", func(): Ui.open_social("amis"), 0, 24))
 	v.add_child(Ui.button("Signaler un bug / une suggestion", func(): Ui.open_feedback(), 0, 24))

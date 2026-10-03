@@ -18,6 +18,7 @@ func _ready() -> void:
 	left.add_child(Ui.button("Campagne", _campaign, 420, 34))
 	left.add_child(Ui.button("Multijoueur", func(): Game.goto("play"), 420, 34))
 	left.add_child(Ui.spacer(6))
+	left.add_child(Ui.button("Guide du jeu", func(): Ui.open_guide(), 420))
 	left.add_child(Ui.button("Arbres de compétences", func(): Game.goto("skills"), 420))
 	left.add_child(Ui.button("Battle Pass", func(): Game.goto("battlepass"), 420))
 	left.add_child(Ui.button("Amis & messages", func(): Ui.open_social("amis"), 420))

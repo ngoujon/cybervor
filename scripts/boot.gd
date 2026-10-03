@@ -121,6 +121,16 @@ func _ready() -> void:
 					w._broadcast_loadout(Net.my_id())
 					w._send_private(Net.my_id())
 				await get_tree().create_timer(1.5).timeout
+			elif screen.begins_with("guide"):
+				# --preview guide ou guide_<recherche>
+				Game.goto("main_menu")
+				await get_tree().create_timer(1.0).timeout
+				Ui.open_guide()
+				await get_tree().create_timer(0.5).timeout
+				if screen.begins_with("guide_"):
+					Ui._guide._search.text = screen.trim_prefix("guide_")
+					Ui._guide._filter()
+				await get_tree().create_timer(0.6).timeout
 			elif screen.begins_with("map_"):
 				# vue d'ensemble d'une forme d'arène : --preview map_octogone,map_croix
 				ArenaMap.force_shape = screen.trim_prefix("map_")
@@ -625,6 +635,36 @@ func _spell_test(out: String) -> void:
 		await get_tree().create_timer(0.4).timeout
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(out + "/sort_vise.png")
+	# 6) infobulles : la souris posée sur un sort de la barre ou sur un passif atteint bien la case
+	rp.learn_spell("pat_robuste")
+	w._broadcast_loadout(me)
+	w._send_private(me)
+	await get_tree().create_timer(0.3).timeout
+	var bar_slot: Control = null
+	var passive_slot: Control = null
+	for c in w.hud.spell_hud._bar.get_children():
+		if c is Control and c.tooltip_text != "" and not c.tooltip_text.begins_with("Esquive") and bar_slot == null and c.get_index() > 1:
+			bar_slot = c
+	for c in w.hud.spell_hud._passives.get_children():
+		if c is Control and c.tooltip_text != "":
+			passive_slot = c
+	for pair in [["sort de la barre", bar_slot], ["bonus passif", passive_slot]]:
+		var slot: Control = pair[1]
+		if slot == null:
+			_check(false, "infobulle %s : case introuvable" % pair[0])
+			continue
+		var mm := InputEventMouseMotion.new()
+		mm.position = slot.get_global_rect().get_center()
+		mm.global_position = mm.position
+		get_viewport().push_input(mm, true)
+		await get_tree().process_frame
+		var hov := get_viewport().gui_get_hovered_control()
+		var ok := hov != null and (hov == slot or slot.is_ancestor_of(hov))
+		if out != "":
+			await get_tree().create_timer(1.2).timeout
+			await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(out + "/infobulle_%d.png" % passive_slot.get_instance_id() if slot == passive_slot else out + "/infobulle_barre.png")
+		_check(ok and slot.tooltip_text.length() > 10, "infobulle %s : survol reçu (%s), texte « %s »" % [pair[0], hov.name if hov else "rien", slot.tooltip_text.left(40).replace("\n", " ")])
 	print("[ESCTEST] ", "TOUT EST BON" if _esc_fail == 0 else "%d échec(s)" % _esc_fail)
 	get_tree().quit(1 if _esc_fail else 0)
 

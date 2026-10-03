@@ -67,7 +67,7 @@ const ACTIVE_WAVE_SCALE := 0.12
 const MAX_AIM_RANGE := 650.0
 
 
-## Type de dégâts d'un actif (Physique / Distance / Techno) : +4 % par point de la statistique correspondante.
+## Type de dégâts d'un actif (Mêlée / Distance / Techno) : +4 % par point de la statistique correspondante.
 const DMG_TYPE_SCALE := 0.04
 
 
@@ -104,12 +104,13 @@ func cast(pid: int, slot: int, aim := Vector2.INF) -> bool:
 	return true
 
 
-## Point visé, limité à la portée maximale. Sans visée (manette sans stick, lancement automatique) :
-## l'ennemi le plus proche, sinon devant le joueur.
+## Point visé, limité à la portée maximale. Sans point précis (manette sans stick, lancement automatique) :
+## dans la direction de visée du joueur (curseur / stick), à mi-portée.
 func _resolve_aim(pid: int, pos: Vector2, aim: Vector2) -> Vector2:
 	if aim == Vector2.INF or not aim.is_finite():
-		var tgt: Dictionary = world.combat._find_target(pid, pos, MAX_AIM_RANGE)
-		return tgt.get("pos", pos + Vector2(220, 0))
+		var rp = world.run.get(pid)
+		var d0: Vector2 = rp.aim_dir if rp else Vector2.RIGHT
+		return world.clamp_to_bounds(pos + d0 * 300.0, 10)
 	var d := aim - pos
 	if d.length() > MAX_AIM_RANGE:
 		aim = pos + d.normalized() * MAX_AIM_RANGE

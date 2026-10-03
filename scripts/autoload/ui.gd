@@ -392,6 +392,23 @@ func social_open() -> bool:
 
 const FeedbackPanel := preload("res://scripts/ui/feedback_panel.gd")
 var _feedback: Control
+var _guide: Control
+
+
+## Guide du jeu (règles, dégâts, armes, objets…) avec recherche. Raccourci : F3.
+func open_guide() -> void:
+	if DisplayServer.get_name() == "headless":
+		return
+	if _social_layer == null:
+		_social_layer = CanvasLayer.new()
+		_social_layer.layer = 90
+		add_child(_social_layer)
+	if is_instance_valid(_guide) and not _guide.is_queued_for_deletion():
+		_guide.queue_free()
+		return
+	_guide = load("res://scripts/ui/guide_panel.gd").new()
+	_social_layer.add_child(_guide)
+	push_modal(_guide)
 
 
 ## Fenêtre « Bugs & suggestions » (liste publique, recherche, signalement) — séparée du panneau social.
@@ -447,6 +464,9 @@ func _input(event: InputEvent) -> void:
 		elif event.keycode == KEY_F2:
 			get_viewport().set_input_as_handled()
 			open_social("amis")
+		elif event.keycode == KEY_F3:
+			get_viewport().set_input_as_handled()
+			open_guide()
 
 
 ## Informations techniques jointes aux rapports de bug.

@@ -53,17 +53,19 @@ func refresh() -> void:
 	_slots.clear()
 	var me = world.player_nodes.get(Net.my_id())
 	var ddef: Dictionary = Db.spells.dodges.get(me.character if me else "patatron", {})
-	_dodge = _slot(ddef.get("icon", ""), Settings.hud_label("dash"), Color(ddef.get("color", "#ffffff")),
-		"%s (%s)\n%s" % [ddef.get("name", "Esquive"), Settings.hud_label("dash"), ddef.get("desc", "")], true)
+	var dk := Settings.hud_label("dash")
+	_dodge = _slot(ddef.get("icon", ""), dk, Color(ddef.get("color", "#ffffff")),
+		[ddef.get("name", "Esquive"), Color(ddef.get("color", "#ffffff")), "Esquive · touche [b]%s[/b] · recharge %s s" % [dk, _fmt(float(ddef.get("cd", 0)))], ddef.get("desc", "")], true)
 	_bar.add_child(_spacer())
 	for i in int(Db.spells.get("max_actives", 5)):
 		if i < actives.size():
 			var def: Dictionary = Db.spells.spells[actives[i]]
 			var rank: int = spells.get(actives[i], 1)
 			var key := Settings.hud_label("spell_%d" % (i + 1))
-			_slots.append(_slot(def.icon, key, Color(def.color), "%s — rang %d (%s)\n%s" % [def.name, rank, key, describe(actives[i], rank)], false, rank))
+			_slots.append(_slot(def.icon, key, Color(def.color), [ "%s  ★%d" % [def.name, rank], Color(def.color), _active_sub(actives[i], key), describe(actives[i], rank)], false, rank))
 		else:
-			_slots.append(_slot("", Settings.hud_label("spell_%d" % (i + 1)), Ui.C_MUTED, "Emplacement libre : choisissez un sort actif en montant de niveau.", false))
+			_slots.append(_slot("", Settings.hud_label("spell_%d" % (i + 1)), Ui.C_MUTED, ["Emplacement libre", Ui.C_MUTED, "Touche [b]%s[/b]" % Settings.hud_label("spell_%d" % (i + 1)),
+				"Achetez une [b]arme active[/b] ou un [b]objet actif[/b] dans la boutique entre les vagues : son sort apparaît ici, et se lance vers le curseur."], false))
 	# passifs : colonne verticale à droite
 	var any := false
 	for sid in spells:
@@ -90,10 +92,31 @@ func _spacer() -> Control:
 	return s
 
 
-func _slot(icon_path: String, key: String, col: Color, tip: String, dodge: bool, rank := 0) -> Dictionary:
-	var p := Ui.panel(4, Color(0.05, 0.03, 0.12, 0.85), col if icon_path != "" else Color(Ui.C_MUTED, 0.4))
+## Ligne d'informations d'un sort actif : type de dégâts, touche, recharge.
+func _active_sub(sid: String, key: String) -> String:
+	var def: Dictionary = Db.spells.spells[sid]
+	var parts := ["Sort actif" if not def.get("generic", false) else "Objet actif"]
+	var t := dmg_type(sid)
+	if not t.is_empty():
+		parts.append("[color=%s]%s[/color]" % [t[1], ("Dégâts " + t[0]) if t[0] != "Soutien" else "Soutien"])
+	parts.append("touche [b]%s[/b]" % key)
+	parts.append("vers le curseur")
+	return " · ".join(parts)
+
+
+## Panneau à infobulle riche (TipPanel), même style que Ui.panel.
+static func tip_panel(margin: int, bg: Color, border: Color) -> TipPanel:
+	var base := Ui.panel(margin, bg, border)
+	var tp := TipPanel.new()
+	tp.add_theme_stylebox_override("panel", base.get_theme_stylebox("panel"))
+	base.free()
+	return tp
+
+
+func _slot(icon_path: String, key: String, col: Color, tip: Array, dodge: bool, rank := 0) -> Dictionary:
+	var p := tip_panel(4, Color(0.05, 0.03, 0.12, 0.85), col if icon_path != "" else Color(Ui.C_MUTED, 0.4))
 	p.custom_minimum_size = Vector2(SLOT, SLOT)
-	p.tooltip_text = tip
+	p.set_tip(tip[0], tip[1], tip[2], tip[3])
 	p.mouse_filter = Control.MOUSE_FILTER_PASS
 	_bar.add_child(p)
 	var holder := Control.new()
@@ -127,9 +150,9 @@ func _slot(icon_path: String, key: String, col: Color, tip: String, dodge: bool,
 
 
 func _passive_row(sid: String, def: Dictionary, rank: int) -> Control:
-	var p := Ui.panel(3, Color(0.05, 0.03, 0.12, 0.8), Color(def.color))
+	var p := tip_panel(3, Color(0.05, 0.03, 0.12, 0.8), Color(def.color))
 	p.custom_minimum_size = Vector2(64, 64)
-	p.tooltip_text = "%s — rang %d\n%s" % [def.name, rank, describe(sid, rank)]
+	p.set_tip(def.name, Color(def.color), "Bonus passif · rang [b]%d[/b] / %d · toujours actif" % [rank, int(def.get("max", 5))], describe(sid, rank))
 	p.mouse_filter = Control.MOUSE_FILTER_PASS
 	var holder := Control.new()
 	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -169,7 +192,7 @@ func _cooldown(s: Dictionary, left: float, total: float) -> void:
 
 
 # ------------------------------------------------------------------ descriptions
-const DMG_TYPES := {"melee": ["Physique", "#ff8a5c", "melee"], "ranged": ["Distance", "#ffd166", "ranged"],
+const DMG_TYPES := {"melee": ["Mêlée", "#ff8a5c", "melee"], "ranged": ["Distance", "#ffd166", "ranged"],
 	"tech": ["Techno", "#5ff7ff", "tech"], "support": ["Soutien", "#06ffa5", ""]}
 
 

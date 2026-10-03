@@ -1,6 +1,17 @@
 {
 	"versions": [
 		{
+			"version": "0.4.3",
+			"date": "2026-10-03",
+			"title": "Visée au curseur et guide du jeu",
+			"notes": [
+				"Plus d'auto-ciblage : armes, projectiles et sorts partent tous dans la direction du curseur (ou du stick droit à la manette). Vos armes tirent seules dès qu'un ennemi est à portée.",
+				"Infobulles détaillées sur les sorts de la barre de raccourcis, l'esquive, les bonus passifs et les armes : type de dégâts, rang, touche, recharge et effets.",
+				"Nouveau guide du jeu complet avec barre de recherche : principe, commandes, types de dégâts avec formules et exemple, armes, statistiques, objets, héros, ennemis, modes… Accessible depuis l'accueil, le menu Échap ou la touche F3.",
+				"Le type de dégâts « Physique » s'appelle désormais « Mêlée », comme la statistique « Dégâts de mêlée » qui le renforce."
+			]
+		},
+		{
 			"version": "0.4.2",
 			"date": "2026-10-03",
 			"title": "Héros androïdes et arènes organiques",

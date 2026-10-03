@@ -507,18 +507,22 @@ func _client_loaded() -> void:
 
 
 @rpc("any_peer", "unreliable_ordered")
-func _input_state(pos: Vector2, _dash: bool) -> void:
+func _input_state(pos: Vector2, _dash: bool, aim := Vector2.RIGHT) -> void:
 	var pid = multiplayer.get_remote_sender_id()
 	var node = player_nodes.get(pid)
 	var rp = run.get(pid)
 	if node == null or rp == null:
 		return
 	node.target_pos = clamp_to_arena(pos, PlayerNode.RADIUS)
+	if aim.is_finite() and aim.length() > 0.1:
+		rp.aim_dir = aim.normalized()
 
 
-func send_input(pos: Vector2, dash: bool) -> void:
+func send_input(pos: Vector2, dash: bool, aim := Vector2.RIGHT) -> void:
 	if not is_server:
-		_input_state.rpc_id(1, pos, dash)
+		_input_state.rpc_id(1, pos, dash, aim)
+	elif run.has(Net.my_id()) and aim.length() > 0.1:
+		run[Net.my_id()].aim_dir = aim.normalized()
 
 
 # ------------------------------------------------------------------ sorts et esquive (client -> serveur)
@@ -1295,6 +1299,12 @@ func _bots_ai(delta: float) -> void:
 		if danger and run[pid].dodge_cd <= 0 and rng.randf() < 0.04 * skill and mdir != Vector2.ZERO:
 			node.start_dodge(mdir)
 		mdir = map.steer(pos, mdir, PlayerNode.RADIUS)
+		# l'IA n'a pas de curseur : elle vise la cible la plus proche (sinon sa direction de marche)
+		var tgt: Dictionary = combat._find_target(pid, pos, 750.0)
+		if not tgt.is_empty() and tgt.pos != pos:
+			run[pid].aim_dir = (tgt.pos - pos).normalized()
+		elif mdir != Vector2.ZERO:
+			run[pid].aim_dir = mdir
 		node.move_by_ai(mdir, delta)
 		spells.auto_cast(pid)
 

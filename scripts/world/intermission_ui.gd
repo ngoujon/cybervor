@@ -313,7 +313,7 @@ func _offer_card(o: Dictionary, i: int, data: int) -> Control:
 	v.add_child(nm)
 	var info := ""
 	if is_weapon:
-		var classes := {"melee": "Physique", "ranged": "Distance", "tech": "Techno"}
+		var classes := {"melee": "Mêlée", "ranged": "Distance", "tech": "Techno"}
 		info = "%s — Dégâts %d — Cadence %.2fs\nPortée %d" % [classes[def["class"]], def.damage[o.tier], def.cooldown[o.tier], def.range]
 	else:
 		info = Db.format_stats(def.stats)

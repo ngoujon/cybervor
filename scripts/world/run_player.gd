@@ -22,6 +22,7 @@ var spell_cd: Dictionary = {}   # sort actif -> recharge restante
 var buffs: Array = []           # bonus temporaires [{stats, t}]
 var passive_t: Dictionary = {}  # minuteurs des passifs (auras, effets périodiques)
 var dodge_cd := 0.0
+var aim_dir := Vector2.RIGHT    # direction de visée (curseur / stick droit ; IA : cible la plus proche)
 var stats: Dictionary = {}      # statistiques finales calculées
 
 var hp := 20.0

@@ -317,9 +317,17 @@ func refresh_loadout() -> void:
 	var st: Dictionary = world.public.get(Net.my_id(), {})
 	for w in st.get("weapons", []):
 		var def: Dictionary = Db.weapons.get(w[0], {})
-		var p := Ui.panel(4, Color(Ui.C_PANEL, 0.85), Db.RARITY_COLORS[w[1]])
+		var p: TipPanel = preload("res://scripts/world/spell_hud.gd").tip_panel(4, Color(Ui.C_PANEL, 0.85), Db.RARITY_COLORS[w[1]])
+		var cls: String = def.get("class", "ranged")
+		var sc := []
+		for k in def.get("scale", {}):
+			sc.append("×%s %s" % [str(def.scale[k]).replace(".", ","), Db.stat_name(k)])
+		p.set_tip("%s %s" % [def.get("name", ""), Db.TIER_NAMES[w[1]]], Db.RARITY_COLORS[w[1]],
+			"Arme [color=%s]%s[/color] · tir automatique vers le curseur" % [GuideContent.CLASS_COLORS.get(cls, "#ffffff"), GuideContent.CLASS_NAMES.get(cls, cls)],
+			"Dégâts de base %s, + %s.\n%s" % [str(def.damage[w[1]]), " et ".join(sc), def.get("desc", "")])
+		p.mouse_filter = Control.MOUSE_FILTER_PASS
 		var ic := Ui.icon(def.get("icon", ""), 48)
-		ic.tooltip_text = "%s %s" % [def.get("name", ""), Db.TIER_NAMES[w[1]]]
+		ic.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		p.add_child(ic)
 		_weapons_box.add_child(p)
 

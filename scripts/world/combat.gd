@@ -40,15 +40,15 @@ func update(dt: float) -> void:
 			if w.cd > 0:
 				continue
 			var rng: float = rp.weapon_range(w)
-			var tgt = _find_target(pid, pos, rng if def.kind != "mine" else 99999.0)
-			if tgt.is_empty() and def.kind != "mine":
+			# les armes ne visent plus seules : elles tirent vers le curseur, dès qu'un adversaire est à portée
+			if _find_target(pid, pos, rng * 1.25 if def.kind != "mine" else 99999.0).is_empty():
 				w.cd = 0.1
 				continue
 			w.cd = rp.weapon_cooldown(w)
 			var muzzle := pos
 			if def.kind in FROM_DRONE:
 				muzzle = pos + PlayerNode.drone_offset(carried.find(wi), carried.size(), world.server_time)
-			_fire(rp, pid, muzzle, w, def, tgt.get("pos", pos))
+			_fire(rp, pid, muzzle, w, def, muzzle + rp.aim_dir * rng)
 		_drones(rp, pid, pos, dt)
 
 
@@ -67,6 +67,26 @@ func _find_target(pid: int, pos: Vector2, rng: float) -> Dictionary:
 			var d: float = pos.distance_squared_to(t[1])
 			if d < bd:
 				bd = d
+				best = {"pos": t[1], "player": t[0]}
+	return best
+
+
+## Cible la plus proche dans un cône autour de `dir` (cos de l'angle maximal : `min_dot`).
+func _find_in_cone(pid: int, pos: Vector2, dir: Vector2, rng: float, min_dot: float) -> Dictionary:
+	var best := {}
+	var bd := rng * rng
+	for e in world.enemies.query(pos, rng):
+		var d: float = e.pos.distance_squared_to(pos)
+		if d < bd and (e.pos - pos).normalized().dot(dir) >= min_dot:
+			bd = d
+			best = {"pos": e.pos, "enemy": e}
+	if world.pvp:
+		for t in world.alive_targets():
+			if not world.is_foe(pid, t[0]):
+				continue
+			var d2: float = pos.distance_squared_to(t[1])
+			if d2 < bd and (t[1] - pos).normalized().dot(dir) >= min_dot:
+				bd = d2
 				best = {"pos": t[1], "player": t[0]}
 	return best
 
@@ -113,7 +133,7 @@ func _fire(rp, pid: int, pos: Vector2, w: Dictionary, def: Dictionary, tpos: Vec
 					{"crit": r[1], "pierce": int(def.get("pierce", 0)) + int(rp.stats.pierce), "aoe": float(def.get("aoe", 0)), "knock": knock, "weapon": w.id})
 		"mine":
 			var r2 := _roll(rp, base)
-			var mpos: Vector2 = world.clamp_to_arena(pos + Vector2.from_angle(randf() * TAU) * randf_range(20, rng * 0.5), 20)
+			var mpos: Vector2 = world.clamp_to_arena(pos + dir.rotated(randf_range(-0.35, 0.35)) * randf_range(rng * 0.25, rng * 0.55), 20)
 			world.projectiles.spawn(PK.Kind.MINE, mpos, Vector2.ZERO, 12.0, 14, color, pid, r2[0], {"crit": r2[1], "aoe": float(def.aoe), "arm": 0.5})
 		"slash":
 			var arc = deg_to_rad(float(def.arc))
@@ -132,7 +152,9 @@ func _fire(rp, pid: int, pos: Vector2, w: Dictionary, def: Dictionary, tpos: Vec
 			var hit := {}
 			var cur := tpos
 			var r5 := _roll(rp, base)
-			var tgt := _find_target(pid, pos, rng)
+			var tgt := _find_in_cone(pid, pos, dir, rng, 0.75)
+			if tgt.is_empty():
+				pts.append_array([pos.x + dir.x * rng * 0.6, pos.y + dir.y * rng * 0.6])   # arc dans le vide
 			for j in jumps + 1:
 				if tgt.is_empty():
 					break
@@ -241,12 +263,11 @@ func _drones(rp, pid: int, pos: Vector2, dt: float) -> void:
 	rp.drone_cd = 1.1 / max(0.3, 1.0 + rp.stats.attack_speed / 100.0)
 	for i in n:
 		var dp := pos + Vector2.from_angle(time * 1.5 + TAU * i / n) * 70
-		var tgt := _find_target(pid, dp, 420)
-		if tgt.is_empty():
+		if _find_target(pid, dp, 480).is_empty():
 			return
 		var dmg: float = (4.0 + rp.stats.tech * 1.0 + rp.level * 0.25) * (1.0 + rp.stats.damage / 100.0)
 		var r := _roll(rp, dmg)
-		world.projectiles.spawn(PK.Kind.DRONE, dp, (tgt.pos - dp).normalized() * 800, 0.6, 4, Color("#9dff6b"), pid, r[0], {"crit": r[1]})
+		world.projectiles.spawn(PK.Kind.DRONE, dp, rp.aim_dir * 800, 0.6, 4, Color("#9dff6b"), pid, r[0], {"crit": r[1]})
 
 
 # ------------------------------------------------------------------ dégâts aux ennemis
