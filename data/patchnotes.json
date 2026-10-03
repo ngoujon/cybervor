@@ -1,0 +1,102 @@
+{
+	"versions": [
+		{
+			"version": "0.4.2",
+			"date": "2026-10-03",
+			"title": "Héros androïdes et arènes organiques",
+			"notes": [
+				"Les 6 héros ont été redessinés en androïdes et robots, avec de vraies silhouettes (tête, bras, jambes).",
+				"Le premier héros s'appelle désormais Kernel, androïde de combat polyvalent. Votre progression, vos déblocages et vos chapeaux sont conservés.",
+				"Son arbre de sorts change de thème, avec les mêmes effets : Obus à plasma, Rafale de fléchettes, Essaim de nanites, Blindage réactif, Pluie de micro-puces, Appel de l'escouade, Radiateur surchauffé…",
+				"Arènes aux formes organiques, différentes à chaque partie : côtes découpées, lobes, baies profondes, presqu'îles… Six familles de formes, plus d'arène carrée.",
+				"Arènes plus grandes et failles plus arrondies. Un boss peut toujours aller partout, et les ennemis contournent les bords et les failles.",
+				"Nouvel écran d'accueil, nouvelle bande-annonce et site mis à jour."
+			]
+		},
+		{
+			"version": "0.4.1",
+			"date": "2026-10-03",
+			"title": "Vrais sprites 16 bits",
+			"notes": [
+				"Tous les personnages, ennemis, boss, armes, objets, sorts et chapeaux ont été redessinés en véritable pixel art 16 bits (plus de filtre).",
+				"Retour de l'interface et de la police d'origine, plus lisibles.",
+				"Le filtre rétro de la 0.4.0 est supprimé : l'image est de nouveau nette.",
+				"Les arènes variées et les failles de la 0.4.0 sont conservées."
+			]
+		},
+		{
+			"version": "0.4.0",
+			"date": "2026-10-03",
+			"title": "Style 16 bits et nouvelles arènes",
+			"notes": [
+				"Nouveau style 16 bits cyberpunk : héros, ennemis, boss, armes et objets redessinés en pixel art, police pixel et cadres façon consoles d'époque.",
+				"Filtre rétro en jeu (pixels, couleurs 16 bits et lignes de balayage), désactivable dans Paramètres › Vidéo.",
+				"Les arènes ne sont plus toutes rectangulaires : octogone, hexagone, croix, encoches, formes asymétriques…",
+				"Des failles de données s'ouvrent dans le sol : on les contourne, les projectiles passent au-dessus, et les esquives téléportées permettent de les franchir.",
+				"Liberté de mouvement garantie : toujours assez d'espace pour passer (même pour un boss), et les ennemis savent contourner les obstacles.",
+				"En arène PvP, les obstacles sont placés en miroir pour que les deux équipes soient à égalité."
+			]
+		},
+		{
+			"version": "0.3.2",
+			"date": "2026-10-03",
+			"title": "Boutique : bouton « Prêt » toujours visible",
+			"notes": [
+				"Correctif : avec beaucoup d'armes, d'objets et de sorts, le bouton « Prêt ! Vague suivante » sortait de l'écran et bloquait la partie. Il reste désormais toujours visible en bas.",
+				"La boutique défile (molette, manette) quand l'inventaire est très rempli."
+			]
+		},
+		{
+			"version": "0.3.1",
+			"date": "2026-10-03",
+			"title": "Lasers, frappes et zones à viser",
+			"notes": [
+				"Nouveaux objets actifs pour tous les héros, à viser précisément : Canon laser, Railgun d'épaule (ultra-fin, dévastateur), Rayon cryo, Frappe orbitale (impact annoncé, petit rayon), Grenade IEM, Mini trou noir.",
+				"Type de dégâts affiché sur chaque sort actif (Physique, Distance, Techno, Soutien) : les sorts profitent maintenant de la statistique correspondante (+4 % par point).",
+				"Revente : le gain est calculé sur le prix de la boutique en cours et affiché sur chaque bouton « Vendre ».",
+				"Début de partie plus généreux : boutiques 35 % moins chères après la première vague (prix normaux à la vague 5), et toujours au moins une offre abordable (PROMO si besoin)."
+			]
+		},
+		{
+			"version": "0.3.0",
+			"date": "2026-10-03",
+			"title": "Les sorts s'achètent en boutique",
+			"notes": [
+				"Les sorts ne se choisissent plus en montant de niveau : le niveau redonne des bonus de statistiques.",
+				"Boutique : des armes actives et passives propres à votre héros. Les armes actives donnent un sort à placer dans la barre de raccourcis (5 emplacements) ; racheter un sort le fait monter de rang (★).",
+				"Sorts actifs visés : ils partent vers le curseur de la souris (à la manette : stick droit, sinon l'ennemi le plus proche), portée 650.",
+				"Sorts actifs bien plus puissants : dégâts multipliés par 3 à 4, +12 % par vague ; les sorts utilitaires (boucliers, soins, renforts) durent plus longtemps et frappent plus fort.",
+				"Barre de raccourcis réorganisable en boutique (◀ ▶) ; les sorts se revendent pour libérer de la place.",
+				"Nouveaux sons d'achat et de revente."
+			]
+		},
+		{
+			"version": "0.2.0",
+			"date": "2026-10-03",
+			"title": "Le cloud et les raccourcis",
+			"notes": [
+				"Sauvegarde cloud : votre campagne, vos déblocages et vos monnaies vous suivent. Ce que vous faites hors ligne est fusionné automatiquement au retour de la connexion, même si vous avez joué sur un autre PC entre-temps.",
+				"Code de sauvegarde (Profil) : récupérez votre progression sur un nouveau PC.",
+				"Mises à jour automatiques : le jeu se met à jour tout seul au lancement ; s'il est déjà ouvert, il vous propose la mise à jour, jamais en pleine partie.",
+				"Paramètres > Commandes : choisissez les raccourcis de l'esquive et des 5 sorts, au clavier, à la souris (boutons latéraux, molette…) ou à la manette (gâchettes comprises).",
+				"Manette : tous les menus se pilotent à la manette (LB / RB pour changer d'onglet dans les paramètres).",
+				"Nouveaux curseurs néon : flèche dans les menus, viseur pendant les vagues.",
+				"Notes de version affichées sur l'accueil (vous êtes en train de les lire !)."
+			]
+		},
+		{
+			"version": "0.1.0",
+			"date": "2026-10-03",
+			"title": "Sorts, esquives et parties entre amis",
+			"notes": [
+				"Sorts actifs et passifs : 1 choix parmi 3 à chaque niveau, jusqu'à 5 actifs, passifs illimités ; arbre de sorts propre à chaque héros.",
+				"Espace : esquive unique par héros (dash, blink, saut, phase, roquette, grappin).",
+				"Vos armes sont portées par des drones qui gravitent autour de vous, et les tirs partent des drones.",
+				"Multijoueur : créez votre partie (coop ou PvP), vos amis la rejoignent depuis la liste des parties ouvertes. En coop, les cristaux sont partagés.",
+				"Profil cliquable en haut à droite : pseudo unique, héros, personnalisation.",
+				"Amis : ajout par pseudo. Bugs & suggestions : liste publique, recherche, « Moi aussi » et commentaires.",
+				"Battle pass 100 % cosmétique, avec animations de récompense."
+			]
+		}
+	]
+}

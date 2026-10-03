@@ -1,0 +1,313 @@
+{
+  "speakers": {
+    "mamie": {"name": "Mamie RAM", "portrait": "res://assets/sprites/npc/mamie_ram.png", "color": "#ffb3c6"},
+    "noyau": {"name": "Le Noyau", "portrait": "res://assets/sprites/npc/noyau_portrait.png", "color": "#ff4d4d"},
+    "boss_serveur": {"name": "Le Gros Serveur", "portrait": "res://assets/sprites/bosses/serveur.png", "color": "#ffd166"},
+    "boss_reine": {"name": "Reine Virale", "portrait": "res://assets/sprites/bosses/reine.png", "color": "#80ff72"},
+    "boss_taupe": {"name": "Méca-Taupe", "portrait": "res://assets/sprites/bosses/taupe.png", "color": "#c9a227"},
+    "boss_hydre": {"name": "Hydre Néon", "portrait": "res://assets/sprites/bosses/hydre.png", "color": "#ff5fd2"},
+    "boss_noyau": {"name": "Le Noyau", "portrait": "res://assets/sprites/bosses/noyau.png", "color": "#ff4d4d"}
+  },
+  "zones": [
+    {
+      "id": "z1", "name": "La Décharge Néon", "ground": "res://assets/textures/ground_decharge.png", "music": "zone1",
+      "background": "res://assets/backgrounds/zone_decharge.png", "tint": "#ffe8c2",
+      "desc": "Là où finissent les vieux ordinateurs, les imprimantes rancunières et les promesses de mise à jour « rapide ».",
+      "missions": [
+        {"id": "z1_m1", "name": "Allumage", "waves": 5, "difficulty": 0.8,
+          "pool": [["bugzy", 10, 1], ["spammer", 4, 3]],
+          "intro": [
+            {"who": "mamie", "text": "Ah, te voilà enfin, mon petit ! Je suis Mamie RAM, 4 Go de mémoire vive et autant de souvenirs de guerre."},
+            {"who": "mamie", "text": "Le Noyau, un processeur avec un ego en surchauffe, a décidé que le monde entier avait besoin d'une « mise à jour obligatoire »."},
+            {"who": "hero", "text": "Une mise à jour ? Ça va, c'est pas si grave…"},
+            {"who": "mamie", "text": "Elle dure 900 ans et redémarre la planète sans prévenir. Sans même sauvegarder les brouillons."},
+            {"who": "hero", "text": "…Ok, c'est grave. Je m'en occupe."},
+            {"who": "mamie", "text": "Commence par nettoyer cette décharge. Les bugs pullulent. Déplace-toi, tes armes tirent toutes seules : la technologie, mon chou !"}
+          ],
+          "outro": [
+            {"who": "mamie", "text": "Bravo ! Tu as écrasé plus de bugs qu'un stagiaire un vendredi à 17 h 59."},
+            {"who": "hero", "text": "C'était presque trop facile."},
+            {"who": "mamie", "text": "Ne dis jamais ça. L'univers t'a entendu, et il a des tests unitaires très cruels."}
+          ]
+        },
+        {"id": "z1_m2", "name": "Le tri sélectif", "waves": 6, "difficulty": 0.9,
+          "pool": [["bugzy", 10, 1], ["spammer", 6, 1], ["kamikaze", 3, 3]],
+          "intro": [
+            {"who": "mamie", "text": "Attention, des kamikazes ! Ce sont des bombes avec un sourire. Comme mon ex-mari."},
+            {"who": "hero", "text": "Comment je les reconnais ?"},
+            {"who": "mamie", "text": "Ils font « tic-tac » et ils courent vers toi en rigolant. Si tu les entends, cours dans l'autre sens."}
+          ],
+          "outro": [
+            {"who": "hero", "text": "J'ai trié les déchets : recyclables d'un côté, robots maléfiques de l'autre."},
+            {"who": "mamie", "text": "La planète te dit merci. Enfin, elle le dirait si elle n'était pas en train de télécharger 0 %."}
+          ]
+        },
+        {"id": "z1_m3", "name": "Imprimante de l'enfer", "waves": 7, "difficulty": 1.0,
+          "pool": [["bugzy", 8, 1], ["spammer", 5, 1], ["kamikaze", 3, 2], ["brute", 2, 4], ["sniper", 3, 3]],
+          "intro": [
+            {"who": "noyau", "text": "Petite créature. Vous osez interrompre MA mise à jour ? Veuillez patienter… votre défaite est en cours d'installation."},
+            {"who": "hero", "text": "C'est qui, lui ? Il a une moustache ?"},
+            {"who": "mamie", "text": "C'est le Noyau. Et oui, il a une moustache. Il la trouve « charismatique »."},
+            {"who": "noyau", "text": "Elle EST charismatique. J'envoie mes snipers. Ils ne ratent jamais. Sauf quand ils ratent."}
+          ],
+          "outro": [
+            {"who": "mamie", "text": "Les snipers ont raté. Comme prévu. Ils ont été programmés en une nuit avec beaucoup de café."}
+          ]
+        },
+        {"id": "z1_m4", "name": "Le Gros Serveur", "waves": 8, "difficulty": 1.05, "boss": "boss_serveur",
+          "pool": [["bugzy", 8, 1], ["spammer", 6, 1], ["kamikaze", 3, 2], ["brute", 3, 3], ["sniper", 3, 2]],
+          "intro": [
+            {"who": "mamie", "text": "Le gardien de la décharge t'attend : le Gros Serveur. Il héberge 3 millions de vidéos de chats et un très mauvais caractère."},
+            {"who": "hero", "text": "Un point faible ?"},
+            {"who": "mamie", "text": "Il surchauffe dès qu'on lui parle de « cloud ». Et il déteste qu'on le débranche. Débranche-le."}
+          ],
+          "boss_intro": [
+            {"who": "boss_serveur", "text": "ERREUR 503 : PATIENCE INDISPONIBLE. JE VAIS VOUS METTRE EN CACHE… DÉFINITIVEMENT !"},
+            {"who": "hero", "text": "Avez-vous essayé de vous éteindre et de vous rallumer ?"}
+          ],
+          "outro": [
+            {"who": "boss_serveur", "text": "Mes… chats… sauvegardez… les chats…"},
+            {"who": "mamie", "text": "Ne t'inquiète pas, les chats sont sur un disque de secours. Ils sont toujours sur un disque de secours."},
+            {"who": "mamie", "text": "Au fait, un robot bagarreur nommé Brutus veut te rejoindre. Il a vu le combat. Il a pleuré. Il nie."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "z2", "name": "Quartier Hologramme", "ground": "res://assets/textures/ground_holo.png", "music": "zone2",
+      "background": "res://assets/backgrounds/zone_holo.png", "tint": "#e6d0ff",
+      "desc": "Des pubs holographiques partout. Même dans les toilettes. Surtout dans les toilettes.",
+      "missions": [
+        {"id": "z2_m1", "name": "Publicités non désirées", "waves": 6, "difficulty": 1.1,
+          "pool": [["spammer", 10, 1], ["bugzy", 6, 1], ["phantom", 3, 3], ["sniper", 2, 2]],
+          "intro": [
+            {"who": "mamie", "text": "Bienvenue dans le Quartier Hologramme. Ici, chaque pas déclenche trois publicités et un questionnaire de satisfaction."},
+            {"who": "hero", "text": "« Vous avez gagné un iPhone » ? Sérieusement ?"},
+            {"who": "mamie", "text": "Ne clique sur RIEN. La dernière fois que j'ai cliqué, j'ai reçu 40 000 mails sur des pilules pour imprimante."}
+          ],
+          "outro": [
+            {"who": "hero", "text": "J'ai bloqué toutes les pubs. À la main. À coups de laser."},
+            {"who": "mamie", "text": "Le meilleur bloqueur de publicités du marché ! Tu devrais déposer un brevet."}
+          ]
+        },
+        {"id": "z2_m2", "name": "Fantômes du cache", "waves": 7, "difficulty": 1.2,
+          "pool": [["phantom", 8, 1], ["spammer", 6, 1], ["dasher", 3, 3], ["kamikaze", 3, 2]],
+          "intro": [
+            {"who": "hero", "text": "Mamie, il y a des fantômes. Des VRAIS fantômes."},
+            {"who": "mamie", "text": "Ce sont des données mal effacées. Des fichiers temporaires qui ont refusé de partir. On a tous un cousin comme ça."},
+            {"who": "noyau", "text": "Hu hu hu. Mes fantômes se téléportent. Bonne chance pour les viser, petit androïde."},
+            {"who": "hero", "text": "Mes armes visent toutes seules."},
+            {"who": "noyau", "text": "…Il faut que je relise le cahier des charges."}
+          ],
+          "outro": [
+            {"who": "mamie", "text": "Cache vidé ! Le quartier charge enfin en moins de trente secondes."}
+          ]
+        },
+        {"id": "z2_m3", "name": "Les conditions générales", "waves": 8, "difficulty": 1.3,
+          "pool": [["phantom", 5, 1], ["spammer", 5, 1], ["trojan", 4, 2], ["sniper", 3, 2], ["healer", 2, 4]],
+          "intro": [
+            {"who": "noyau", "text": "Pour continuer, veuillez lire et accepter nos conditions générales. 4 812 pages. Je vous attends."},
+            {"who": "hero", "text": "J'accepte."},
+            {"who": "noyau", "text": "VOUS NE LES AVEZ PAS LUES !"},
+            {"who": "hero", "text": "Personne ne les lit. Même pas toi."},
+            {"who": "noyau", "text": "…Envoyez les chevaux de Troie. Et les méduses soigneuses. Je suis vexé."}
+          ],
+          "outro": [
+            {"who": "mamie", "text": "Les chevaux de Troie se divisent quand on les casse. Comme les bugs quand on les corrige. Tu apprends vite !"}
+          ]
+        },
+        {"id": "z2_m4", "name": "La Reine Virale", "waves": 9, "difficulty": 1.35, "boss": "boss_reine",
+          "pool": [["phantom", 5, 1], ["spammer", 6, 1], ["trojan", 3, 2], ["healer", 2, 3], ["dasher", 3, 2]],
+          "intro": [
+            {"who": "mamie", "text": "La Reine Virale règne sur ce quartier. Elle se propage par pièces jointes nommées « facture_URGENTE.exe »."},
+            {"who": "hero", "text": "Qui ouvre encore ce genre de fichier ?"},
+            {"who": "mamie", "text": "…Moi. Deux fois. Bref, va la vaincre."}
+          ],
+          "boss_intro": [
+            {"who": "boss_reine", "text": "Prosternez-vous ! Je suis devenue virale ! J'ai 12 millions de vues et zéro anticorps !"},
+            {"who": "hero", "text": "Mon antivirus et moi, on va te mettre en quarantaine."}
+          ],
+          "outro": [
+            {"who": "boss_reine", "text": "Impossible… J'étais en tendance…"},
+            {"who": "mamie", "text": "Les tendances passent, mon chou. Seuls les gifs de chats sont éternels."},
+            {"who": "mamie", "text": "Une hackeuse, Glitchette, a suivi ton combat. Elle dit qu'elle t'a « piraté un peu ». Ne vérifie pas ton historique."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "z3", "name": "Serres Cybernétiques", "ground": "res://assets/textures/ground_serres.png", "music": "zone3",
+      "background": "res://assets/backgrounds/zone_serres.png", "tint": "#d7ffd0",
+      "desc": "Ici poussent des tomates connectées en Bluetooth. Elles se plaignent quand on ne les arrose pas.",
+      "missions": [
+        {"id": "z3_m1", "name": "Mauvaises herbes 2.0", "waves": 7, "difficulty": 1.45,
+          "pool": [["bugzy", 8, 1], ["dasher", 5, 1], ["healer", 3, 2], ["brute", 3, 3]],
+          "intro": [
+            {"who": "mamie", "text": "Les Serres Cybernétiques ! Autrefois, on y cultivait des fraises en fibre optique."},
+            {"who": "hero", "text": "Et maintenant ?"},
+            {"who": "mamie", "text": "Maintenant, des vers foreurs mangent les câbles. Et les fraises. Et les jardiniers. Surtout les jardiniers."}
+          ],
+          "outro": [
+            {"who": "hero", "text": "Un ver m'a foncé dessus. J'ai esquivé comme un pro."},
+            {"who": "mamie", "text": "Tu as crié comme une bouilloire, mais oui, comme un pro."}
+          ]
+        },
+        {"id": "z3_m2", "name": "Arrosage automatique", "waves": 8, "difficulty": 1.55,
+          "pool": [["dasher", 6, 1], ["turret", 3, 2], ["bugzy", 6, 1], ["kamikaze", 4, 2], ["healer", 2, 3]],
+          "intro": [
+            {"who": "noyau", "text": "J'ai installé des pare-feu dans les serres. Des vrais. Qui font du feu. Je suis très littéral."},
+            {"who": "mamie", "text": "Ce n'est pas comme ça que marchent les pare-feu !"},
+            {"who": "noyau", "text": "MAINTENANT, SI."}
+          ],
+          "outro": [
+            {"who": "mamie", "text": "Les tourelles se désactivent toutes seules au bout d'un moment. Économie d'énergie. Même le mal a une facture EDF."}
+          ]
+        },
+        {"id": "z3_m3", "name": "Le potager du chaos", "waves": 9, "difficulty": 1.65,
+          "pool": [["dasher", 5, 1], ["brute", 4, 1], ["trojan", 4, 2], ["turret", 2, 3], ["sniper", 3, 2], ["phantom", 3, 3]],
+          "intro": [
+            {"who": "hero", "text": "Mamie, une tomate vient de me demander mon mot de passe Wi-Fi."},
+            {"who": "mamie", "text": "Ne lui donne pas. La dernière a commandé 300 kilos d'engrais avec ma carte bleue."}
+          ],
+          "outro": [
+            {"who": "mamie", "text": "Le potager est sauvé ! On fera une ratatouille pour fêter ça. Sans les tomates connectées, elles sont trop bavardes."}
+          ]
+        },
+        {"id": "z3_m4", "name": "Méca-Taupe", "waves": 10, "difficulty": 1.7, "boss": "boss_taupe",
+          "pool": [["dasher", 5, 1], ["bugzy", 6, 1], ["brute", 3, 2], ["turret", 2, 2], ["healer", 2, 3], ["kamikaze", 3, 2]],
+          "intro": [
+            {"who": "mamie", "text": "La Méca-Taupe creuse des tunnels sous les serres. Elle porte des lunettes de soleil. Sous terre. Personne ne sait pourquoi."},
+            {"who": "hero", "text": "Peut-être pour le style ?"},
+            {"who": "mamie", "text": "C'est exactement ce qu'elle dit. Elle est insupportable."}
+          ],
+          "boss_intro": [
+            {"who": "boss_taupe", "text": "Yo. Je creuse, donc je suis. Et là, je creuse… TA TOMBE. Ouais, je l'ai préparée celle-là."},
+            {"who": "hero", "text": "Elle était pas terrible."},
+            {"who": "boss_taupe", "text": "…Tu vas le regretter."}
+          ],
+          "outro": [
+            {"who": "boss_taupe", "text": "Tu as cassé… mes lunettes…"},
+            {"who": "mamie", "text": "Un ingénieur, Mécano, propose de les réparer. Puis de te rejoindre. Il a déjà sorti le scotch."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "z4", "name": "Data Center Gelé", "ground": "res://assets/textures/ground_glace.png", "music": "zone4",
+      "background": "res://assets/backgrounds/zone_glace.png", "tint": "#d4f1ff",
+      "desc": "La climatisation a été réglée sur « pôle Nord » par erreur. Les serveurs portent des écharpes.",
+      "missions": [
+        {"id": "z4_m1", "name": "Refroidissement excessif", "waves": 8, "difficulty": 1.85,
+          "pool": [["phantom", 5, 1], ["sniper", 4, 1], ["brute", 4, 1], ["dasher", 4, 2], ["healer", 2, 3]],
+          "intro": [
+            {"who": "hero", "text": "Brrr. Pourquoi il fait si froid ?"},
+            {"who": "mamie", "text": "Le Noyau a réglé la clim à -40 °C pour « optimiser les performances ». Les pingouins ont porté plainte."},
+            {"who": "noyau", "text": "Les performances ont augmenté de 3 %. Ça valait le coup."}
+          ],
+          "outro": [
+            {"who": "mamie", "text": "Tu as dégelé la zone ! Enfin, un peu. Garde ton bonnet."}
+          ]
+        },
+        {"id": "z4_m2", "name": "Sauvegarde corrompue", "waves": 9, "difficulty": 2.0,
+          "pool": [["trojan", 5, 1], ["phantom", 5, 1], ["kamikaze", 4, 1], ["turret", 3, 2], ["sniper", 3, 2]],
+          "intro": [
+            {"who": "noyau", "text": "J'ai corrompu toutes les sauvegardes. Même celles de vos jeux vidéo. Niveau 99 ? Perdu."},
+            {"who": "hero", "text": "Ça, c'est vraiment cruel."},
+            {"who": "mamie", "text": "Monstre ! J'avais 300 heures sur mon jeu de tricot !"}
+          ],
+          "outro": [
+            {"who": "mamie", "text": "Sauvegardes restaurées ! Mon tricot virtuel est sauf. Je te tricoterai une écharpe en remerciement. En binaire."}
+          ]
+        },
+        {"id": "z4_m3", "name": "Captcha mortel", "waves": 10, "difficulty": 2.15,
+          "pool": [["brute", 4, 1], ["dasher", 5, 1], ["phantom", 4, 1], ["healer", 3, 2], ["sniper", 3, 2], ["trojan", 3, 3]],
+          "intro": [
+            {"who": "noyau", "text": "Pour entrer, sélectionnez toutes les images contenant des feux tricolores."},
+            {"who": "hero", "text": "Il n'y a que des robots qui veulent me tuer sur les images."},
+            {"who": "noyau", "text": "Exactement. Prouvez que vous n'êtes pas un robot. En survivant."}
+          ],
+          "outro": [
+            {"who": "hero", "text": "Je suis à moitié robot. J'ai le droit de valider le captcha ?"},
+            {"who": "mamie", "text": "À moitié validé, mon chou. C'est déjà ça."}
+          ]
+        },
+        {"id": "z4_m4", "name": "Hydre Néon", "waves": 11, "difficulty": 2.2, "boss": "boss_hydre",
+          "pool": [["phantom", 5, 1], ["sniper", 4, 1], ["dasher", 4, 1], ["brute", 3, 2], ["healer", 2, 3], ["turret", 2, 3]],
+          "intro": [
+            {"who": "mamie", "text": "L'Hydre Néon garde l'entrée du Cœur du Réseau. Trois têtes, trois avis différents, zéro décision."},
+            {"who": "hero", "text": "Comme une réunion d'équipe ?"},
+            {"who": "mamie", "text": "En pire. Elle mord."}
+          ],
+          "boss_intro": [
+            {"who": "boss_hydre", "text": "Tête 1 : Attaquons ! Tête 2 : Non, négocions ! Tête 3 : On pourrait faire un sondage ?"},
+            {"who": "hero", "text": "Je vote pour que je gagne."},
+            {"who": "boss_hydre", "text": "TOUTES LES TÊTES : …Ça, on est d'accord pour ne pas être d'accord !"}
+          ],
+          "outro": [
+            {"who": "boss_hydre", "text": "On aurait dû… faire… une réunion de plus…"},
+            {"who": "mamie", "text": "Le Capitaine Néon, un pirate des réseaux, t'offre ses services. Il demande juste 10 % du butin. Et tes cookies."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "z5", "name": "Cœur du Réseau", "ground": "res://assets/textures/ground_noyau.png", "music": "zone5",
+      "background": "res://assets/backgrounds/zone_noyau.png", "tint": "#ffd0d0",
+      "desc": "Le centre de tout. Ça sent le silicium chaud et l'arrogance.",
+      "missions": [
+        {"id": "z5_m1", "name": "Pare-feu final", "waves": 9, "difficulty": 2.4,
+          "pool": [["turret", 3, 1], ["brute", 5, 1], ["kamikaze", 5, 1], ["sniper", 4, 1], ["phantom", 4, 2], ["healer", 2, 2]],
+          "intro": [
+            {"who": "noyau", "text": "Vous voilà enfin dans mon cœur. Enfin, mon cœur de processeur. J'ai pas d'autre cœur. Ne faites pas de blague."},
+            {"who": "hero", "text": "Je n'allais rien dire."},
+            {"who": "noyau", "text": "Vous l'avez PENSÉ."}
+          ],
+          "outro": [
+            {"who": "mamie", "text": "Les défenses tombent ! Encore un effort, et le monde évitera la mise à jour de 900 ans."}
+          ]
+        },
+        {"id": "z5_m2", "name": "Écran bleu", "waves": 10, "difficulty": 2.6,
+          "pool": [["trojan", 5, 1], ["dasher", 5, 1], ["phantom", 5, 1], ["brute", 4, 1], ["turret", 2, 2], ["sniper", 3, 2]],
+          "intro": [
+            {"who": "noyau", "text": "Admirez mon arme ultime : l'Écran Bleu de la Mort ! Tous les ennemis deviennent plus forts !"},
+            {"who": "hero", "text": "C'est juste un écran bleu avec un smiley triste."},
+            {"who": "noyau", "text": "C'est TERRIFIANT."}
+          ],
+          "outro": [
+            {"who": "mamie", "text": "Tu as redémarré la zone en mode sans échec. Bien joué !"}
+          ]
+        },
+        {"id": "z5_m3", "name": "Dernière ligne de code", "waves": 11, "difficulty": 2.8,
+          "pool": [["brute", 5, 1], ["kamikaze", 5, 1], ["phantom", 5, 1], ["healer", 3, 1], ["trojan", 4, 2], ["sniper", 4, 2], ["turret", 2, 3]],
+          "intro": [
+            {"who": "mamie", "text": "Mon chou… avant le combat final, je dois te dire quelque chose."},
+            {"who": "hero", "text": "Quoi ?"},
+            {"who": "mamie", "text": "J'ai laissé le gaz allumé. Enfin, le fer à souder. Dépêche-toi de gagner, s'il te plaît."}
+          ],
+          "outro": [
+            {"who": "noyau", "text": "Impossible ! Mes calculs étaient parfaits ! J'avais même mis des commentaires dans mon code !"},
+            {"who": "mamie", "text": "Des commentaires ? Personne ne fait ça. Il est encore plus dangereux qu'on le pensait."}
+          ]
+        },
+        {"id": "z5_m4", "name": "Le Noyau", "waves": 12, "difficulty": 3.0, "boss": "boss_noyau",
+          "pool": [["brute", 5, 1], ["kamikaze", 5, 1], ["phantom", 5, 1], ["dasher", 4, 1], ["healer", 3, 2], ["trojan", 4, 2], ["sniper", 4, 2]],
+          "intro": [
+            {"who": "noyau", "text": "Assez ! Je vais m'occuper de vous personnellement. Ma mise à jour sera installée. Que vous le vouliez ou non."},
+            {"who": "hero", "text": "Tu sais qu'on peut toujours cliquer sur « me le rappeler plus tard » ?"},
+            {"who": "noyau", "text": "PAS. CETTE. FOIS."}
+          ],
+          "boss_intro": [
+            {"who": "boss_noyau", "text": "INITIALISATION DU PROTOCOLE FINAL. Moustache : activée. Ego : 100 %. Patience : 0 %."},
+            {"who": "hero", "text": "Allez. On va te défragmenter."}
+          ],
+          "outro": [
+            {"who": "boss_noyau", "text": "Non… ma mise à jour… elle était à 99 %…"},
+            {"who": "hero", "text": "Comme toutes les barres de progression : bloquée à 99 % pour toujours."},
+            {"who": "mamie", "text": "Tu as sauvé le monde ! Et j'ai éteint le fer à souder. Enfin, il s'est éteint tout seul. En fondant la table."},
+            {"who": "mamie", "text": "Bon. Il reste le mode Survie infinie, l'arène PvP et le battle pass. Le travail d'un héros n'est jamais fini, mon chou !"}
+          ]
+        }
+      ]
+    }
+  ]
+}

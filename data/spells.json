@@ -1,0 +1,1708 @@
+{
+ "_doc": "Sorts : esquive (Espace) et arbre de sorts figé par héros. Valeur au rang r = base + up * (r - 1) (pour les passifs « stats », les statistiques sont multipliées par le rang). rank3 / rank5 : bonus de palier.",
+ "max_actives": 5,
+ "choices": 3,
+ "dodges": {
+  "patatron": {
+   "name": "Roulade blindée",
+   "kind": "dash",
+   "cd": 2.2,
+   "iframes": 0.35,
+   "dist": 230,
+   "time": 0.2,
+   "buff": {
+    "armor": 12
+   },
+   "buff_dur": 2.0,
+   "color": "#ffd166",
+   "desc": "Une roulade invulnérable. Kernel en ressort blindé comme un coffre-fort (+12 armure pendant 2 s).",
+   "icon": "res://assets/sprites/spells/dodge_patatron.png"
+  },
+  "volta": {
+   "name": "Blink électrique",
+   "kind": "blink",
+   "cd": 2.6,
+   "iframes": 0.25,
+   "dist": 270,
+   "dmg": 18,
+   "radius": 95,
+   "color": "#5ff7ff",
+   "desc": "Se téléporte instantanément et électrocute les ennemis au départ et à l'arrivée.",
+   "icon": "res://assets/sprites/spells/dodge_volta.png"
+  },
+  "brutus": {
+   "name": "Saut écrasant",
+   "kind": "jump",
+   "cd": 3.0,
+   "iframes": 0.5,
+   "dist": 210,
+   "time": 0.45,
+   "dmg": 30,
+   "radius": 140,
+   "knock": 90,
+   "color": "#ff4d6d",
+   "desc": "Bondit au-dessus de la mêlée (invulnérable en l'air) et retombe avec une onde de choc.",
+   "icon": "res://assets/sprites/spells/dodge_brutus.png"
+  },
+  "glitchette": {
+   "name": "Glitch fantôme",
+   "kind": "phase",
+   "cd": 2.4,
+   "iframes": 0.45,
+   "dist": 260,
+   "time": 0.25,
+   "dmg": 22,
+   "width": 60,
+   "color": "#c77dff",
+   "desc": "Devient intangible et traverse les ennemis, qui subissent un bug fatal au passage.",
+   "icon": "res://assets/sprites/spells/dodge_glitchette.png"
+  },
+  "mecano": {
+   "name": "Réacteur dorsal",
+   "kind": "rocket",
+   "cd": 2.8,
+   "iframes": 0.35,
+   "dist": 300,
+   "time": 0.3,
+   "dps": 14,
+   "radius": 55,
+   "trail": 2.5,
+   "color": "#ff9f1c",
+   "desc": "Un coup de réacteur qui laisse une traînée de flammes derrière lui.",
+   "icon": "res://assets/sprites/spells/dodge_mecano.png"
+  },
+  "capitaine": {
+   "name": "Grappin d'abordage",
+   "kind": "grapple",
+   "cd": 2.6,
+   "iframes": 0.3,
+   "dist": 280,
+   "time": 0.22,
+   "buff": {
+    "attack_speed": 40,
+    "speed": 15
+   },
+   "buff_dur": 3.0,
+   "color": "#06ffa5",
+   "desc": "Se propulse au grappin et part à l'abordage : +40 % de vitesse d'attaque pendant 3 s.",
+   "icon": "res://assets/sprites/spells/dodge_capitaine.png"
+  }
+ },
+ "trees": {
+  "patatron": [
+   "pat_puree",
+   "pat_frites",
+   "pat_germe",
+   "pat_peau",
+   "pat_chips",
+   "pat_cousins",
+   "pat_robuste",
+   "pat_amidon",
+   "pat_racines",
+   "pat_chance",
+   "pat_four"
+  ],
+  "volta": [
+   "vol_arc",
+   "vol_surtension",
+   "vol_aimant",
+   "vol_survolt",
+   "vol_orage",
+   "vol_condo",
+   "vol_tension",
+   "vol_conduct",
+   "vol_dynamo",
+   "vol_pile",
+   "vol_court"
+  ],
+  "brutus": [
+   "bru_seisme",
+   "bru_poing",
+   "bru_rage",
+   "bru_tourbi",
+   "bru_pilon",
+   "bru_repar",
+   "bru_blinde",
+   "bru_acier",
+   "bru_epines",
+   "bru_vampire",
+   "bru_colere"
+  ],
+  "glitchette": [
+   "gli_virus",
+   "gli_parefeu",
+   "gli_ddos",
+   "gli_copier",
+   "gli_overclock",
+   "gli_bombe",
+   "gli_vies",
+   "gli_retro",
+   "gli_botnet",
+   "gli_exploit",
+   "gli_glitch"
+  ],
+  "mecano": [
+   "mec_tourelle",
+   "mec_mines",
+   "mec_scotch",
+   "mec_boulon",
+   "mec_surcharge",
+   "mec_champ",
+   "mec_ingenieur",
+   "mec_outils",
+   "mec_recup",
+   "mec_modulaire",
+   "mec_etincelles"
+  ],
+  "capitaine": [
+   "cap_bordee",
+   "cap_abordage",
+   "cap_tresor",
+   "cap_rhum",
+   "cap_kraken",
+   "cap_boulets",
+   "cap_lynx",
+   "cap_pillage",
+   "cap_loup",
+   "cap_sabre",
+   "cap_perroquet"
+  ]
+ },
+ "spells": {
+  "pat_puree": {
+   "name": "Obus à plasma",
+   "type": "active",
+   "kind": "nova",
+   "color": "#ffd166",
+   "desc": "Lance un obus de plasma qui explose à l'endroit visé : {dmg} dégâts dans un rayon de {radius}.",
+   "icon": "res://assets/sprites/spells/pat_puree.png",
+   "max": 5,
+   "base": {
+    "dmg": 104,
+    "radius": 170,
+    "knock": 60,
+    "cd": 8.0
+   },
+   "up": {
+    "dmg": 40,
+    "radius": 12,
+    "cd": -0.5
+   },
+   "prompt": "glowing plasma shell exploding in a burst of cyan energy",
+   "dmg_type": "melee"
+  },
+  "pat_frites": {
+   "name": "Rafale de fléchettes",
+   "type": "active",
+   "kind": "bolt",
+   "color": "#ffb347",
+   "desc": "Tire {count} fléchettes perforantes de {dmg} dégâts vers le curseur.",
+   "icon": "res://assets/sprites/spells/pat_frites.png",
+   "max": 5,
+   "base": {
+    "dmg": 48,
+    "count": 5,
+    "pierce": 2,
+    "speed": 900,
+    "aoe": 0,
+    "cd": 5.5
+   },
+   "up": {
+    "dmg": 15,
+    "count": 1,
+    "cd": -0.3
+   },
+   "prompt": "volley of sharp glowing metal darts flying forward",
+   "dmg_type": "ranged"
+  },
+  "pat_germe": {
+   "name": "Essaim de nanites",
+   "type": "active",
+   "kind": "zone",
+   "color": "#9dff6b",
+   "desc": "Libère un essaim de nanites à l'endroit visé : {dps} dégâts/s et ralentit pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/pat_germe.png",
+   "max": 5,
+   "base": {
+    "dps": 42,
+    "radius": 130,
+    "dur": 4,
+    "slow": 0.4,
+    "at": "target",
+    "cd": 9.9
+   },
+   "up": {
+    "dps": 18,
+    "radius": 10,
+    "dur": 0.5,
+    "cd": -0.6
+   },
+   "prompt": "swarm of tiny glowing green nanobots spreading on the ground",
+   "dmg_type": "tech"
+  },
+  "pat_peau": {
+   "name": "Blindage réactif",
+   "type": "active",
+   "kind": "buff",
+   "color": "#c9a36b",
+   "desc": "Votre blindage se durcit : +{armor} armure et +{max_hp} PV max pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/pat_peau.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "armor": 24,
+     "max_hp": 32
+    },
+    "dur": 8,
+    "cd": 14.0
+   },
+   "up": {
+    "stats": {
+     "armor": 8,
+     "max_hp": 13
+    },
+    "dur": 0.5,
+    "cd": -1.0
+   },
+   "prompt": "reactive armor plate shield glowing with hexagon pattern",
+   "dmg_type": "support"
+  },
+  "pat_chips": {
+   "name": "Pluie de micro-puces",
+   "type": "active",
+   "kind": "barrage",
+   "color": "#ffd166",
+   "desc": "Une averse de {count} micro-puces explosives sur la zone visée ({dmg} dégâts chacune).",
+   "icon": "res://assets/sprites/spells/pat_chips.png",
+   "max": 5,
+   "base": {
+    "dmg": 77,
+    "radius": 80,
+    "count": 6,
+    "dur": 1.5,
+    "cd": 11.5
+   },
+   "up": {
+    "dmg": 24,
+    "count": 2,
+    "cd": -0.6
+   },
+   "prompt": "rain of glowing explosive microchips falling from the sky",
+   "dmg_type": "ranged"
+  },
+  "pat_cousins": {
+   "name": "Appel de l'escouade",
+   "type": "active",
+   "kind": "summon",
+   "color": "#e0b070",
+   "desc": "Appelle {drones} drones de combat en renfort pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/pat_cousins.png",
+   "max": 5,
+   "base": {
+    "drones": 3,
+    "dur": 11,
+    "cd": 18.0
+   },
+   "up": {
+    "drones": 1,
+    "dur": 1,
+    "cd": -1.0
+   },
+   "prompt": "squad of small flying combat drones with propellers",
+   "dmg_type": "support"
+  },
+  "pat_robuste": {
+   "name": "Châssis renforcé",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#c9a36b",
+   "desc": "+{max_hp} PV max et +{armor} armure par rang.",
+   "icon": "res://assets/sprites/spells/pat_robuste.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "max_hp": 6,
+     "armor": 2
+    }
+   },
+   "up": {},
+   "prompt": "reinforced robot chassis with metal plates and bolts"
+  },
+  "pat_amidon": {
+   "name": "Overclocking",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#ffd166",
+   "desc": "+{attack_speed} % de vitesse d'attaque par rang.",
+   "icon": "res://assets/sprites/spells/pat_amidon.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "attack_speed": 6
+    }
+   },
+   "up": {},
+   "prompt": "overclocked glowing CPU chip with speed lines and flames"
+  },
+  "pat_racines": {
+   "name": "Auto-réparation",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#9dff6b",
+   "desc": "+{hp_regen} régénération par rang.",
+   "icon": "res://assets/sprites/spells/pat_racines.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "hp_regen": 2
+    }
+   },
+   "up": {},
+   "prompt": "robotic repair arm with a glowing green wrench and plus sign, healing"
+  },
+  "pat_chance": {
+   "name": "Algorithme chanceux",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#06ffa5",
+   "desc": "+{luck} chance et +{crit} % de coups critiques par rang.",
+   "icon": "res://assets/sprites/spells/pat_chance.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "luck": 6,
+     "crit": 3
+    }
+   },
+   "up": {},
+   "prompt": "lucky glowing binary four leaf clover made of circuits"
+  },
+  "pat_four": {
+   "name": "Radiateur surchauffé",
+   "type": "passive",
+   "kind": "aura",
+   "color": "#ff7b3a",
+   "desc": "Un radiateur en surchauffe brûle les ennemis proches : {dps} dégâts/s (rayon {radius}).",
+   "icon": "res://assets/sprites/spells/pat_four.png",
+   "max": 5,
+   "base": {
+    "dps": 6,
+    "radius": 110
+   },
+   "up": {
+    "dps": 3,
+    "radius": 10
+   },
+   "prompt": "overheating glowing red radiator with heat waves"
+  },
+  "vol_arc": {
+   "name": "Arc électrique",
+   "type": "active",
+   "kind": "chain",
+   "color": "#5ff7ff",
+   "desc": "Un éclair frappe l'ennemi visé puis rebondit sur {jumps} autres ({dmg} dégâts).",
+   "icon": "res://assets/sprites/spells/vol_arc.png",
+   "max": 5,
+   "base": {
+    "dmg": 84,
+    "jumps": 4,
+    "range": 220,
+    "cd": 4.4
+   },
+   "up": {
+    "dmg": 28,
+    "jumps": 1,
+    "cd": -0.25
+   },
+   "prompt": "cyan lightning bolt arc jumping between points",
+   "dmg_type": "tech"
+  },
+  "vol_surtension": {
+   "name": "Surtension",
+   "type": "active",
+   "kind": "nova",
+   "color": "#5ff7ff",
+   "desc": "Une décharge foudroyante à l'endroit visé : {dmg} dégâts (rayon {radius}).",
+   "icon": "res://assets/sprites/spells/vol_surtension.png",
+   "max": 5,
+   "base": {
+    "dmg": 136,
+    "radius": 190,
+    "knock": 40,
+    "cd": 9.2
+   },
+   "up": {
+    "dmg": 48,
+    "radius": 12,
+    "cd": -0.5
+   },
+   "prompt": "electric shockwave burst, blue energy ring",
+   "dmg_type": "tech"
+  },
+  "vol_aimant": {
+   "name": "Champ magnétique",
+   "type": "active",
+   "kind": "zone",
+   "color": "#7aa2ff",
+   "desc": "Un champ magnétique à l'endroit visé aspire les ennemis : {dps} dégâts/s pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/vol_aimant.png",
+   "max": 5,
+   "base": {
+    "dps": 35,
+    "radius": 160,
+    "dur": 3.5,
+    "pull": 220,
+    "at": "target",
+    "cd": 12.1
+   },
+   "up": {
+    "dps": 14,
+    "radius": 12,
+    "dur": 0.4,
+    "cd": -0.7
+   },
+   "prompt": "giant horseshoe magnet with blue magnetic field lines",
+   "dmg_type": "tech"
+  },
+  "vol_survolt": {
+   "name": "Survolteur",
+   "type": "active",
+   "kind": "buff",
+   "color": "#ffe14d",
+   "desc": "+{attack_speed} % vitesse d'attaque et +{speed} % vitesse pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/vol_survolt.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "attack_speed": 56,
+     "speed": 24
+    },
+    "dur": 7,
+    "cd": 14.0
+   },
+   "up": {
+    "stats": {
+     "attack_speed": 16,
+     "speed": 5
+    },
+    "dur": 0.5,
+    "cd": -0.8
+   },
+   "prompt": "battery overcharging with yellow sparks",
+   "dmg_type": "support"
+  },
+  "vol_orage": {
+   "name": "Orage",
+   "type": "active",
+   "kind": "barrage",
+   "color": "#9ec9ff",
+   "desc": "Invoque {count} foudres sur la zone visée ({dmg} dégâts chacune).",
+   "icon": "res://assets/sprites/spells/vol_orage.png",
+   "max": 5,
+   "base": {
+    "dmg": 105,
+    "radius": 70,
+    "count": 5,
+    "dur": 1.6,
+    "cd": 11.5
+   },
+   "up": {
+    "dmg": 32,
+    "count": 1,
+    "cd": -0.6
+   },
+   "prompt": "thunderstorm cloud with lightning strikes",
+   "dmg_type": "ranged"
+  },
+  "vol_condo": {
+   "name": "Condensateur",
+   "type": "active",
+   "kind": "heal",
+   "color": "#06ffa5",
+   "desc": "Récupère {pct} % de vos PV et gagne {shield} bouclier(s).",
+   "icon": "res://assets/sprites/spells/vol_condo.png",
+   "max": 5,
+   "base": {
+    "pct": 30,
+    "shield": 2,
+    "cd": 18.0
+   },
+   "up": {
+    "pct": 5,
+    "cd": -1.0
+   },
+   "prompt": "glowing capacitor component with a green plus sign",
+   "dmg_type": "support"
+  },
+  "vol_tension": {
+   "name": "Haute tension",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#5ff7ff",
+   "desc": "+{tech} technologie et +{chain} rebond d'éclair par rang.",
+   "icon": "res://assets/sprites/spells/vol_tension.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "tech": 2,
+     "chain": 1
+    }
+   },
+   "up": {},
+   "prompt": "high voltage warning sign with lightning"
+  },
+  "vol_conduct": {
+   "name": "Supraconducteur",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#7aa2ff",
+   "desc": "+{speed} % vitesse et +{attack_speed} % vitesse d'attaque par rang.",
+   "icon": "res://assets/sprites/spells/vol_conduct.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "speed": 3,
+     "attack_speed": 4
+    }
+   },
+   "up": {},
+   "prompt": "superconductor coil glowing blue"
+  },
+  "vol_dynamo": {
+   "name": "Dynamo",
+   "type": "passive",
+   "kind": "aura",
+   "color": "#5ff7ff",
+   "desc": "Des arcs électriques frappent les ennemis proches : {dps} dégâts/s (rayon {radius}).",
+   "icon": "res://assets/sprites/spells/vol_dynamo.png",
+   "max": 5,
+   "base": {
+    "dps": 7,
+    "radius": 120
+   },
+   "up": {
+    "dps": 3,
+    "radius": 10
+   },
+   "prompt": "spinning dynamo generator with electric sparks"
+  },
+  "vol_pile": {
+   "name": "Pile de secours",
+   "type": "passive",
+   "kind": "periodic",
+   "color": "#ffe14d",
+   "desc": "Toutes les {every} s, une décharge de {dmg} dégâts autour de vous.",
+   "icon": "res://assets/sprites/spells/vol_pile.png",
+   "max": 5,
+   "base": {
+    "every": 6,
+    "effect": "nova",
+    "dmg": 20,
+    "radius": 140,
+    "knock": 20
+   },
+   "up": {
+    "dmg": 8,
+    "every": -0.5
+   },
+   "prompt": "spare AA battery glowing yellow"
+  },
+  "vol_court": {
+   "name": "Court-circuit",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#ff9f1c",
+   "desc": "+{burn_chance} % de chance d'enflammer et +{crit} % de critiques par rang.",
+   "icon": "res://assets/sprites/spells/vol_court.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "burn_chance": 5,
+     "crit": 2
+    }
+   },
+   "up": {},
+   "prompt": "short circuit wires with sparks and small flames"
+  },
+  "bru_seisme": {
+   "name": "Séisme",
+   "type": "active",
+   "kind": "nova",
+   "color": "#ff4d6d",
+   "desc": "Un séisme à l'endroit visé : {dmg} dégâts et repousse fortement (rayon {radius}).",
+   "icon": "res://assets/sprites/spells/bru_seisme.png",
+   "max": 5,
+   "base": {
+    "dmg": 160,
+    "radius": 190,
+    "knock": 160,
+    "cd": 9.2
+   },
+   "up": {
+    "dmg": 56,
+    "radius": 12,
+    "cd": -0.5
+   },
+   "prompt": "fist punching the ground making cracks, earthquake",
+   "dmg_type": "melee"
+  },
+  "bru_poing": {
+   "name": "Poing-fusée",
+   "type": "active",
+   "kind": "bolt",
+   "color": "#ff6b6b",
+   "desc": "Lance {count} poing(s)-fusée(s) explosif(s) de {dmg} dégâts vers le curseur.",
+   "icon": "res://assets/sprites/spells/bru_poing.png",
+   "max": 5,
+   "base": {
+    "dmg": 135,
+    "count": 1,
+    "aoe": 90,
+    "pierce": 0,
+    "speed": 750,
+    "cd": 5.5
+   },
+   "up": {
+    "dmg": 45,
+    "count": 0.5,
+    "cd": -0.3
+   },
+   "prompt": "rocket powered robot fist flying",
+   "dmg_type": "ranged"
+  },
+  "bru_rage": {
+   "name": "Rage mécanique",
+   "type": "active",
+   "kind": "buff",
+   "color": "#ff2e4d",
+   "desc": "+{damage} % dégâts et +{life_steal} % vol de vie pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/bru_rage.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "damage": 48,
+     "life_steal": 13
+    },
+    "dur": 8,
+    "cd": 15.0
+   },
+   "up": {
+    "stats": {
+     "damage": 13,
+     "life_steal": 3
+    },
+    "dur": 0.5,
+    "cd": -1.0
+   },
+   "prompt": "angry red robot face with steam",
+   "dmg_type": "support"
+  },
+  "bru_tourbi": {
+   "name": "Tourbillon",
+   "type": "active",
+   "kind": "zone",
+   "color": "#ff8fa3",
+   "desc": "Tournoie sur vous-même : {dps} dégâts/s autour de vous pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/bru_tourbi.png",
+   "max": 5,
+   "base": {
+    "dps": 77,
+    "radius": 130,
+    "dur": 3,
+    "at": "follow",
+    "cd": 11.0
+   },
+   "up": {
+    "dps": 28,
+    "radius": 8,
+    "dur": 0.4,
+    "cd": -0.6
+   },
+   "prompt": "spinning tornado of fists, red whirlwind",
+   "dmg_type": "melee"
+  },
+  "bru_pilon": {
+   "name": "Marteau-pilon",
+   "type": "active",
+   "kind": "barrage",
+   "color": "#ff4d6d",
+   "desc": "{count} coups de marteau géant s'abattent sur la zone visée ({dmg} dégâts chacun).",
+   "icon": "res://assets/sprites/spells/bru_pilon.png",
+   "max": 5,
+   "base": {
+    "dmg": 133,
+    "radius": 95,
+    "count": 4,
+    "dur": 1.4,
+    "cd": 12.6
+   },
+   "up": {
+    "dmg": 42,
+    "count": 1,
+    "cd": -0.6
+   },
+   "prompt": "giant industrial pile driver hammer",
+   "dmg_type": "ranged"
+  },
+  "bru_repar": {
+   "name": "Réparation d'urgence",
+   "type": "active",
+   "kind": "heal",
+   "color": "#06ffa5",
+   "desc": "Se répare de {pct} % de ses PV (et {shield} bouclier).",
+   "icon": "res://assets/sprites/spells/bru_repar.png",
+   "max": 5,
+   "base": {
+    "pct": 45,
+    "shield": 1,
+    "cd": 20.0
+   },
+   "up": {
+    "pct": 6,
+    "shield": 0.25,
+    "cd": -1.2
+   },
+   "prompt": "wrench and bolt with green repair sparkles",
+   "dmg_type": "support"
+  },
+  "bru_blinde": {
+   "name": "Blindage lourd",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#9aa0b5",
+   "desc": "+{armor} armure et +{max_hp} PV max par rang.",
+   "icon": "res://assets/sprites/spells/bru_blinde.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "armor": 3,
+     "max_hp": 8
+    }
+   },
+   "up": {},
+   "prompt": "heavy steel armor plate with rivets"
+  },
+  "bru_acier": {
+   "name": "Poings d'acier",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#ff6b6b",
+   "desc": "+{melee} dégâts de mêlée et +{knockback} recul par rang.",
+   "icon": "res://assets/sprites/spells/bru_acier.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "melee": 3,
+     "knockback": 5
+    }
+   },
+   "up": {},
+   "prompt": "steel boxing gloves"
+  },
+  "bru_epines": {
+   "name": "Carrosserie à pointes",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#c0c0c0",
+   "desc": "+{thorns} dégâts d'épines par rang.",
+   "icon": "res://assets/sprites/spells/bru_epines.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "thorns": 6
+    }
+   },
+   "up": {},
+   "prompt": "spiked metal armor"
+  },
+  "bru_vampire": {
+   "name": "Batterie vampire",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#ff2e4d",
+   "desc": "+{life_steal} % vol de vie par rang.",
+   "icon": "res://assets/sprites/spells/bru_vampire.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "life_steal": 3
+    }
+   },
+   "up": {},
+   "prompt": "red battery with vampire fangs"
+  },
+  "bru_colere": {
+   "name": "Colère volcanique",
+   "type": "passive",
+   "kind": "aura",
+   "color": "#ff4d1f",
+   "desc": "La colère de Brutus brûle les ennemis proches : {dps} dégâts/s (rayon {radius}).",
+   "icon": "res://assets/sprites/spells/bru_colere.png",
+   "max": 5,
+   "base": {
+    "dps": 8,
+    "radius": 100
+   },
+   "up": {
+    "dps": 4,
+    "radius": 8
+   },
+   "prompt": "erupting volcano with angry face"
+  },
+  "gli_virus": {
+   "name": "Virus",
+   "type": "active",
+   "kind": "zone",
+   "color": "#9dff00",
+   "desc": "Infecte la zone visée : {dps} dégâts/s pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/gli_virus.png",
+   "max": 5,
+   "base": {
+    "dps": 56,
+    "radius": 140,
+    "dur": 5,
+    "at": "target",
+    "cd": 9.9
+   },
+   "up": {
+    "dps": 21,
+    "radius": 10,
+    "dur": 0.5,
+    "cd": -0.6
+   },
+   "prompt": "green computer virus blob with spikes",
+   "dmg_type": "tech"
+  },
+  "gli_parefeu": {
+   "name": "Pare-feu",
+   "type": "active",
+   "kind": "heal",
+   "color": "#ff9f1c",
+   "desc": "Active un pare-feu : {shield} bouclier(s) et {pct} % de PV.",
+   "icon": "res://assets/sprites/spells/gli_parefeu.png",
+   "max": 5,
+   "base": {
+    "pct": 15,
+    "shield": 3,
+    "cd": 16.0
+   },
+   "up": {
+    "pct": 3,
+    "shield": 0.5,
+    "cd": -1.0
+   },
+   "prompt": "firewall brick wall on fire, shield icon",
+   "dmg_type": "support"
+  },
+  "gli_ddos": {
+   "name": "Déni de service",
+   "type": "active",
+   "kind": "zone",
+   "color": "#c77dff",
+   "desc": "Surcharge la zone visée, qui aspire les ennemis ({dps} dégâts/s, {dur} s).",
+   "icon": "res://assets/sprites/spells/gli_ddos.png",
+   "max": 5,
+   "base": {
+    "dps": 42,
+    "radius": 170,
+    "dur": 3,
+    "pull": 260,
+    "at": "target",
+    "cd": 13.2
+   },
+   "up": {
+    "dps": 18,
+    "radius": 12,
+    "dur": 0.4,
+    "cd": -0.7
+   },
+   "prompt": "swirling vortex of data packets, purple",
+   "dmg_type": "tech"
+  },
+  "gli_copier": {
+   "name": "Copier-coller",
+   "type": "active",
+   "kind": "bolt",
+   "color": "#c77dff",
+   "desc": "Duplique {count} projectiles de code vers le curseur ({dmg} dégâts, perforants).",
+   "icon": "res://assets/sprites/spells/gli_copier.png",
+   "max": 5,
+   "base": {
+    "dmg": 54,
+    "count": 6,
+    "pierce": 3,
+    "speed": 1000,
+    "aoe": 0,
+    "cd": 6.6
+   },
+   "up": {
+    "dmg": 15,
+    "count": 1,
+    "cd": -0.35
+   },
+   "prompt": "ctrl c ctrl v keyboard keys glowing purple",
+   "dmg_type": "ranged"
+  },
+  "gli_overclock": {
+   "name": "Overclock",
+   "type": "active",
+   "kind": "buff",
+   "color": "#ff5fd2",
+   "desc": "+{crit} % critiques et +{attack_speed} % vitesse d'attaque pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/gli_overclock.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "crit": 40,
+     "attack_speed": 40
+    },
+    "dur": 7,
+    "cd": 14.0
+   },
+   "up": {
+    "stats": {
+     "crit": 10,
+     "attack_speed": 10
+    },
+    "dur": 0.5,
+    "cd": -0.8
+   },
+   "prompt": "overclocked cpu chip glowing pink with flames",
+   "dmg_type": "support"
+  },
+  "gli_bombe": {
+   "name": "Bombe logique",
+   "type": "active",
+   "kind": "barrage",
+   "color": "#ff5fd2",
+   "desc": "{count} bombes logiques explosent sur la zone visée ({dmg} dégâts chacune).",
+   "icon": "res://assets/sprites/spells/gli_bombe.png",
+   "max": 5,
+   "base": {
+    "dmg": 98,
+    "radius": 85,
+    "count": 5,
+    "dur": 1.5,
+    "cd": 11.5
+   },
+   "up": {
+    "dmg": 32,
+    "count": 1,
+    "cd": -0.6
+   },
+   "prompt": "cartoon bomb with binary code and a fuse",
+   "dmg_type": "tech"
+  },
+  "gli_vies": {
+   "name": "Neuf vies",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#ff5fd2",
+   "desc": "+{dodge} % d'esquive par rang (et 1 résurrection au rang 5).",
+   "icon": "res://assets/sprites/spells/gli_vies.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "dodge": 3
+    }
+   },
+   "up": {},
+   "prompt": "cat paw with nine small hearts",
+   "rank5": {
+    "revive": 1
+   }
+  },
+  "gli_retro": {
+   "name": "Rétro-ingénierie",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#c77dff",
+   "desc": "+{crit_dmg} % dégâts critiques par rang.",
+   "icon": "res://assets/sprites/spells/gli_retro.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "crit_dmg": 12
+    }
+   },
+   "up": {},
+   "prompt": "magnifying glass over circuit board"
+  },
+  "gli_botnet": {
+   "name": "Botnet",
+   "type": "passive",
+   "kind": "periodic",
+   "color": "#9dff00",
+   "desc": "Toutes les {every} s, {count} projectiles zombies sont lancés ({dmg} dégâts).",
+   "icon": "res://assets/sprites/spells/gli_botnet.png",
+   "max": 5,
+   "base": {
+    "every": 4,
+    "effect": "bolt",
+    "dmg": 14,
+    "count": 3,
+    "pierce": 1,
+    "speed": 850,
+    "aoe": 0
+   },
+   "up": {
+    "dmg": 4,
+    "count": 0.5,
+    "every": -0.3
+   },
+   "prompt": "army of tiny zombie computers"
+  },
+  "gli_exploit": {
+   "name": "Exploit zero-day",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#ff5fd2",
+   "desc": "+{crit} % critiques et +{damage} % dégâts par rang.",
+   "icon": "res://assets/sprites/spells/gli_exploit.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "crit": 3,
+     "damage": 3
+    }
+   },
+   "up": {},
+   "prompt": "skull on a computer screen, hacker exploit"
+  },
+  "gli_glitch": {
+   "name": "Glitch permanent",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#5ff7ff",
+   "desc": "+{speed} % vitesse et +{dodge} % esquive par rang.",
+   "icon": "res://assets/sprites/spells/gli_glitch.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "speed": 4,
+     "dodge": 2
+    }
+   },
+   "up": {},
+   "prompt": "glitched pixelated cat silhouette"
+  },
+  "mec_tourelle": {
+   "name": "Tourelles portatives",
+   "type": "active",
+   "kind": "summon",
+   "color": "#ff9f1c",
+   "desc": "Déploie {drones} tourelles-drones pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/mec_tourelle.png",
+   "max": 5,
+   "base": {
+    "drones": 4,
+    "dur": 11,
+    "cd": 16.0
+   },
+   "up": {
+    "drones": 1,
+    "dur": 1,
+    "cd": -1.0
+   },
+   "prompt": "small portable gun turret robot",
+   "dmg_type": "support"
+  },
+  "mec_mines": {
+   "name": "Champ de mines",
+   "type": "active",
+   "kind": "barrage",
+   "color": "#ff9f1c",
+   "desc": "Lance {count} mines sur la zone visée ({dmg} dégâts chacune).",
+   "icon": "res://assets/sprites/spells/mec_mines.png",
+   "max": 5,
+   "base": {
+    "dmg": 112,
+    "radius": 85,
+    "count": 5,
+    "dur": 1.6,
+    "cd": 11.5
+   },
+   "up": {
+    "dmg": 35,
+    "count": 1,
+    "cd": -0.6
+   },
+   "prompt": "landmines with blinking red lights",
+   "dmg_type": "tech"
+  },
+  "mec_scotch": {
+   "name": "Scotch magique",
+   "type": "active",
+   "kind": "heal",
+   "color": "#06ffa5",
+   "desc": "Rafistole tout : {pct} % de PV et {shield} bouclier(s).",
+   "icon": "res://assets/sprites/spells/mec_scotch.png",
+   "max": 5,
+   "base": {
+    "pct": 27,
+    "shield": 2,
+    "cd": 16.0
+   },
+   "up": {
+    "pct": 4,
+    "shield": 0.25,
+    "cd": -1.0
+   },
+   "prompt": "roll of shiny duct tape with sparkles",
+   "dmg_type": "support"
+  },
+  "mec_boulon": {
+   "name": "Boulons explosifs",
+   "type": "active",
+   "kind": "bolt",
+   "color": "#ffb347",
+   "desc": "Lance {count} boulons explosifs vers le curseur ({dmg} dégâts, zone {aoe}).",
+   "icon": "res://assets/sprites/spells/mec_boulon.png",
+   "max": 5,
+   "base": {
+    "dmg": 78,
+    "count": 3,
+    "aoe": 70,
+    "pierce": 0,
+    "speed": 800,
+    "cd": 6.6
+   },
+   "up": {
+    "dmg": 24,
+    "count": 1,
+    "aoe": 5,
+    "cd": -0.35
+   },
+   "prompt": "explosive bolts and nuts with fuses",
+   "dmg_type": "ranged"
+  },
+  "mec_surcharge": {
+   "name": "Surcharge",
+   "type": "active",
+   "kind": "buff",
+   "color": "#ffe14d",
+   "desc": "+{tech} technologie et +{attack_speed} % vitesse d'attaque pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/mec_surcharge.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "tech": 16,
+     "attack_speed": 40
+    },
+    "dur": 8,
+    "cd": 14.0
+   },
+   "up": {
+    "stats": {
+     "tech": 5,
+     "attack_speed": 10
+    },
+    "dur": 0.5,
+    "cd": -0.8
+   },
+   "prompt": "overloaded generator with yellow lightning",
+   "dmg_type": "support"
+  },
+  "mec_champ": {
+   "name": "Champ de force",
+   "type": "active",
+   "kind": "nova",
+   "color": "#4cc9f0",
+   "desc": "Projette un champ de force à l'endroit visé qui repousse tout ({dmg} dégâts, rayon {radius}).",
+   "icon": "res://assets/sprites/spells/mec_champ.png",
+   "max": 5,
+   "base": {
+    "dmg": 96,
+    "radius": 210,
+    "knock": 200,
+    "cd": 10.3
+   },
+   "up": {
+    "dmg": 32,
+    "radius": 15,
+    "cd": -0.6
+   },
+   "prompt": "blue hexagonal force field bubble",
+   "dmg_type": "tech"
+  },
+  "mec_ingenieur": {
+   "name": "Ingénieur en chef",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#ff9f1c",
+   "desc": "+{tech} technologie par rang (et +1 drone aux rangs 3 et 5).",
+   "icon": "res://assets/sprites/spells/mec_ingenieur.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "tech": 3
+    }
+   },
+   "up": {},
+   "prompt": "engineer blueprint with gears",
+   "rank3": {
+    "drones": 1
+   },
+   "rank5": {
+    "drones": 1
+   }
+  },
+  "mec_outils": {
+   "name": "Caisse à outils",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#c0c0c0",
+   "desc": "+{attack_speed} % vitesse d'attaque et +{range} portée par rang.",
+   "icon": "res://assets/sprites/spells/mec_outils.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "attack_speed": 4,
+     "range": 12
+    }
+   },
+   "up": {},
+   "prompt": "red toolbox full of tools"
+  },
+  "mec_recup": {
+   "name": "Récupération",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#5ff7ff",
+   "desc": "+{harvest} récolte et +{data_gain} % de données par rang.",
+   "icon": "res://assets/sprites/spells/mec_recup.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "harvest": 4,
+     "data_gain": 5
+    }
+   },
+   "up": {},
+   "prompt": "recycling bin with cyan data crystals"
+  },
+  "mec_modulaire": {
+   "name": "Blindage modulaire",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#9aa0b5",
+   "desc": "+{armor} armure et +{shield} bouclier par vague au rang 5.",
+   "icon": "res://assets/sprites/spells/mec_modulaire.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "armor": 3
+    }
+   },
+   "up": {},
+   "prompt": "modular armor plates snapping together",
+   "rank5": {
+    "shield": 1
+   }
+  },
+  "mec_etincelles": {
+   "name": "Meuleuse",
+   "type": "passive",
+   "kind": "aura",
+   "color": "#ffb347",
+   "desc": "Des gerbes d'étincelles brûlent les ennemis proches : {dps} dégâts/s (rayon {radius}).",
+   "icon": "res://assets/sprites/spells/mec_etincelles.png",
+   "max": 5,
+   "base": {
+    "dps": 7,
+    "radius": 105
+   },
+   "up": {
+    "dps": 3,
+    "radius": 10
+   },
+   "prompt": "angle grinder throwing sparks"
+  },
+  "cap_bordee": {
+   "name": "Bordée",
+   "type": "active",
+   "kind": "bolt",
+   "color": "#06ffa5",
+   "desc": "Tire une bordée de {count} boulets de canon vers le curseur ({dmg} dégâts).",
+   "icon": "res://assets/sprites/spells/cap_bordee.png",
+   "max": 5,
+   "base": {
+    "dmg": 66,
+    "count": 7,
+    "aoe": 40,
+    "pierce": 0,
+    "speed": 850,
+    "spread": 70,
+    "cd": 6.6
+   },
+   "up": {
+    "dmg": 21,
+    "count": 1,
+    "cd": -0.35
+   },
+   "prompt": "pirate ship cannons firing a broadside",
+   "dmg_type": "ranged"
+  },
+  "cap_abordage": {
+   "name": "À l'abordage !",
+   "type": "active",
+   "kind": "nova",
+   "color": "#06ffa5",
+   "desc": "À l'abordage ! Une charge frappe l'endroit visé ({dmg} dégâts, rayon {radius}).",
+   "icon": "res://assets/sprites/spells/cap_abordage.png",
+   "max": 5,
+   "base": {
+    "dmg": 120,
+    "radius": 180,
+    "knock": 80,
+    "cd": 9.2
+   },
+   "up": {
+    "dmg": 40,
+    "radius": 12,
+    "cd": -0.5
+   },
+   "prompt": "crossed pirate sabers with a skull",
+   "dmg_type": "melee"
+  },
+  "cap_tresor": {
+   "name": "Coffre au trésor",
+   "type": "active",
+   "kind": "heal",
+   "color": "#ffd166",
+   "desc": "Ouvre un trésor : {pct} % de PV et {shield} bouclier.",
+   "icon": "res://assets/sprites/spells/cap_tresor.png",
+   "max": 5,
+   "base": {
+    "pct": 33,
+    "shield": 2,
+    "cd": 18.0
+   },
+   "up": {
+    "pct": 5,
+    "cd": -1.0
+   },
+   "prompt": "open treasure chest full of gold coins",
+   "dmg_type": "support"
+  },
+  "cap_rhum": {
+   "name": "Rhum énergisant",
+   "type": "active",
+   "kind": "buff",
+   "color": "#ff9f1c",
+   "desc": "+{damage} % dégâts et +{speed} % vitesse pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/cap_rhum.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "damage": 40,
+     "speed": 24
+    },
+    "dur": 8,
+    "cd": 14.0
+   },
+   "up": {
+    "stats": {
+     "damage": 11,
+     "speed": 5
+    },
+    "dur": 0.5,
+    "cd": -0.8
+   },
+   "prompt": "bottle of glowing neon rum",
+   "dmg_type": "support"
+  },
+  "cap_kraken": {
+   "name": "Kraken",
+   "type": "active",
+   "kind": "zone",
+   "color": "#4cc9f0",
+   "desc": "Un kraken surgit à l'endroit visé : aspire les ennemis et inflige {dps} dégâts/s pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/cap_kraken.png",
+   "max": 5,
+   "base": {
+    "dps": 49,
+    "radius": 160,
+    "dur": 3.5,
+    "pull": 200,
+    "at": "target",
+    "cd": 13.2
+   },
+   "up": {
+    "dps": 18,
+    "radius": 12,
+    "dur": 0.4,
+    "cd": -0.7
+   },
+   "prompt": "kraken tentacles rising from water, neon",
+   "dmg_type": "tech"
+  },
+  "cap_boulets": {
+   "name": "Pluie de boulets",
+   "type": "active",
+   "kind": "barrage",
+   "color": "#ffd166",
+   "desc": "{count} boulets de canon pleuvent sur la zone visée ({dmg} dégâts chacun).",
+   "icon": "res://assets/sprites/spells/cap_boulets.png",
+   "max": 5,
+   "base": {
+    "dmg": 119,
+    "radius": 90,
+    "count": 5,
+    "dur": 1.5,
+    "cd": 11.5
+   },
+   "up": {
+    "dmg": 35,
+    "count": 1,
+    "cd": -0.6
+   },
+   "prompt": "cannonballs falling from the sky",
+   "dmg_type": "ranged"
+  },
+  "cap_lynx": {
+   "name": "Œil de lynx",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#06ffa5",
+   "desc": "+{range} portée et +{crit} % critiques par rang.",
+   "icon": "res://assets/sprites/spells/cap_lynx.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "range": 15,
+     "crit": 2
+    }
+   },
+   "up": {},
+   "prompt": "pirate spyglass telescope"
+  },
+  "cap_pillage": {
+   "name": "Pillage",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#ffd166",
+   "desc": "+{harvest} récolte et +{luck} chance par rang.",
+   "icon": "res://assets/sprites/spells/cap_pillage.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "harvest": 5,
+     "luck": 5
+    }
+   },
+   "up": {},
+   "prompt": "bag of loot with gold coins"
+  },
+  "cap_loup": {
+   "name": "Loup de mer",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#4cc9f0",
+   "desc": "+{max_hp} PV max et +{hp_regen} régénération par rang.",
+   "icon": "res://assets/sprites/spells/cap_loup.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "max_hp": 7,
+     "hp_regen": 1
+    }
+   },
+   "up": {},
+   "prompt": "anchor with a rope, sea wolf"
+  },
+  "cap_sabre": {
+   "name": "Sabre affûté",
+   "type": "passive",
+   "kind": "stats",
+   "color": "#c0c0c0",
+   "desc": "+{damage} % dégâts par rang.",
+   "icon": "res://assets/sprites/spells/cap_sabre.png",
+   "max": 5,
+   "base": {
+    "stats": {
+     "damage": 5
+    }
+   },
+   "up": {},
+   "prompt": "sharp pirate cutlass sword"
+  },
+  "cap_perroquet": {
+   "name": "Perroquet canonnier",
+   "type": "passive",
+   "kind": "periodic",
+   "color": "#ff4d6d",
+   "desc": "Toutes les {every} s, votre perroquet lâche {count} bombe(s) ({dmg} dégâts).",
+   "icon": "res://assets/sprites/spells/cap_perroquet.png",
+   "max": 5,
+   "base": {
+    "every": 5,
+    "effect": "bolt",
+    "dmg": 20,
+    "count": 2,
+    "aoe": 60,
+    "pierce": 0,
+    "speed": 700
+   },
+   "up": {
+    "dmg": 6,
+    "count": 0.5,
+    "every": -0.4
+   },
+   "prompt": "cyber parrot carrying a bomb"
+  },
+  "gen_laser": {
+   "name": "Canon laser",
+   "type": "active",
+   "kind": "laser",
+   "color": "#ff4d6d",
+   "desc": "Un rayon laser vers le curseur : {dmg} dégâts à tous les ennemis sur la ligne (portée {length}).",
+   "icon": "res://assets/sprites/spells/gen_laser.png",
+   "max": 5,
+   "base": {
+    "dmg": 140,
+    "length": 800,
+    "width": 16,
+    "cd": 6.0
+   },
+   "up": {
+    "dmg": 45,
+    "length": 40,
+    "cd": -0.3
+   },
+   "prompt": "red laser cannon firing a straight beam",
+   "generic": true,
+   "dmg_type": "tech"
+  },
+  "gen_rail": {
+   "name": "Railgun d'épaule",
+   "type": "active",
+   "kind": "laser",
+   "color": "#5ff7ff",
+   "desc": "Un tir de rail ultra-fin et dévastateur : {dmg} dégâts sur une ligne de {length}. Visez juste !",
+   "icon": "res://assets/sprites/spells/gen_rail.png",
+   "max": 5,
+   "base": {
+    "dmg": 330,
+    "length": 1000,
+    "width": 9,
+    "cd": 12.0
+   },
+   "up": {
+    "dmg": 110,
+    "cd": -0.6
+   },
+   "prompt": "sleek cyan railgun with electric coils, piercing beam",
+   "generic": true,
+   "dmg_type": "ranged"
+  },
+  "gen_cryo": {
+   "name": "Rayon cryo",
+   "type": "active",
+   "kind": "laser",
+   "color": "#9be7ff",
+   "desc": "Un large rayon glacé : {dmg} dégâts et ralentit fortement les ennemis touchés (portée {length}).",
+   "icon": "res://assets/sprites/spells/gen_cryo.png",
+   "max": 5,
+   "base": {
+    "dmg": 70,
+    "length": 700,
+    "width": 30,
+    "slow": 0.7,
+    "cd": 7.0
+   },
+   "up": {
+    "dmg": 25,
+    "width": 3,
+    "cd": -0.35
+   },
+   "prompt": "icy blue freeze ray gun with frost crystals",
+   "generic": true,
+   "dmg_type": "tech"
+  },
+  "gen_orbitale": {
+   "name": "Frappe orbitale",
+   "type": "active",
+   "kind": "strike",
+   "color": "#ffd166",
+   "desc": "Un satellite frappe l'endroit visé après {delay} s : {dmg} dégâts dans un petit rayon ({radius}).",
+   "icon": "res://assets/sprites/spells/gen_orbitale.png",
+   "max": 5,
+   "base": {
+    "dmg": 420,
+    "radius": 65,
+    "delay": 0.8,
+    "cd": 14.0
+   },
+   "up": {
+    "dmg": 140,
+    "radius": 5,
+    "cd": -0.7
+   },
+   "prompt": "golden orbital satellite strike beam hitting a target from the sky",
+   "generic": true,
+   "dmg_type": "tech"
+  },
+  "gen_iem": {
+   "name": "Grenade IEM",
+   "type": "active",
+   "kind": "zone",
+   "color": "#c77dff",
+   "desc": "Une grenade qui grille les circuits à l'endroit visé : {dps} dégâts/s et paralyse presque pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/gen_iem.png",
+   "max": 5,
+   "base": {
+    "dps": 30,
+    "radius": 120,
+    "dur": 2.5,
+    "slow": 0.85,
+    "at": "target",
+    "cd": 11.0
+   },
+   "up": {
+    "dps": 10,
+    "radius": 8,
+    "dur": 0.3,
+    "cd": -0.5
+   },
+   "prompt": "purple EMP grenade with electric sparks",
+   "generic": true,
+   "dmg_type": "tech"
+  },
+  "gen_trounoir": {
+   "name": "Mini trou noir",
+   "type": "active",
+   "kind": "zone",
+   "color": "#7b5cff",
+   "desc": "Ouvre un mini trou noir à l'endroit visé : aspire les ennemis et inflige {dps} dégâts/s pendant {dur} s.",
+   "icon": "res://assets/sprites/spells/gen_trounoir.png",
+   "max": 5,
+   "base": {
+    "dps": 40,
+    "radius": 150,
+    "dur": 3.0,
+    "pull": 320,
+    "at": "target",
+    "cd": 15.0
+   },
+   "up": {
+    "dps": 14,
+    "radius": 10,
+    "dur": 0.3,
+    "cd": -0.7
+   },
+   "prompt": "tiny swirling black hole with purple accretion disk",
+   "generic": true,
+   "dmg_type": "tech"
+  }
+ },
+ "actives_v3": true,
+ "generic": [
+  "gen_laser",
+  "gen_rail",
+  "gen_cryo",
+  "gen_orbitale",
+  "gen_iem",
+  "gen_trounoir"
+ ]
+}

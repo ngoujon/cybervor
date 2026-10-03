@@ -1,0 +1,1784 @@
+{
+ "styles": {
+  "sprite": "16-bit pixel art video game sprite, SNES era, crisp chunky pixels, bold dark pixel outline, limited cyberpunk neon color palette, cel shading, cute cartoon character, full body, centered, single subject, floating, isolated on plain white background, no ground, no shadow, no text",
+  "icon": "16-bit pixel art video game item icon, SNES era, crisp chunky pixels, bold dark pixel outline, limited neon color palette, single object centered, isolated on plain white background, no shadow, no text",
+  "ground": "seamless tileable top-down ground texture for a 2D video game arena, viewed from directly above, flat, hand-drawn illustration style, painterly cartoon, subtle details, no characters, no text, no perspective",
+  "scene": "wide illustrated video game background, hand-drawn illustration style, thick ink outlines, cel shading, vibrant neon cyberpunk colors, cartoon, detailed, no text",
+  "sprite_hd": "hand-drawn illustration style, thick black ink outlines, flat cel shading, vibrant neon cyberpunk colors, cute cartoon video game art, full body, centered, single subject, isolated on plain white background, no shadow, no text",
+  "icon_hd": "game item icon, hand-drawn illustration style, thick black ink outlines, flat cel shading, vibrant neon colors, cartoon, single object centered, isolated on plain white background, no shadow, no text"
+ },
+ "negative": {
+  "image": "blurry, photo, photorealistic, 3d render, text, letters, watermark, signature, frame, border, multiple characters, cropped, smooth gradients, painting, anti-aliasing, ground, floor, cast shadow, pedestal",
+  "sfx": "music, melody, speech, voice, noise, hiss, low quality, distorted"
+ },
+ "images": [
+  {
+   "id": "char_patatron",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/characters/patatron.png",
+   "size": 160,
+   "prompt": "cute chibi android hero with a humanoid body, sleek white and cyan armor, glowing cyan visor helmet, two arms holding a small blaster, two legs, confident pose"
+  },
+  {
+   "id": "char_volta",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/characters/volta.png",
+   "size": 160,
+   "prompt": "cute chibi humanoid robot made of electric batteries, lightning bolt antenna on its head, yellow and purple armor, sparks, two arms and two legs, cheerful pose"
+  },
+  {
+   "id": "char_brutus",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/characters/brutus.png",
+   "size": 160,
+   "prompt": "tall bulky chibi humanoid robot brawler with huge metal boxing gloves, red armor plates, angry visor eyes, broad shoulders, sturdy legs"
+  },
+  {
+   "id": "char_glitchette",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/characters/glitchette.png",
+   "size": 160,
+   "prompt": "cute chibi android hacker girl with cat ear headphones, pink hoodie, holographic glasses, slim humanoid body with arms and legs, glitch sparkles around"
+  },
+  {
+   "id": "char_mecano",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/characters/mecano.png",
+   "size": 160,
+   "prompt": "cute chibi humanoid engineer robot with an orange hard hat, big goggles, green overalls, tool belt, holding a giant wrench, arms and legs"
+  },
+  {
+   "id": "char_capitaine",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/characters/capitaine.png",
+   "size": 160,
+   "prompt": "lanky chibi humanoid cyborg space pirate with a long coat, glowing neon eyepatch, tricorn hat with LED trim, cybernetic hook hand, smug grin, arms and legs"
+  },
+  {
+   "id": "npc_mamie_ram",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/npc/mamie_ram.png",
+   "size": 384,
+   "prompt": "funny portrait of an old retro CRT computer monitor with the face of a kind grandmother on its screen, hair curlers on top, round glasses, knitting needles held by little robot arms"
+  },
+  {
+   "id": "npc_noyau",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/npc/noyau_portrait.png",
+   "size": 384,
+   "prompt": "portrait of a dramatic evil glowing red CPU chip villain with a single big eye and a tiny villain mustache, mechanical cables like tentacles, smug"
+  },
+  {
+   "id": "enemy_bugzy",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/enemies/bugzy.png",
+   "size": 96,
+   "prompt": "small angry green computer bug beetle robot with glowing red eyes and six thin metal legs"
+  },
+  {
+   "id": "enemy_spammer",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/enemies/spammer.png",
+   "size": 80,
+   "prompt": "tiny flying angry envelope monster with sharp teeth and small bat wings, pink and white"
+  },
+  {
+   "id": "enemy_brute",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/enemies/brute.png",
+   "size": 144,
+   "prompt": "large hulking purple malware monster made of corrupted cube code blocks, big arms, angry glowing eyes"
+  },
+  {
+   "id": "enemy_sniper",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/enemies/sniper.png",
+   "size": 96,
+   "prompt": "floating eyeball drone robot with a long laser cannon underneath, red lens eye, small propellers"
+  },
+  {
+   "id": "enemy_kamikaze",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/enemies/kamikaze.png",
+   "size": 88,
+   "prompt": "round black bomb robot creature with a lit fuse on top and a crazy grin, glowing orange cracks"
+  },
+  {
+   "id": "enemy_trojan",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/enemies/trojan.png",
+   "size": 128,
+   "prompt": "wooden trojan horse toy robot on wheels with glowing green circuit lines and evil eyes"
+  },
+  {
+   "id": "enemy_healer",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/enemies/healer.png",
+   "size": 96,
+   "prompt": "floating medical drone shaped like a jellyfish with a green cross on its dome and dangling cable tentacles"
+  },
+  {
+   "id": "enemy_dasher",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/enemies/dasher.png",
+   "size": 104,
+   "prompt": "fast metallic worm robot with a spinning drill head and angry eyes, segmented body"
+  },
+  {
+   "id": "enemy_turret",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/enemies/turret.png",
+   "size": 104,
+   "prompt": "small stationary brick wall turret block on fire with an angry face, firewall, cannon on top"
+  },
+  {
+   "id": "enemy_phantom",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/enemies/phantom.png",
+   "size": 96,
+   "prompt": "cute spooky ghost made of glitchy TV static, translucent purple and cyan, wavy tail"
+  },
+  {
+   "id": "boss_serveur",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/bosses/serveur.png",
+   "size": 288,
+   "prompt": "giant angry server rack monster boss with blinking LED lights, tangled cable arms, steam coming out, huge"
+  },
+  {
+   "id": "boss_reine",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/bosses/reine.png",
+   "size": 288,
+   "prompt": "giant virus queen monster boss, spiky green sphere body with many eyes and a golden crown, royal cape"
+  },
+  {
+   "id": "boss_taupe",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/bosses/taupe.png",
+   "size": 288,
+   "prompt": "giant mechanical mole boss with huge drill claws, cool sunglasses, rusty metal armor"
+  },
+  {
+   "id": "boss_hydre",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/bosses/hydre.png",
+   "size": 288,
+   "prompt": "three-headed snake hydra boss made of electric cables and neon tubes, glowing pink and cyan, fierce"
+  },
+  {
+   "id": "boss_noyau",
+   "wf": "sprite",
+   "style": "sprite",
+   "out": "assets/sprites/bosses/noyau.png",
+   "size": 320,
+   "prompt": "final boss giant glowing evil red CPU core orb with mechanical tentacles, a single huge eye and a tiny villain mustache"
+  },
+  {
+   "id": "wpn_pistolaser",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/weapons/pistolaser.png",
+   "size": 72,
+   "prompt": "retro sci-fi laser pistol, cyan glowing barrel, side view"
+  },
+  {
+   "id": "wpn_pompe_plasma",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/weapons/pompe_plasma.png",
+   "size": 72,
+   "prompt": "chunky sci-fi plasma shotgun with purple glowing cells, side view"
+  },
+  {
+   "id": "wpn_mitrailleuse",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/weapons/mitrailleuse.png",
+   "size": 72,
+   "prompt": "sci-fi pulse machine gun with rotating barrels and yellow glow, side view"
+  },
+  {
+   "id": "wpn_lance_roquettes",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/weapons/lance_roquettes.png",
+   "size": 72,
+   "prompt": "cartoon rocket launcher tube with a red rocket tip, side view"
+  },
+  {
+   "id": "wpn_lame_plasma",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/weapons/lame_plasma.png",
+   "size": 72,
+   "prompt": "glowing pink plasma sword with a chunky tech handle, diagonal"
+  },
+  {
+   "id": "wpn_marteau",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/weapons/marteau.png",
+   "size": 72,
+   "prompt": "heavy gravity war hammer with a glowing blue core in the hammer head, diagonal"
+  },
+  {
+   "id": "wpn_tesla",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/weapons/tesla.png",
+   "size": 72,
+   "prompt": "handheld tesla coil weapon crackling with electric arcs"
+  },
+  {
+   "id": "wpn_orbes",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/weapons/orbes.png",
+   "size": 72,
+   "prompt": "three glowing energy orbs orbiting around a small metal ring"
+  },
+  {
+   "id": "wpn_lance_flammes",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/weapons/lance_flammes.png",
+   "size": 72,
+   "prompt": "sci-fi flamethrower with a fuel tank and orange flame at the nozzle, side view"
+  },
+  {
+   "id": "wpn_railgun",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/weapons/railgun.png",
+   "size": 72,
+   "prompt": "long sleek railgun rifle with two parallel rails and blue electric glow, side view"
+  },
+  {
+   "id": "wpn_shuriken",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/weapons/shuriken.png",
+   "size": 72,
+   "prompt": "four-pointed neon shuriken throwing star made of glowing metal, top view"
+  },
+  {
+   "id": "wpn_mines",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/weapons/mines.png",
+   "size": 72,
+   "prompt": "round sci-fi landmine with a blinking red light, top view"
+  },
+  {
+   "id": "item_puce_overclock",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/puce_overclock.png",
+   "size": 72,
+   "prompt": "computer chip on fire with speed lines"
+  },
+  {
+   "id": "item_batterie",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/batterie.png",
+   "size": 72,
+   "prompt": "green lithium battery with a heart symbol"
+  },
+  {
+   "id": "item_titane",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/titane.png",
+   "size": 72,
+   "prompt": "thick riveted titanium armor plate"
+  },
+  {
+   "id": "item_viseur",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/viseur.png",
+   "size": 72,
+   "prompt": "holographic targeting visor glasses with red crosshair"
+  },
+  {
+   "id": "item_baskets",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/baskets.png",
+   "size": 72,
+   "prompt": "pair of neon turbo sneakers with tiny rocket boosters"
+  },
+  {
+   "id": "item_aimant",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/aimant.png",
+   "size": 72,
+   "prompt": "red and silver horseshoe magnet with glowing quantum particles"
+  },
+  {
+   "id": "item_trefle",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/trefle.png",
+   "size": 72,
+   "prompt": "four leaf clover made of glowing green circuit board"
+  },
+  {
+   "id": "item_seringue",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/seringue.png",
+   "size": 72,
+   "prompt": "sci-fi syringe filled with glowing red nanobots"
+  },
+  {
+   "id": "item_ventilateur",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/ventilateur.png",
+   "size": 72,
+   "prompt": "rainbow RGB computer cooling fan"
+  },
+  {
+   "id": "item_cafe",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/cafe.png",
+   "size": 72,
+   "prompt": "steaming coffee mug with a server rack logo and a tired face"
+  },
+  {
+   "id": "item_disque",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/disque.png",
+   "size": 72,
+   "prompt": "old scratched hard drive with golden coins spilling out"
+  },
+  {
+   "id": "item_antenne",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/antenne.png",
+   "size": 72,
+   "prompt": "tall 5G antenna tower emitting signal waves"
+  },
+  {
+   "id": "item_parefeu",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/parefeu.png",
+   "size": 72,
+   "prompt": "small round shield made of bricks with flames, firewall shield"
+  },
+  {
+   "id": "item_canette",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/canette.png",
+   "size": 72,
+   "prompt": "neon energy drink can with a lightning logo"
+  },
+  {
+   "id": "item_cle_usb",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/cle_usb.png",
+   "size": 72,
+   "prompt": "mysterious USB stick with a question mark sticker"
+  },
+  {
+   "id": "item_condensateur",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/condensateur.png",
+   "size": 72,
+   "prompt": "big electrolytic capacitor crackling with blue electricity"
+  },
+  {
+   "id": "item_gant",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/gant.png",
+   "size": 72,
+   "prompt": "hydraulic robot boxing glove with pistons"
+  },
+  {
+   "id": "item_lunette",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/lunette.png",
+   "size": 72,
+   "prompt": "sniper laser scope with a red beam"
+  },
+  {
+   "id": "item_cookie",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/cookie.png",
+   "size": 72,
+   "prompt": "chocolate chip cookie with a tiny tracking antenna and evil eyes"
+  },
+  {
+   "id": "item_ruban",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/ruban.png",
+   "size": 72,
+   "prompt": "roll of silver duct tape"
+  },
+  {
+   "id": "item_mini_drone",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/mini_drone.png",
+   "size": 72,
+   "prompt": "tiny cute quadcopter drone with a friendly face"
+  },
+  {
+   "id": "item_puce_explosive",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/puce_explosive.png",
+   "size": 72,
+   "prompt": "computer chip with a lit dynamite fuse"
+  },
+  {
+   "id": "item_canard",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/canard.png",
+   "size": 72,
+   "prompt": "yellow rubber duck wearing tiny glasses and a headset, debugging duck"
+  },
+  {
+   "id": "item_citron",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/items/citron.png",
+   "size": 72,
+   "prompt": "lemon battery with copper wires and a small light bulb"
+  },
+  {
+   "id": "pickup_data",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/pickups/data.png",
+   "size": 40,
+   "prompt": "small glowing cyan data crystal shard"
+  },
+  {
+   "id": "pickup_soin",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/pickups/soin.png",
+   "size": 48,
+   "prompt": "small battery pack with a red heart symbol, health pickup"
+  },
+  {
+   "id": "pickup_coffre",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/pickups/coffre.png",
+   "size": 72,
+   "prompt": "small sci-fi loot crate with glowing golden seams"
+  },
+  {
+   "id": "hat_bob",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/bob.png",
+   "size": 80,
+   "prompt": "fisherman bucket hat with neon stripes"
+  },
+  {
+   "id": "hat_fez",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/fez.png",
+   "size": 80,
+   "prompt": "red fez hat with a glowing tassel"
+  },
+  {
+   "id": "hat_sorcier",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/sorcier.png",
+   "size": 80,
+   "prompt": "purple wizard hat with stars and circuit patterns"
+  },
+  {
+   "id": "hat_casque_audio",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/casque_audio.png",
+   "size": 80,
+   "prompt": "big gaming headset with RGB lights"
+  },
+  {
+   "id": "hat_helice",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/helice.png",
+   "size": 80,
+   "prompt": "propeller beanie cap with colorful propeller"
+  },
+  {
+   "id": "hat_ninja",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/ninja.png",
+   "size": 80,
+   "prompt": "black ninja headband with flowing ribbons"
+  },
+  {
+   "id": "hat_pizza",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/pizza.png",
+   "size": 80,
+   "prompt": "slice of pizza worn as a hat"
+  },
+  {
+   "id": "hat_astronaute",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/astronaute.png",
+   "size": 80,
+   "prompt": "small astronaut space helmet bubble with glowing visor"
+  },
+  {
+   "id": "hat_couronne",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/couronne.png",
+   "size": 80,
+   "prompt": "golden royal crown with neon gems"
+  },
+  {
+   "id": "hat_casquette",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/casquette.png",
+   "size": 80,
+   "prompt": "backwards baseball cap with glowing cyber circuit pattern"
+  },
+  {
+   "id": "hat_aureole",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/aureole.png",
+   "size": 80,
+   "prompt": "glowing golden halo ring made of light"
+  },
+  {
+   "id": "hat_cornes",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/cornes.png",
+   "size": 80,
+   "prompt": "pair of small red devil horns on a headband"
+  },
+  {
+   "id": "hat_antenne",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/antenne.png",
+   "size": 80,
+   "prompt": "headband with two silly bouncy alien antennas with glowing balls"
+  },
+  {
+   "id": "hat_cowboy",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/cowboy.png",
+   "size": 80,
+   "prompt": "cowboy hat with a neon pink band"
+  },
+  {
+   "id": "hat_viking",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/viking.png",
+   "size": 80,
+   "prompt": "viking helmet with two horns and LED lights"
+  },
+  {
+   "id": "hat_chef",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/hats/chef.png",
+   "size": 80,
+   "prompt": "tall white chef hat with a small blinking LED"
+  },
+  {
+   "id": "ui_puces",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/ui/puces.png",
+   "size": 64,
+   "prompt": "small pile of golden computer chips used as coins"
+  },
+  {
+   "id": "ui_neons",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/ui/neons.png",
+   "size": 64,
+   "prompt": "glowing pink neon diamond gem"
+  },
+  {
+   "id": "ui_point_comp",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/ui/point_competence.png",
+   "size": 64,
+   "prompt": "glowing blue star badge with a plus sign"
+  },
+  {
+   "id": "ui_titre",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/ui/titre.png",
+   "size": 64,
+   "prompt": "rolled parchment scroll with a neon ribbon"
+  },
+  {
+   "id": "ui_xp",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/ui/xp.png",
+   "size": 64,
+   "prompt": "glowing green upward arrow made of circuits"
+  },
+  {
+   "id": "tree_assaut",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/skills/assaut.png",
+   "size": 72,
+   "prompt": "crossed glowing red laser swords emblem"
+  },
+  {
+   "id": "tree_blindage",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/skills/blindage.png",
+   "size": 72,
+   "prompt": "sturdy blue metal shield emblem with rivets"
+  },
+  {
+   "id": "tree_technologie",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/skills/technologie.png",
+   "size": 72,
+   "prompt": "glowing purple gear with a lightning bolt emblem"
+  },
+  {
+   "id": "tree_piratage",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/skills/piratage.png",
+   "size": 72,
+   "prompt": "green hacker skull made of binary code emblem"
+  },
+  {
+   "id": "tree_recolte",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/skills/recolte.png",
+   "size": 72,
+   "prompt": "golden bag of coins with a cyan data crystal emblem"
+  },
+  {
+   "id": "ground_decharge",
+   "wf": "image",
+   "style": "ground",
+   "out": "assets/textures/ground_decharge.png",
+   "w": 1024,
+   "h": 1024,
+   "size": 768,
+   "prompt": "dirty junkyard ground with scattered tiny screws, cracked asphalt, oil stains and faint neon puddles, muted brown and teal"
+  },
+  {
+   "id": "ground_holo",
+   "wf": "image",
+   "style": "ground",
+   "out": "assets/textures/ground_holo.png",
+   "w": 1024,
+   "h": 1024,
+   "size": 768,
+   "prompt": "futuristic city street pavement tiles with faint glowing pink and blue hologram lines, dark purple"
+  },
+  {
+   "id": "ground_serres",
+   "wf": "image",
+   "style": "ground",
+   "out": "assets/textures/ground_serres.png",
+   "w": 1024,
+   "h": 1024,
+   "size": 768,
+   "prompt": "cybernetic greenhouse floor with moss, little plants and glowing green cable roots, metal grates"
+  },
+  {
+   "id": "ground_glace",
+   "wf": "image",
+   "style": "ground",
+   "out": "assets/textures/ground_glace.png",
+   "w": 1024,
+   "h": 1024,
+   "size": 768,
+   "prompt": "frozen data center floor tiles covered in frost and ice crystals, light blue and white"
+  },
+  {
+   "id": "ground_noyau",
+   "wf": "image",
+   "style": "ground",
+   "out": "assets/textures/ground_noyau.png",
+   "w": 1024,
+   "h": 1024,
+   "size": 768,
+   "prompt": "giant motherboard circuit floor with glowing red traces, dark, ominous"
+  },
+  {
+   "id": "bg_titre",
+   "wf": "image",
+   "style": "scene",
+   "out": "assets/backgrounds/titre.png",
+   "w": 1664,
+   "h": 928,
+   "size": 1664,
+   "prompt": "epic group of cute chibi android and robot heroes with humanoid bodies standing on a hill, seen from behind, facing a horde of silly robot bugs and viruses, neon cyberpunk city skyline at night behind, dramatic sky"
+  },
+  {
+   "id": "bg_zone_decharge",
+   "wf": "image",
+   "style": "scene",
+   "out": "assets/backgrounds/zone_decharge.png",
+   "w": 1344,
+   "h": 768,
+   "size": 1024,
+   "prompt": "neon junkyard full of broken computers, piles of scrap and old monitors, sunset, flickering neon signs"
+  },
+  {
+   "id": "bg_zone_holo",
+   "wf": "image",
+   "style": "scene",
+   "out": "assets/backgrounds/zone_holo.png",
+   "w": 1344,
+   "h": 768,
+   "size": 1024,
+   "prompt": "hologram district of a cyberpunk city at night, giant holographic advertisements, rain, pink and blue lights"
+  },
+  {
+   "id": "bg_zone_serres",
+   "wf": "image",
+   "style": "scene",
+   "out": "assets/backgrounds/zone_serres.png",
+   "w": 1344,
+   "h": 768,
+   "size": 1024,
+   "prompt": "huge cybernetic greenhouse dome with robotic plants, glowing vines and sprinkler drones"
+  },
+  {
+   "id": "bg_zone_glace",
+   "wf": "image",
+   "style": "scene",
+   "out": "assets/backgrounds/zone_glace.png",
+   "w": 1344,
+   "h": 768,
+   "size": 1024,
+   "prompt": "frozen data center with endless server racks covered in ice and icicles, cold blue light"
+  },
+  {
+   "id": "bg_zone_noyau",
+   "wf": "image",
+   "style": "scene",
+   "out": "assets/backgrounds/zone_noyau.png",
+   "w": 1344,
+   "h": 768,
+   "size": 1024,
+   "prompt": "heart of the network, giant glowing red processor core in a vast digital cavern with data streams"
+  },
+  {
+   "id": "bg_pvp",
+   "wf": "image",
+   "style": "scene",
+   "out": "assets/backgrounds/pvp.png",
+   "w": 1344,
+   "h": 768,
+   "size": 1024,
+   "prompt": "futuristic gladiator arena with neon lights, cheering robot crowd in the stands"
+  },
+  {
+   "id": "logo",
+   "wf": "sprite",
+   "style": "sprite_hd",
+   "out": "assets/sprites/ui/logo.png",
+   "w": 1344,
+   "h": 576,
+   "size": 900,
+   "prompt": "video game title logo with the bold word \"CYBERVOR\" in chunky 3D cartoon letters, neon cyan and magenta gradient, thick black outline, electric sparks, the logo text must read CYBERVOR"
+  },
+  {
+   "id": "spell_pat_puree",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/pat_puree.png",
+   "size": 72,
+   "prompt": "glowing plasma shell exploding in a burst of cyan energy, game spell icon"
+  },
+  {
+   "id": "spell_pat_frites",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/pat_frites.png",
+   "size": 72,
+   "prompt": "volley of sharp glowing metal darts flying forward, game spell icon"
+  },
+  {
+   "id": "spell_pat_germe",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/pat_germe.png",
+   "size": 72,
+   "prompt": "swarm of tiny glowing green nanobots spreading on the ground, game spell icon"
+  },
+  {
+   "id": "spell_pat_peau",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/pat_peau.png",
+   "size": 72,
+   "prompt": "reactive armor plate shield glowing with hexagon pattern, game spell icon"
+  },
+  {
+   "id": "spell_pat_chips",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/pat_chips.png",
+   "size": 72,
+   "prompt": "rain of glowing explosive microchips falling from the sky, game spell icon"
+  },
+  {
+   "id": "spell_pat_cousins",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/pat_cousins.png",
+   "size": 72,
+   "prompt": "squad of small flying combat drones with propellers, game spell icon"
+  },
+  {
+   "id": "spell_pat_robuste",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/pat_robuste.png",
+   "size": 72,
+   "prompt": "reinforced robot chassis with metal plates and bolts, game spell icon"
+  },
+  {
+   "id": "spell_pat_amidon",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/pat_amidon.png",
+   "size": 72,
+   "prompt": "overclocked glowing CPU chip with speed lines and flames, game spell icon"
+  },
+  {
+   "id": "spell_pat_racines",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/pat_racines.png",
+   "size": 72,
+   "prompt": "robotic repair arm with a glowing green wrench and plus sign, healing, game spell icon"
+  },
+  {
+   "id": "spell_pat_chance",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/pat_chance.png",
+   "size": 72,
+   "prompt": "lucky glowing binary four leaf clover made of circuits, game spell icon"
+  },
+  {
+   "id": "spell_pat_four",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/pat_four.png",
+   "size": 72,
+   "prompt": "overheating glowing red radiator with heat waves, game spell icon"
+  },
+  {
+   "id": "spell_vol_arc",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/vol_arc.png",
+   "size": 72,
+   "prompt": "cyan lightning bolt arc jumping between points, game spell icon"
+  },
+  {
+   "id": "spell_vol_surtension",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/vol_surtension.png",
+   "size": 72,
+   "prompt": "electric shockwave burst, blue energy ring, game spell icon"
+  },
+  {
+   "id": "spell_vol_aimant",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/vol_aimant.png",
+   "size": 72,
+   "prompt": "giant horseshoe magnet with blue magnetic field lines, game spell icon"
+  },
+  {
+   "id": "spell_vol_survolt",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/vol_survolt.png",
+   "size": 72,
+   "prompt": "battery overcharging with yellow sparks, game spell icon"
+  },
+  {
+   "id": "spell_vol_orage",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/vol_orage.png",
+   "size": 72,
+   "prompt": "thunderstorm cloud with lightning strikes, game spell icon"
+  },
+  {
+   "id": "spell_vol_condo",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/vol_condo.png",
+   "size": 72,
+   "prompt": "glowing capacitor component with a green plus sign, game spell icon"
+  },
+  {
+   "id": "spell_vol_tension",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/vol_tension.png",
+   "size": 72,
+   "prompt": "high voltage warning sign with lightning, game spell icon"
+  },
+  {
+   "id": "spell_vol_conduct",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/vol_conduct.png",
+   "size": 72,
+   "prompt": "superconductor coil glowing blue, game spell icon"
+  },
+  {
+   "id": "spell_vol_dynamo",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/vol_dynamo.png",
+   "size": 72,
+   "prompt": "spinning dynamo generator with electric sparks, game spell icon"
+  },
+  {
+   "id": "spell_vol_pile",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/vol_pile.png",
+   "size": 72,
+   "prompt": "spare AA battery glowing yellow, game spell icon"
+  },
+  {
+   "id": "spell_vol_court",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/vol_court.png",
+   "size": 72,
+   "prompt": "short circuit wires with sparks and small flames, game spell icon"
+  },
+  {
+   "id": "spell_bru_seisme",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/bru_seisme.png",
+   "size": 72,
+   "prompt": "fist punching the ground making cracks, earthquake, game spell icon"
+  },
+  {
+   "id": "spell_bru_poing",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/bru_poing.png",
+   "size": 72,
+   "prompt": "rocket powered robot fist flying, game spell icon"
+  },
+  {
+   "id": "spell_bru_rage",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/bru_rage.png",
+   "size": 72,
+   "prompt": "angry red robot face with steam, game spell icon"
+  },
+  {
+   "id": "spell_bru_tourbi",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/bru_tourbi.png",
+   "size": 72,
+   "prompt": "spinning tornado of fists, red whirlwind, game spell icon"
+  },
+  {
+   "id": "spell_bru_pilon",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/bru_pilon.png",
+   "size": 72,
+   "prompt": "giant industrial pile driver hammer, game spell icon"
+  },
+  {
+   "id": "spell_bru_repar",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/bru_repar.png",
+   "size": 72,
+   "prompt": "wrench and bolt with green repair sparkles, game spell icon"
+  },
+  {
+   "id": "spell_bru_blinde",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/bru_blinde.png",
+   "size": 72,
+   "prompt": "heavy steel armor plate with rivets, game spell icon"
+  },
+  {
+   "id": "spell_bru_acier",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/bru_acier.png",
+   "size": 72,
+   "prompt": "steel boxing gloves, game spell icon"
+  },
+  {
+   "id": "spell_bru_epines",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/bru_epines.png",
+   "size": 72,
+   "prompt": "spiked metal armor, game spell icon"
+  },
+  {
+   "id": "spell_bru_vampire",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/bru_vampire.png",
+   "size": 72,
+   "prompt": "red battery with vampire fangs, game spell icon"
+  },
+  {
+   "id": "spell_bru_colere",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/bru_colere.png",
+   "size": 72,
+   "prompt": "erupting volcano with angry face, game spell icon"
+  },
+  {
+   "id": "spell_gli_virus",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gli_virus.png",
+   "size": 72,
+   "prompt": "green computer virus blob with spikes, game spell icon"
+  },
+  {
+   "id": "spell_gli_parefeu",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gli_parefeu.png",
+   "size": 72,
+   "prompt": "firewall brick wall on fire, shield icon, game spell icon"
+  },
+  {
+   "id": "spell_gli_ddos",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gli_ddos.png",
+   "size": 72,
+   "prompt": "swirling vortex of data packets, purple, game spell icon"
+  },
+  {
+   "id": "spell_gli_copier",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gli_copier.png",
+   "size": 72,
+   "prompt": "ctrl c ctrl v keyboard keys glowing purple, game spell icon"
+  },
+  {
+   "id": "spell_gli_overclock",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gli_overclock.png",
+   "size": 72,
+   "prompt": "overclocked cpu chip glowing pink with flames, game spell icon"
+  },
+  {
+   "id": "spell_gli_bombe",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gli_bombe.png",
+   "size": 72,
+   "prompt": "cartoon bomb with binary code and a fuse, game spell icon"
+  },
+  {
+   "id": "spell_gli_vies",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gli_vies.png",
+   "size": 72,
+   "prompt": "cat paw with nine small hearts, game spell icon"
+  },
+  {
+   "id": "spell_gli_retro",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gli_retro.png",
+   "size": 72,
+   "prompt": "magnifying glass over circuit board, game spell icon"
+  },
+  {
+   "id": "spell_gli_botnet",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gli_botnet.png",
+   "size": 72,
+   "prompt": "army of tiny zombie computers, game spell icon"
+  },
+  {
+   "id": "spell_gli_exploit",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gli_exploit.png",
+   "size": 72,
+   "prompt": "skull on a computer screen, hacker exploit, game spell icon"
+  },
+  {
+   "id": "spell_gli_glitch",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gli_glitch.png",
+   "size": 72,
+   "prompt": "glitched pixelated cat silhouette, game spell icon"
+  },
+  {
+   "id": "spell_mec_tourelle",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/mec_tourelle.png",
+   "size": 72,
+   "prompt": "small portable gun turret robot, game spell icon"
+  },
+  {
+   "id": "spell_mec_mines",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/mec_mines.png",
+   "size": 72,
+   "prompt": "landmines with blinking red lights, game spell icon"
+  },
+  {
+   "id": "spell_mec_scotch",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/mec_scotch.png",
+   "size": 72,
+   "prompt": "roll of shiny duct tape with sparkles, game spell icon"
+  },
+  {
+   "id": "spell_mec_boulon",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/mec_boulon.png",
+   "size": 72,
+   "prompt": "explosive bolts and nuts with fuses, game spell icon"
+  },
+  {
+   "id": "spell_mec_surcharge",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/mec_surcharge.png",
+   "size": 72,
+   "prompt": "overloaded generator with yellow lightning, game spell icon"
+  },
+  {
+   "id": "spell_mec_champ",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/mec_champ.png",
+   "size": 72,
+   "prompt": "blue hexagonal force field bubble, game spell icon"
+  },
+  {
+   "id": "spell_mec_ingenieur",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/mec_ingenieur.png",
+   "size": 72,
+   "prompt": "engineer blueprint with gears, game spell icon"
+  },
+  {
+   "id": "spell_mec_outils",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/mec_outils.png",
+   "size": 72,
+   "prompt": "red toolbox full of tools, game spell icon"
+  },
+  {
+   "id": "spell_mec_recup",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/mec_recup.png",
+   "size": 72,
+   "prompt": "recycling bin with cyan data crystals, game spell icon"
+  },
+  {
+   "id": "spell_mec_modulaire",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/mec_modulaire.png",
+   "size": 72,
+   "prompt": "modular armor plates snapping together, game spell icon"
+  },
+  {
+   "id": "spell_mec_etincelles",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/mec_etincelles.png",
+   "size": 72,
+   "prompt": "angle grinder throwing sparks, game spell icon"
+  },
+  {
+   "id": "spell_cap_bordee",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/cap_bordee.png",
+   "size": 72,
+   "prompt": "pirate ship cannons firing a broadside, game spell icon"
+  },
+  {
+   "id": "spell_cap_abordage",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/cap_abordage.png",
+   "size": 72,
+   "prompt": "crossed pirate sabers with a skull, game spell icon"
+  },
+  {
+   "id": "spell_cap_tresor",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/cap_tresor.png",
+   "size": 72,
+   "prompt": "open treasure chest full of gold coins, game spell icon"
+  },
+  {
+   "id": "spell_cap_rhum",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/cap_rhum.png",
+   "size": 72,
+   "prompt": "bottle of glowing neon rum, game spell icon"
+  },
+  {
+   "id": "spell_cap_kraken",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/cap_kraken.png",
+   "size": 72,
+   "prompt": "kraken tentacles rising from water, neon, game spell icon"
+  },
+  {
+   "id": "spell_cap_boulets",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/cap_boulets.png",
+   "size": 72,
+   "prompt": "cannonballs falling from the sky, game spell icon"
+  },
+  {
+   "id": "spell_cap_lynx",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/cap_lynx.png",
+   "size": 72,
+   "prompt": "pirate spyglass telescope, game spell icon"
+  },
+  {
+   "id": "spell_cap_pillage",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/cap_pillage.png",
+   "size": 72,
+   "prompt": "bag of loot with gold coins, game spell icon"
+  },
+  {
+   "id": "spell_cap_loup",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/cap_loup.png",
+   "size": 72,
+   "prompt": "anchor with a rope, sea wolf, game spell icon"
+  },
+  {
+   "id": "spell_cap_sabre",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/cap_sabre.png",
+   "size": 72,
+   "prompt": "sharp pirate cutlass sword, game spell icon"
+  },
+  {
+   "id": "spell_cap_perroquet",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/cap_perroquet.png",
+   "size": 72,
+   "prompt": "cyber parrot carrying a bomb, game spell icon"
+  },
+  {
+   "id": "spell_dodge_patatron",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/dodge_patatron.png",
+   "size": 72,
+   "prompt": "armored android doing a fast combat roll with motion lines, game ability icon"
+  },
+  {
+   "id": "spell_dodge_volta",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/dodge_volta.png",
+   "size": 72,
+   "prompt": "teleport blink with cyan lightning flash, game ability icon"
+  },
+  {
+   "id": "spell_dodge_brutus",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/dodge_brutus.png",
+   "size": 72,
+   "prompt": "robot jumping and smashing the ground, shockwave, game ability icon"
+  },
+  {
+   "id": "spell_dodge_glitchette",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/dodge_glitchette.png",
+   "size": 72,
+   "prompt": "glitchy ghost cat dashing through walls, game ability icon"
+  },
+  {
+   "id": "spell_dodge_mecano",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/dodge_mecano.png",
+   "size": 72,
+   "prompt": "jetpack rocket boost with flames, game ability icon"
+  },
+  {
+   "id": "spell_dodge_capitaine",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/dodge_capitaine.png",
+   "size": 72,
+   "prompt": "grappling hook with rope, game ability icon"
+  },
+  {
+   "id": "ui_drone_arme",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/ui/drone_arme.png",
+   "size": 96,
+   "prompt": "small cute round hovering combat drone seen from the front, four tiny propellers, glowing cyan eye, empty weapon mount clamp underneath, sci-fi toy"
+  },
+  {
+   "id": "spell_gen_laser",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gen_laser.png",
+   "size": 72,
+   "prompt": "red laser cannon firing a straight beam, game item icon"
+  },
+  {
+   "id": "spell_gen_rail",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gen_rail.png",
+   "size": 72,
+   "prompt": "sleek cyan railgun with electric coils, piercing beam, game item icon"
+  },
+  {
+   "id": "spell_gen_cryo",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gen_cryo.png",
+   "size": 72,
+   "prompt": "icy blue freeze ray gun with frost crystals, game item icon"
+  },
+  {
+   "id": "spell_gen_orbitale",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gen_orbitale.png",
+   "size": 72,
+   "prompt": "golden orbital satellite strike beam hitting a target from the sky, game item icon"
+  },
+  {
+   "id": "spell_gen_iem",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gen_iem.png",
+   "size": 72,
+   "prompt": "purple EMP grenade with electric sparks, game item icon"
+  },
+  {
+   "id": "spell_gen_trounoir",
+   "wf": "sprite",
+   "style": "icon",
+   "out": "assets/sprites/spells/gen_trounoir.png",
+   "size": 72,
+   "prompt": "tiny swirling black hole with purple accretion disk, game item icon"
+  }
+ ],
+ "music": [
+  {
+   "id": "mus_menu",
+   "out": "assets/music/menu.ogg",
+   "duration": 90,
+   "bpm": 100,
+   "key": "D minor",
+   "prompt": "instrumental, chill synthwave, cyberpunk, catchy main menu theme, warm analog pads, funky bass, light retro drums, playful, video game soundtrack"
+  },
+  {
+   "id": "mus_carte",
+   "out": "assets/music/carte.ogg",
+   "duration": 75,
+   "bpm": 92,
+   "key": "F major",
+   "prompt": "instrumental, lofi chiptune, cozy and humorous, quirky synth melody, bouncy bass, campaign map video game music"
+  },
+  {
+   "id": "mus_boutique",
+   "out": "assets/music/boutique.ogg",
+   "duration": 75,
+   "bpm": 105,
+   "key": "G major",
+   "prompt": "instrumental, funky elevator shop music, cheesy synth, slap bass, comedic, retro video game shop theme"
+  },
+  {
+   "id": "mus_zone1",
+   "out": "assets/music/zone1.ogg",
+   "duration": 120,
+   "bpm": 140,
+   "key": "A minor",
+   "prompt": "instrumental, energetic synthwave battle music, driving bassline, arpeggiated synths, punchy drums, junkyard industrial percussion, video game action"
+  },
+  {
+   "id": "mus_zone2",
+   "out": "assets/music/zone2.ogg",
+   "duration": 120,
+   "bpm": 135,
+   "key": "E minor",
+   "prompt": "instrumental, cyberpunk electro house, neon city at night, pulsing synth leads, heavy kick, energetic video game battle music"
+  },
+  {
+   "id": "mus_zone3",
+   "out": "assets/music/zone3.ogg",
+   "duration": 120,
+   "bpm": 130,
+   "key": "C minor",
+   "prompt": "instrumental, organic electronic, glitchy breakbeat, marimba and synth, jungle drums, energetic video game battle music"
+  },
+  {
+   "id": "mus_zone4",
+   "out": "assets/music/zone4.ogg",
+   "duration": 120,
+   "bpm": 138,
+   "key": "B minor",
+   "prompt": "instrumental, icy trance, cold shimmering synths, fast arpeggios, energetic drums, video game battle music"
+  },
+  {
+   "id": "mus_zone5",
+   "out": "assets/music/zone5.ogg",
+   "duration": 120,
+   "bpm": 150,
+   "key": "D minor",
+   "prompt": "instrumental, dark aggressive cyberpunk, distorted bass, industrial drums, intense video game final level music"
+  },
+  {
+   "id": "mus_boss",
+   "out": "assets/music/boss.ogg",
+   "duration": 120,
+   "bpm": 160,
+   "key": "C# minor",
+   "prompt": "instrumental, epic boss battle, heavy synth metal, double kick drums, dramatic choir pads, distorted guitars, intense video game boss music"
+  },
+  {
+   "id": "mus_pvp",
+   "out": "assets/music/pvp.ogg",
+   "duration": 120,
+   "bpm": 145,
+   "key": "G minor",
+   "prompt": "instrumental, competitive arena electronic, hard hitting drums, aggressive synth bass, hype, video game multiplayer battle music"
+  },
+  {
+   "id": "mus_victoire",
+   "out": "assets/music/victoire.ogg",
+   "duration": 20,
+   "bpm": 120,
+   "key": "C major",
+   "prompt": "instrumental, short triumphant victory fanfare, synth brass, celebratory, video game victory jingle"
+  },
+  {
+   "id": "mus_defaite",
+   "out": "assets/music/defaite.ogg",
+   "duration": 15,
+   "bpm": 80,
+   "key": "A minor",
+   "prompt": "instrumental, short sad comedic game over jingle, descending synth, wah wah trombone feeling, video game"
+  }
+ ],
+ "sfx": [
+  {
+   "id": "sfx_laser",
+   "out": "assets/sfx/laser.wav",
+   "duration": 1.0,
+   "prompt": "short sci-fi laser gun shot, pew, video game sound effect, punchy, clean"
+  },
+  {
+   "id": "sfx_plasma",
+   "out": "assets/sfx/plasma.wav",
+   "duration": 1.2,
+   "prompt": "short heavy plasma shotgun blast, sci-fi, video game sound effect"
+  },
+  {
+   "id": "sfx_mitraille",
+   "out": "assets/sfx/mitraille.wav",
+   "duration": 0.6,
+   "prompt": "single short electronic pulse gun shot, quick tick, sci-fi, video game sound effect"
+  },
+  {
+   "id": "sfx_roquette",
+   "out": "assets/sfx/roquette.wav",
+   "duration": 1.5,
+   "prompt": "rocket launch whoosh, missile firing, video game sound effect"
+  },
+  {
+   "id": "sfx_explosion",
+   "out": "assets/sfx/explosion.wav",
+   "duration": 2.0,
+   "prompt": "cartoon explosion boom, punchy, video game sound effect"
+  },
+  {
+   "id": "sfx_lame",
+   "out": "assets/sfx/lame.wav",
+   "duration": 0.8,
+   "prompt": "energy sword swing whoosh, sci-fi lightsaber swipe, video game sound effect"
+  },
+  {
+   "id": "sfx_marteau",
+   "out": "assets/sfx/marteau.wav",
+   "duration": 1.2,
+   "prompt": "heavy metal hammer impact on the ground, thud, video game sound effect"
+  },
+  {
+   "id": "sfx_tesla",
+   "out": "assets/sfx/tesla.wav",
+   "duration": 1.0,
+   "prompt": "electric zap, crackling lightning arc, video game sound effect"
+  },
+  {
+   "id": "sfx_flammes",
+   "out": "assets/sfx/flammes.wav",
+   "duration": 1.2,
+   "prompt": "short flamethrower burst, fire whoosh, video game sound effect"
+  },
+  {
+   "id": "sfx_railgun",
+   "out": "assets/sfx/railgun.wav",
+   "duration": 1.5,
+   "prompt": "powerful railgun charge and shot, electric sci-fi blast, video game sound effect"
+  },
+  {
+   "id": "sfx_shuriken",
+   "out": "assets/sfx/shuriken.wav",
+   "duration": 0.8,
+   "prompt": "spinning blade throw whoosh, ninja star, video game sound effect"
+  },
+  {
+   "id": "sfx_mine",
+   "out": "assets/sfx/mine.wav",
+   "duration": 0.8,
+   "prompt": "small metallic object dropped on the floor with an electronic beep, video game sound effect"
+  },
+  {
+   "id": "sfx_impact",
+   "out": "assets/sfx/impact.wav",
+   "duration": 0.5,
+   "prompt": "short punchy hit impact on robot, metallic thwack, video game sound effect"
+  },
+  {
+   "id": "sfx_mort_ennemi",
+   "out": "assets/sfx/mort_ennemi.wav",
+   "duration": 0.8,
+   "prompt": "small robot breaking apart, electronic pop and crunch, cartoon, video game sound effect"
+  },
+  {
+   "id": "sfx_mort_gros",
+   "out": "assets/sfx/mort_gros.wav",
+   "duration": 2.0,
+   "prompt": "big robot monster destroyed, electronic explosion with metal debris, video game sound effect"
+  },
+  {
+   "id": "sfx_degat_joueur",
+   "out": "assets/sfx/degat_joueur.wav",
+   "duration": 0.6,
+   "prompt": "cartoon character hurt, short electronic damage buzz, video game sound effect"
+  },
+  {
+   "id": "sfx_mort_joueur",
+   "out": "assets/sfx/mort_joueur.wav",
+   "duration": 2.0,
+   "prompt": "sad robot power down, descending electronic tone, video game sound effect"
+  },
+  {
+   "id": "sfx_ramasse",
+   "out": "assets/sfx/ramasse.wav",
+   "duration": 0.5,
+   "prompt": "short bright pickup chime, collect gem, blip, video game sound effect"
+  },
+  {
+   "id": "sfx_soin",
+   "out": "assets/sfx/soin.wav",
+   "duration": 1.0,
+   "prompt": "healing sparkle chime, magical restoration, video game sound effect"
+  },
+  {
+   "id": "sfx_niveau",
+   "out": "assets/sfx/niveau.wav",
+   "duration": 1.5,
+   "prompt": "level up jingle, rising arpeggio, bright synth, video game sound effect"
+  },
+  {
+   "id": "sfx_vague_debut",
+   "out": "assets/sfx/vague_debut.wav",
+   "duration": 2.0,
+   "prompt": "sci-fi alarm horn signaling the start of a battle, video game sound effect"
+  },
+  {
+   "id": "sfx_vague_fin",
+   "out": "assets/sfx/vague_fin.wav",
+   "duration": 2.0,
+   "prompt": "short success fanfare sting, synth, wave complete, video game sound effect"
+  },
+  {
+   "id": "sfx_achat",
+   "out": "assets/sfx/achat.wav",
+   "duration": 0.9,
+   "prompt": "bright futuristic purchase confirmation, quick rising synth arpeggio with crystal chime and soft digital sparkle, satisfying arcade shop buy sound, clean, no voice"
+  },
+  {
+   "id": "sfx_reroll",
+   "out": "assets/sfx/reroll.wav",
+   "duration": 0.8,
+   "prompt": "slot machine spin shuffle, quick, video game sound effect"
+  },
+  {
+   "id": "sfx_clic",
+   "out": "assets/sfx/clic.wav",
+   "duration": 0.3,
+   "prompt": "short clean user interface click, soft button press, video game sound effect"
+  },
+  {
+   "id": "sfx_survol",
+   "out": "assets/sfx/survol.wav",
+   "duration": 0.3,
+   "prompt": "very short soft user interface hover tick, subtle blip, video game sound effect"
+  },
+  {
+   "id": "sfx_erreur",
+   "out": "assets/sfx/erreur.wav",
+   "duration": 0.6,
+   "prompt": "short error buzzer, negative beep, video game user interface sound effect"
+  },
+  {
+   "id": "sfx_boss",
+   "out": "assets/sfx/boss.wav",
+   "duration": 3.0,
+   "prompt": "giant robot monster roar with distorted electronic growl, boss appears, video game sound effect"
+  },
+  {
+   "id": "sfx_dash",
+   "out": "assets/sfx/dash.wav",
+   "duration": 0.6,
+   "prompt": "fast dash whoosh, quick air swoosh, video game sound effect"
+  },
+  {
+   "id": "sfx_palier",
+   "out": "assets/sfx/palier.wav",
+   "duration": 2.0,
+   "prompt": "reward unlocked fanfare, shiny chimes and synth, battle pass tier up, video game sound effect"
+  },
+  {
+   "id": "sfx_tir_ennemi",
+   "out": "assets/sfx/tir_ennemi.wav",
+   "duration": 0.6,
+   "prompt": "short low pitched enemy energy blaster shot, video game sound effect"
+  },
+  {
+   "id": "sfx_dialogue",
+   "out": "assets/sfx/dialogue.wav",
+   "duration": 0.3,
+   "prompt": "tiny cute robotic blip, single beep for dialogue text, video game sound effect"
+  },
+  {
+   "id": "sfx_vente",
+   "out": "assets/sfx/vente.wav",
+   "duration": 0.8,
+   "prompt": "short descending synth blip with a few coins clinking into a metal tray, arcade shop sell sound, clean, no voice"
+  }
+ ],
+ "pixel_styles": [
+  "sprite",
+  "icon"
+ ]
+}

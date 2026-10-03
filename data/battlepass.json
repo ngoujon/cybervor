@@ -1,0 +1,744 @@
+{
+  "season": 1,
+  "name": "Saison 1 : Surtension",
+  "ends": "2027-01-31",
+  "desc": "Le Noyau a fait sauter les plombs. Récupérez l'électricité perdue… et des chapeaux ridicules.",
+  "xp_per_tier": 1000,
+  "premium_price_neons": 600,
+  "tier_skip_neons": 120,
+  "xp_sources": {
+    "wave": 40,
+    "kill": 1,
+    "boss": 300,
+    "victory": 400,
+    "mission_first_clear": 500,
+    "pvp_round_win": 120,
+    "pvp_match_win": 400,
+    "coop_bonus_pct": 20
+  },
+  "tiers": [
+    {
+      "tier": 1,
+      "free": {
+        "type": "neons",
+        "amount": 20
+      },
+      "premium": {
+        "type": "neons",
+        "amount": 40
+      }
+    },
+    {
+      "tier": 2,
+      "free": {
+        "type": "title",
+        "id": "t_ctrlz"
+      },
+      "premium": {
+        "type": "hat",
+        "id": "casquette"
+      }
+    },
+    {
+      "tier": 3,
+      "free": {
+        "type": "color",
+        "id": "menthe"
+      },
+      "premium": {
+        "type": "title",
+        "id": "t_stagiaire"
+      }
+    },
+    {
+      "tier": 4,
+      "free": {
+        "type": "title",
+        "id": "t_404"
+      },
+      "premium": {
+        "type": "color",
+        "id": "rose"
+      }
+    },
+    {
+      "tier": 5,
+      "free": {
+        "type": "neons",
+        "amount": 20
+      },
+      "premium": {
+        "type": "neons",
+        "amount": 40
+      }
+    },
+    {
+      "tier": 6,
+      "free": {
+        "type": "hat",
+        "id": "bob"
+      },
+      "premium": {
+        "type": "hat",
+        "id": "antenne"
+      }
+    },
+    {
+      "tier": 7,
+      "free": {
+        "type": "title",
+        "id": "t_lag"
+      },
+      "premium": {
+        "type": "title",
+        "id": "t_debug"
+      }
+    },
+    {
+      "tier": 8,
+      "free": {
+        "type": "color",
+        "id": "bubblegum"
+      },
+      "premium": {
+        "type": "color",
+        "id": "or"
+      }
+    },
+    {
+      "tier": 9,
+      "free": {
+        "type": "title",
+        "id": "t_cafe"
+      },
+      "premium": {
+        "type": "hat",
+        "id": "cowboy"
+      }
+    },
+    {
+      "tier": 10,
+      "free": {
+        "type": "neons",
+        "amount": 30
+      },
+      "premium": {
+        "type": "neons",
+        "amount": 60
+      }
+    },
+    {
+      "tier": 11,
+      "free": {
+        "type": "color",
+        "id": "cuivre"
+      },
+      "premium": {
+        "type": "title",
+        "id": "t_cookie"
+      }
+    },
+    {
+      "tier": 12,
+      "free": {
+        "type": "title",
+        "id": "t_canard"
+      },
+      "premium": {
+        "type": "color",
+        "id": "matrix"
+      }
+    },
+    {
+      "tier": 13,
+      "free": {
+        "type": "hat",
+        "id": "helice"
+      },
+      "premium": {
+        "type": "hat",
+        "id": "chef"
+      }
+    },
+    {
+      "tier": 14,
+      "free": {
+        "type": "title",
+        "id": "t_wifi"
+      },
+      "premium": {
+        "type": "title",
+        "id": "t_patate"
+      }
+    },
+    {
+      "tier": 15,
+      "free": {
+        "type": "neons",
+        "amount": 30
+      },
+      "premium": {
+        "type": "neons",
+        "amount": 60
+      }
+    },
+    {
+      "tier": 16,
+      "free": {
+        "type": "color",
+        "id": "lavande"
+      },
+      "premium": {
+        "type": "color",
+        "id": "nuit"
+      }
+    },
+    {
+      "tier": 17,
+      "free": {
+        "type": "title",
+        "id": "t_bug"
+      },
+      "premium": {
+        "type": "hat",
+        "id": "cornes"
+      }
+    },
+    {
+      "tier": 18,
+      "free": {
+        "type": "title",
+        "id": "t_reboot"
+      },
+      "premium": {
+        "type": "title",
+        "id": "t_pirate"
+      }
+    },
+    {
+      "tier": 19,
+      "free": {
+        "type": "color",
+        "id": "citron"
+      },
+      "premium": {
+        "type": "color",
+        "id": "lave"
+      }
+    },
+    {
+      "tier": 20,
+      "free": {
+        "type": "neons",
+        "amount": 40
+      },
+      "premium": {
+        "type": "neons",
+        "amount": 80
+      }
+    },
+    {
+      "tier": 21,
+      "free": {
+        "type": "hat",
+        "id": "pizza"
+      },
+      "premium": {
+        "type": "hat",
+        "id": "viking"
+      }
+    },
+    {
+      "tier": 22,
+      "free": {
+        "type": "title",
+        "id": "t_pixel"
+      },
+      "premium": {
+        "type": "title",
+        "id": "t_root"
+      }
+    },
+    {
+      "tier": 23,
+      "free": {
+        "type": "color",
+        "id": "ocean"
+      },
+      "premium": {
+        "type": "color",
+        "id": "glace"
+      }
+    },
+    {
+      "tier": 24,
+      "free": {
+        "type": "title",
+        "id": "t_mamie"
+      },
+      "premium": {
+        "type": "hat",
+        "id": "aureole"
+      }
+    },
+    {
+      "tier": 25,
+      "free": {
+        "type": "neons",
+        "amount": 40
+      },
+      "premium": {
+        "type": "neons",
+        "amount": 80
+      }
+    },
+    {
+      "tier": 26,
+      "free": {
+        "type": "title",
+        "id": "t_moustache"
+      },
+      "premium": {
+        "type": "title",
+        "id": "t_ram"
+      }
+    },
+    {
+      "tier": 27,
+      "free": {
+        "type": "color",
+        "id": "corail"
+      },
+      "premium": {
+        "type": "color",
+        "id": "fantome"
+      }
+    },
+    {
+      "tier": 28,
+      "free": {
+        "type": "title",
+        "id": "t_tomate"
+      },
+      "premium": {
+        "type": "title",
+        "id": "t_chapeau"
+      }
+    },
+    {
+      "tier": 29,
+      "free": {
+        "type": "hat",
+        "id": "ninja"
+      },
+      "premium": {
+        "type": "title",
+        "id": "t_surtension"
+      }
+    },
+    {
+      "tier": 30,
+      "free": {
+        "type": "neons",
+        "amount": 50
+      },
+      "premium": {
+        "type": "neons",
+        "amount": 100
+      }
+    },
+    {
+      "tier": 31,
+      "free": {
+        "type": "title",
+        "id": "t_glace"
+      },
+      "premium": {
+        "type": "color",
+        "id": "arcenciel"
+      }
+    },
+    {
+      "tier": 32,
+      "free": {
+        "type": "color",
+        "id": "onyx"
+      },
+      "premium": {
+        "type": "hat",
+        "id": "sorcier"
+      }
+    },
+    {
+      "tier": 33,
+      "free": {
+        "type": "title",
+        "id": "t_holo"
+      },
+      "premium": {
+        "type": "title",
+        "id": "t_turbo"
+      }
+    },
+    {
+      "tier": 34,
+      "free": {
+        "type": "color",
+        "id": "turquoise"
+      },
+      "premium": {
+        "type": "color",
+        "id": "caramel"
+      }
+    },
+    {
+      "tier": 35,
+      "free": {
+        "type": "neons",
+        "amount": 60
+      },
+      "premium": {
+        "type": "neons",
+        "amount": 120
+      }
+    },
+    {
+      "tier": 36,
+      "free": {
+        "type": "title",
+        "id": "t_decharge"
+      },
+      "premium": {
+        "type": "hat",
+        "id": "casque_audio"
+      }
+    },
+    {
+      "tier": 37,
+      "free": {
+        "type": "hat",
+        "id": "fez"
+      },
+      "premium": {
+        "type": "title",
+        "id": "t_patch"
+      }
+    },
+    {
+      "tier": 38,
+      "free": {
+        "type": "title",
+        "id": "t_survivant"
+      },
+      "premium": {
+        "type": "color",
+        "id": "neon_vert"
+      }
+    },
+    {
+      "tier": 39,
+      "free": {
+        "type": "color",
+        "id": "prune"
+      },
+      "premium": {
+        "type": "hat",
+        "id": "astronaute"
+      }
+    },
+    {
+      "tier": 40,
+      "free": {
+        "type": "title",
+        "id": "t_legende"
+      },
+      "premium": {
+        "type": "hat",
+        "id": "couronne"
+      }
+    }
+  ],
+  "hats": {
+    "casquette": {
+      "name": "Casquette cyber",
+      "sprite": "res://assets/sprites/hats/casquette.png"
+    },
+    "antenne": {
+      "name": "Antennes rigolotes",
+      "sprite": "res://assets/sprites/hats/antenne.png"
+    },
+    "cowboy": {
+      "name": "Chapeau de cow-boy néon",
+      "sprite": "res://assets/sprites/hats/cowboy.png"
+    },
+    "chef": {
+      "name": "Toque de chef",
+      "sprite": "res://assets/sprites/hats/chef.png"
+    },
+    "cornes": {
+      "name": "Cornes de diablotin",
+      "sprite": "res://assets/sprites/hats/cornes.png"
+    },
+    "viking": {
+      "name": "Casque viking LED",
+      "sprite": "res://assets/sprites/hats/viking.png"
+    },
+    "aureole": {
+      "name": "Auréole",
+      "sprite": "res://assets/sprites/hats/aureole.png"
+    },
+    "couronne": {
+      "name": "Couronne royale",
+      "sprite": "res://assets/sprites/hats/couronne.png"
+    },
+    "bob": {
+      "name": "Bob fluo",
+      "sprite": "res://assets/sprites/hats/bob.png"
+    },
+    "fez": {
+      "name": "Fez à pompon LED",
+      "sprite": "res://assets/sprites/hats/fez.png"
+    },
+    "sorcier": {
+      "name": "Chapeau de sorcier du code",
+      "sprite": "res://assets/sprites/hats/sorcier.png"
+    },
+    "casque_audio": {
+      "name": "Casque gamer RGB",
+      "sprite": "res://assets/sprites/hats/casque_audio.png"
+    },
+    "helice": {
+      "name": "Casquette à hélice",
+      "sprite": "res://assets/sprites/hats/helice.png"
+    },
+    "ninja": {
+      "name": "Bandeau de ninja",
+      "sprite": "res://assets/sprites/hats/ninja.png"
+    },
+    "pizza": {
+      "name": "Part de pizza (chapeau)",
+      "sprite": "res://assets/sprites/hats/pizza.png"
+    },
+    "astronaute": {
+      "name": "Casque d'astronaute",
+      "sprite": "res://assets/sprites/hats/astronaute.png"
+    }
+  },
+  "colors": {
+    "rose": {
+      "name": "Rose bonbon",
+      "color": "#ff8fd1"
+    },
+    "or": {
+      "name": "Plaqué or",
+      "color": "#ffd700"
+    },
+    "matrix": {
+      "name": "Vert Matrix",
+      "color": "#3dff7a"
+    },
+    "nuit": {
+      "name": "Mode nuit",
+      "color": "#6c63ff"
+    },
+    "lave": {
+      "name": "Lave en fusion",
+      "color": "#ff5a1f"
+    },
+    "glace": {
+      "name": "Glaçon",
+      "color": "#a8e8ff"
+    },
+    "fantome": {
+      "name": "Fantôme",
+      "color": "#ffffff",
+      "alpha": 0.55
+    },
+    "arcenciel": {
+      "name": "Arc-en-ciel RGB",
+      "color": "rainbow"
+    },
+    "menthe": {
+      "name": "Menthe glaciale",
+      "color": "#7dffd4"
+    },
+    "bubblegum": {
+      "name": "Chewing-gum",
+      "color": "#ff6fb5"
+    },
+    "cuivre": {
+      "name": "Cuivre rétro",
+      "color": "#d98a4f"
+    },
+    "lavande": {
+      "name": "Lavande",
+      "color": "#b8a1ff"
+    },
+    "citron": {
+      "name": "Citron pressé",
+      "color": "#f4ff5f"
+    },
+    "ocean": {
+      "name": "Océan profond",
+      "color": "#2fa8ff"
+    },
+    "corail": {
+      "name": "Corail",
+      "color": "#ff7f6b"
+    },
+    "onyx": {
+      "name": "Onyx",
+      "color": "#5a5470"
+    },
+    "turquoise": {
+      "name": "Turquoise",
+      "color": "#3fe0d0"
+    },
+    "prune": {
+      "name": "Prune",
+      "color": "#a64dff"
+    },
+    "caramel": {
+      "name": "Caramel",
+      "color": "#e6a35c"
+    },
+    "neon_vert": {
+      "name": "Néon toxique",
+      "color": "#9dff00"
+    }
+  },
+  "titles": {
+    "t_stagiaire": "Stagiaire du chaos",
+    "t_debug": "Débogueur fou",
+    "t_cookie": "Mangeur de cookies",
+    "t_patate": "Androïde légendaire",
+    "t_pirate": "Pirate du Wi-Fi",
+    "t_root": "Administrateur root",
+    "t_ram": "Petit-enfant préféré de Mamie RAM",
+    "t_surtension": "Seigneur de la Surtension",
+    "t_ctrlz": "Maître du Ctrl+Z",
+    "t_404": "Introuvable (404)",
+    "t_lag": "Roi du lag",
+    "t_cafe": "Alimenté au café",
+    "t_canard": "Ami des canards en plastique",
+    "t_wifi": "Chasseur de Wi-Fi gratuit",
+    "t_bug": "Ce n'est pas un bug, c'est une fonctionnalité",
+    "t_reboot": "Redémarreur professionnel",
+    "t_pixel": "Pixel parfait",
+    "t_mamie": "Chouchou de Mamie RAM",
+    "t_moustache": "Rival de la moustache du Noyau",
+    "t_tomate": "Jardinier de tomates Bluetooth",
+    "t_glace": "Climatiseur humain",
+    "t_holo": "Star des hologrammes",
+    "t_decharge": "Roi de la décharge",
+    "t_survivant": "Survivant de la mise à jour",
+    "t_turbo": "Mode turbo activé",
+    "t_patch": "Patch note ambulant",
+    "t_chapeau": "Collectionneur de chapeaux",
+    "t_legende": "Légende du Réseau"
+  },
+  "challenges": {
+    "daily": [
+      {
+        "id": "d_kills",
+        "text": "Éliminer {n} ennemis",
+        "stat": "kills",
+        "n": 400,
+        "xp": 300
+      },
+      {
+        "id": "d_waves",
+        "text": "Survivre à {n} vagues",
+        "stat": "waves",
+        "n": 12,
+        "xp": 300
+      },
+      {
+        "id": "d_data",
+        "text": "Ramasser {n} données",
+        "stat": "data",
+        "n": 600,
+        "xp": 250
+      },
+      {
+        "id": "d_boss",
+        "text": "Vaincre {n} boss",
+        "stat": "bosses",
+        "n": 1,
+        "xp": 400
+      },
+      {
+        "id": "d_coop",
+        "text": "Jouer {n} partie(s) en coop",
+        "stat": "coop_games",
+        "n": 1,
+        "xp": 350
+      },
+      {
+        "id": "d_pvp",
+        "text": "Gagner {n} manches en PvP",
+        "stat": "pvp_rounds",
+        "n": 3,
+        "xp": 350
+      },
+      {
+        "id": "d_items",
+        "text": "Acheter {n} objets en boutique",
+        "stat": "purchases",
+        "n": 15,
+        "xp": 250
+      },
+      {
+        "id": "d_levels",
+        "text": "Monter {n} niveaux en partie",
+        "stat": "levels",
+        "n": 20,
+        "xp": 250
+      }
+    ],
+    "weekly": [
+      {
+        "id": "w_kills",
+        "text": "Éliminer {n} ennemis",
+        "stat": "kills",
+        "n": 5000,
+        "xp": 1500
+      },
+      {
+        "id": "w_missions",
+        "text": "Terminer {n} missions de campagne",
+        "stat": "missions",
+        "n": 5,
+        "xp": 1500
+      },
+      {
+        "id": "w_boss",
+        "text": "Vaincre {n} boss",
+        "stat": "bosses",
+        "n": 5,
+        "xp": 1500
+      },
+      {
+        "id": "w_pvp",
+        "text": "Gagner {n} matchs PvP",
+        "stat": "pvp_wins",
+        "n": 3,
+        "xp": 1500
+      },
+      {
+        "id": "w_waves",
+        "text": "Survivre à {n} vagues",
+        "stat": "waves",
+        "n": 100,
+        "xp": 1200
+      },
+      {
+        "id": "w_coop",
+        "text": "Jouer {n} parties en coop",
+        "stat": "coop_games",
+        "n": 5,
+        "xp": 1500
+      }
+    ]
+  }
+}

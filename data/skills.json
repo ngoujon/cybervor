@@ -1,0 +1,75 @@
+{
+  "trees": [
+    {"id": "assaut", "name": "Assaut", "icon": "res://assets/sprites/skills/assaut.png", "color": "#ff4d6d",
+      "desc": "Taper plus fort, taper plus vite. La philosophie de la simplicité.",
+      "nodes": [
+        {"id": "as_degats", "name": "Puissance brute", "pos": [2, 0], "max": 5, "cost": 1, "req": [], "stats": {"damage": 3}, "desc": "+3 % de dégâts par rang."},
+        {"id": "as_vitesse", "name": "Gâchette nerveuse", "pos": [1, 1], "max": 5, "cost": 1, "req": ["as_degats"], "stats": {"attack_speed": 3}, "desc": "+3 % de vitesse d'attaque par rang."},
+        {"id": "as_crit", "name": "Point faible", "pos": [3, 1], "max": 5, "cost": 1, "req": ["as_degats"], "stats": {"crit": 2}, "desc": "+2 % de coups critiques par rang."},
+        {"id": "as_melee", "name": "Poings d'acier", "pos": [0, 2], "max": 3, "cost": 1, "req": ["as_vitesse"], "stats": {"melee": 2}, "desc": "+2 dégâts de mêlée par rang."},
+        {"id": "as_distance", "name": "Œil de lynx", "pos": [2, 2], "max": 3, "cost": 1, "req": ["as_vitesse", "as_crit"], "req_any": true, "stats": {"ranged": 2}, "desc": "+2 dégâts à distance par rang."},
+        {"id": "as_critdmg", "name": "Coup fatal", "pos": [4, 2], "max": 3, "cost": 1, "req": ["as_crit"], "stats": {"crit_dmg": 15}, "desc": "+15 % de dégâts critiques par rang."},
+        {"id": "as_recul", "name": "Pousse-toi de là", "pos": [0, 3], "max": 2, "cost": 1, "req": ["as_melee"], "stats": {"knockback": 25}, "desc": "+25 de recul par rang."},
+        {"id": "as_perce", "name": "Balles perforantes", "pos": [2, 3], "max": 1, "cost": 3, "req": ["as_distance"], "stats": {"pierce": 1}, "desc": "Vos projectiles traversent 1 ennemi de plus."},
+        {"id": "as_boss", "name": "Chasseur de boss", "pos": [4, 3], "max": 3, "cost": 1, "req": ["as_critdmg"], "stats": {"boss_damage": 10}, "desc": "+10 % de dégâts contre les boss par rang."},
+        {"id": "as_multi", "name": "Tir multiple", "pos": [2, 4], "max": 1, "cost": 5, "req": ["as_perce", "as_boss", "as_recul"], "req_any": true, "stats": {"projectiles": 1}, "desc": "ULTIME : +1 projectile pour toutes les armes à projectiles."}
+      ]
+    },
+    {"id": "blindage", "name": "Blindage", "icon": "res://assets/sprites/skills/blindage.png", "color": "#4cc9f0",
+      "desc": "Encaisser comme un frigo des années 80.",
+      "nodes": [
+        {"id": "bl_pv", "name": "Coque renforcée", "pos": [2, 0], "max": 5, "cost": 1, "req": [], "stats": {"max_hp": 3}, "desc": "+3 PV max par rang."},
+        {"id": "bl_armure", "name": "Plaques d'acier", "pos": [1, 1], "max": 4, "cost": 1, "req": ["bl_pv"], "stats": {"armor": 1}, "desc": "+1 armure par rang."},
+        {"id": "bl_regen", "name": "Auto-réparation", "pos": [3, 1], "max": 4, "cost": 1, "req": ["bl_pv"], "stats": {"hp_regen": 1}, "desc": "+1 régénération par rang."},
+        {"id": "bl_esquive", "name": "Pas de côté", "pos": [0, 2], "max": 4, "cost": 1, "req": ["bl_armure"], "stats": {"dodge": 2}, "desc": "+2 % d'esquive par rang."},
+        {"id": "bl_epines", "name": "Carrosserie à pointes", "pos": [2, 2], "max": 3, "cost": 1, "req": ["bl_armure", "bl_regen"], "req_any": true, "stats": {"thorns": 4}, "desc": "Renvoie 4 dégâts par rang aux ennemis qui vous touchent."},
+        {"id": "bl_vol", "name": "Sangsue numérique", "pos": [4, 2], "max": 3, "cost": 1, "req": ["bl_regen"], "stats": {"life_steal": 1}, "desc": "+1 % de vol de vie par rang."},
+        {"id": "bl_bouclier", "name": "Bouclier d'énergie", "pos": [1, 3], "max": 2, "cost": 2, "req": ["bl_esquive", "bl_epines"], "req_any": true, "stats": {"shield": 1}, "desc": "Bloque 1 coup par vague et par rang."},
+        {"id": "bl_dash", "name": "Propulseurs", "pos": [3, 3], "max": 1, "cost": 2, "req": ["bl_epines", "bl_vol"], "req_any": true, "stats": {"dash": 1}, "desc": "Esquive (Espace) rechargée 30 % plus vite."},
+        {"id": "bl_revive", "name": "Sauvegarde automatique", "pos": [2, 4], "max": 1, "cost": 5, "req": ["bl_bouclier", "bl_dash"], "req_any": true, "stats": {"revive": 1}, "desc": "ULTIME : revenez à la vie une fois par partie avec 50 % de vos PV."}
+      ]
+    },
+    {"id": "technologie", "name": "Technologie", "icon": "res://assets/sprites/skills/technologie.png", "color": "#9d4edd",
+      "desc": "Pourquoi se battre quand des machines peuvent le faire à votre place ?",
+      "nodes": [
+        {"id": "te_tech", "name": "Surtension", "pos": [2, 0], "max": 5, "cost": 1, "req": [], "stats": {"tech": 1}, "desc": "+1 dégât techno par rang."},
+        {"id": "te_portee", "name": "Amplificateur", "pos": [1, 1], "max": 4, "cost": 1, "req": ["te_tech"], "stats": {"range": 15}, "desc": "+15 de portée par rang."},
+        {"id": "te_chain", "name": "Arc électrique", "pos": [3, 1], "max": 2, "cost": 2, "req": ["te_tech"], "stats": {"chain": 1}, "desc": "Les éclairs rebondissent sur 1 ennemi de plus par rang."},
+        {"id": "te_brulure", "name": "Surchauffe", "pos": [0, 2], "max": 4, "cost": 1, "req": ["te_portee"], "stats": {"burn_chance": 5}, "desc": "+5 % de chance d'embraser les ennemis touchés par rang."},
+        {"id": "te_drone", "name": "Drone de combat", "pos": [2, 2], "max": 2, "cost": 3, "req": ["te_portee", "te_chain"], "req_any": true, "stats": {"drones": 1}, "desc": "Un drone de plus vous accompagne et tire sur les ennemis."},
+        {"id": "te_vitesse", "name": "Refroidissement liquide", "pos": [4, 2], "max": 3, "cost": 1, "req": ["te_chain"], "stats": {"attack_speed": 4}, "desc": "+4 % de vitesse d'attaque par rang."},
+        {"id": "te_explosion", "name": "Réaction en chaîne", "pos": [1, 3], "max": 3, "cost": 2, "req": ["te_brulure", "te_drone"], "req_any": true, "stats": {"explode_on_kill": 5}, "desc": "+5 % de chance qu'un ennemi éliminé explose par rang."},
+        {"id": "te_tech2", "name": "Ingénierie avancée", "pos": [3, 3], "max": 3, "cost": 1, "req": ["te_drone", "te_vitesse"], "req_any": true, "stats": {"tech": 2}, "desc": "+2 dégâts techno par rang."},
+        {"id": "te_essaim", "name": "Essaim", "pos": [2, 4], "max": 1, "cost": 5, "req": ["te_explosion", "te_tech2"], "req_any": true, "stats": {"drones": 2}, "desc": "ULTIME : +2 drones de combat."}
+      ]
+    },
+    {"id": "piratage", "name": "Piratage", "icon": "res://assets/sprites/skills/piratage.png", "color": "#06ffa5",
+      "desc": "Tricher, mais légalement. Enfin, presque.",
+      "nodes": [
+        {"id": "pi_chance", "name": "Algorithme chanceux", "pos": [2, 0], "max": 5, "cost": 1, "req": [], "stats": {"luck": 4}, "desc": "+4 de chance par rang."},
+        {"id": "pi_xp", "name": "Apprentissage machine", "pos": [1, 1], "max": 4, "cost": 1, "req": ["pi_chance"], "stats": {"xp_gain": 5}, "desc": "+5 % de gain d'XP par rang."},
+        {"id": "pi_vitesse", "name": "Overclock des jambes", "pos": [3, 1], "max": 4, "cost": 1, "req": ["pi_chance"], "stats": {"speed": 3}, "desc": "+3 % de vitesse par rang."},
+        {"id": "pi_choix", "name": "Exploit de l'interface", "pos": [0, 2], "max": 1, "cost": 3, "req": ["pi_xp"], "stats": {"extra_choice": 1}, "desc": "Une amélioration de plus proposée à chaque niveau."},
+        {"id": "pi_crit", "name": "Injection SQL", "pos": [2, 2], "max": 3, "cost": 1, "req": ["pi_xp", "pi_vitesse"], "req_any": true, "stats": {"crit": 3}, "desc": "+3 % de coups critiques par rang."},
+        {"id": "pi_esquive", "name": "Mode furtif", "pos": [4, 2], "max": 3, "cost": 1, "req": ["pi_vitesse"], "stats": {"dodge": 3}, "desc": "+3 % d'esquive par rang."},
+        {"id": "pi_ramassage", "name": "Aspirateur à données", "pos": [1, 3], "max": 3, "cost": 1, "req": ["pi_choix", "pi_crit"], "req_any": true, "stats": {"pickup": 40}, "desc": "+40 de portée de ramassage par rang."},
+        {"id": "pi_critdmg", "name": "Faille zero-day", "pos": [3, 3], "max": 3, "cost": 1, "req": ["pi_crit", "pi_esquive"], "req_any": true, "stats": {"crit_dmg": 20}, "desc": "+20 % de dégâts critiques par rang."},
+        {"id": "pi_root", "name": "Accès root", "pos": [2, 4], "max": 1, "cost": 5, "req": ["pi_ramassage", "pi_critdmg"], "req_any": true, "stats": {"crit": 8, "luck": 15, "extra_choice": 1}, "desc": "ULTIME : +8 % critique, +15 chance, +1 choix d'amélioration."}
+      ]
+    },
+    {"id": "recolte", "name": "Récolte", "icon": "res://assets/sprites/skills/recolte.png", "color": "#ffd166",
+      "desc": "L'argent ne fait pas le bonheur, mais il achète des lance-roquettes.",
+      "nodes": [
+        {"id": "re_recolte", "name": "Moissonneuse", "pos": [2, 0], "max": 5, "cost": 1, "req": [], "stats": {"harvest": 3}, "desc": "+3 de récolte par rang (données bonus à chaque fin de vague)."},
+        {"id": "re_depart", "name": "Épargne", "pos": [1, 1], "max": 3, "cost": 1, "req": ["re_recolte"], "stats": {"start_data": 15}, "desc": "Commencez chaque partie avec 15 données de plus par rang."},
+        {"id": "re_gain", "name": "Compression ZIP", "pos": [3, 1], "max": 4, "cost": 1, "req": ["re_recolte"], "stats": {"data_gain": 5}, "desc": "+5 % de données ramassées par rang."},
+        {"id": "re_relance", "name": "Ami du marchand", "pos": [0, 2], "max": 2, "cost": 2, "req": ["re_depart"], "stats": {"free_reroll": 1}, "desc": "1 relance gratuite de la boutique par vague et par rang."},
+        {"id": "re_remise", "name": "Code promo", "pos": [2, 2], "max": 3, "cost": 1, "req": ["re_depart", "re_gain"], "req_any": true, "stats": {"shop_discount": 4}, "desc": "-4 % sur les prix de la boutique par rang."},
+        {"id": "re_aimant", "name": "Magnétisme", "pos": [4, 2], "max": 3, "cost": 1, "req": ["re_gain"], "stats": {"pickup": 30}, "desc": "+30 de portée de ramassage par rang."},
+        {"id": "re_chance", "name": "Ticket gagnant", "pos": [1, 3], "max": 3, "cost": 1, "req": ["re_relance", "re_remise"], "req_any": true, "stats": {"luck": 6}, "desc": "+6 de chance par rang."},
+        {"id": "re_xp", "name": "Formation continue", "pos": [3, 3], "max": 3, "cost": 1, "req": ["re_remise", "re_aimant"], "req_any": true, "stats": {"xp_gain": 6}, "desc": "+6 % de gain d'XP par rang."},
+        {"id": "re_jackpot", "name": "Jackpot", "pos": [2, 4], "max": 1, "cost": 5, "req": ["re_chance", "re_xp"], "req_any": true, "stats": {"harvest": 20, "data_gain": 15, "shop_discount": 8}, "desc": "ULTIME : +20 récolte, +15 % de données, -8 % en boutique."}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+# Infrastructure Cybervor : API méta + serveurs de jeu dédiés (coop / PvP).
+# Usage : cp .env.example .env && (éditer .env) && docker compose up -d --build
+# Prérequis : avoir exporté le serveur Linux dans server/game/build (voir build_server.ps1).
+# Déploiement sur le VPS : voir server/README.md (ports 7810-7829/udp, API sur 127.0.0.1:8095).
+name: cybervor
+
+services:
+  meta:
+    build:
+      context: ..
+      dockerfile: server/meta-api/Dockerfile
+    restart: unless-stopped
+    environment:
+      CYBERVOR_TOKEN_SECRET: ${CYBERVOR_TOKEN_SECRET}
+      CYBERVOR_SERVER_SECRET: ${CYBERVOR_SERVER_SECRET}
+      CYBERVOR_ADMIN_SECRET: ${CYBERVOR_ADMIN_SECRET}
+      CYBERVOR_ROOMS_URL: http://rooms:9000
+    volumes:
+      - meta-data:/data
+    mem_limit: 256m
+    ports:
+      # 127.0.0.1:8095 en production : l'API est publiée par le nginx de l'hôte sous /cybervore/api/
+      - "${META_BIND:-8080}:8080"
+
+  # Serveur unique : le superviseur lance une instance de jeu par partie créée par un joueur
+  # (port UDP libre de la plage), et chaque instance s'arrête quand elle est vide.
+  rooms:
+    build: ./game
+    image: cybervor-game
+    restart: unless-stopped
+    depends_on: [meta]
+    environment:
+      CYBERVOR_PORT_MIN: ${GAME_PORT_MIN:-7810}
+      CYBERVOR_PORT_MAX: ${GAME_PORT_MAX:-7829}
+      CYBERVOR_MAX_ROOMS: ${MAX_ROOMS:-12}
+      CYBERVOR_META_URL: http://meta:8080
+      CYBERVOR_SERVER_SECRET: ${CYBERVOR_SERVER_SECRET}
+      CYBERVOR_PUBLIC_HOST: ${PUBLIC_HOST}
+    # binaire du serveur de jeu monté (lecture seule) : mise à jour à chaud par server/deploy/update_game.sh
+    volumes:
+      - ./game/build:/srv/cybervor/bin:ro
+    # chaque instance consomme ~60-90 Mo : 12 parties tiennent dans 1,2 Go
+    mem_limit: 1200m
+    ports:
+      - "${GAME_PORT_MIN:-7810}-${GAME_PORT_MAX:-7829}:${GAME_PORT_MIN:-7810}-${GAME_PORT_MAX:-7829}/udp"
+
+  # Reverse proxy HTTPS optionnel pour l'API méta (décommenter et renseigner META_DOMAIN).
+  # caddy:
+  #   image: caddy:2
+  #   restart: unless-stopped
+  #   ports: ["80:80", "443:443"]
+  #   command: caddy reverse-proxy --from ${META_DOMAIN} --to meta:8080
+  #   volumes: [caddy-data:/data]
+
+volumes:
+  meta-data:
+  # caddy-data:

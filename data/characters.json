@@ -1,0 +1,56 @@
+{
+  "patatron": {
+    "name": "Kernel",
+    "sprite": "res://assets/sprites/characters/patatron.png",
+    "desc": "Androïde de combat polyvalent, réglé d'usine sur « héros ». Le mode d'emploi tient sur une page.",
+    "passive": "+5 PV max, +5 % de dégâts. Polyvalent en tout, expert en rien (comme un couteau suisse en kit).",
+    "stats": {"max_hp": 5, "damage": 5},
+    "weapon": "pistolaser",
+    "unlock": ""
+  },
+  "volta": {
+    "name": "Volta",
+    "sprite": "res://assets/sprites/characters/volta.png",
+    "desc": "Une pile survoltée qui a lu tout le manuel de physique… à l'envers.",
+    "passive": "+4 dégâts techno, +10 % vitesse d'attaque, -3 armure. Les éclairs rebondissent une fois de plus.",
+    "stats": {"tech": 4, "attack_speed": 10, "armor": -3, "chain": 1},
+    "weapon": "tesla",
+    "unlock": ""
+  },
+  "brutus": {
+    "name": "Brutus",
+    "sprite": "res://assets/sprites/characters/brutus.png",
+    "desc": "Robot bagarreur. Résout les bugs à coups de poing, et ça marche (parfois).",
+    "passive": "+15 PV max, +4 dégâts de mêlée, +3 armure, -10 % vitesse. Les armes à distance font -30 % de dégâts.",
+    "stats": {"max_hp": 15, "melee": 4, "armor": 3, "speed": -10, "ranged_mult": -30},
+    "weapon": "lame_plasma",
+    "unlock": "z1_m4"
+  },
+  "glitchette": {
+    "name": "Glitchette",
+    "sprite": "res://assets/sprites/characters/glitchette.png",
+    "desc": "Hackeuse féline. Elle a piraté le jeu pour avoir neuf vies, mais le patch l'a ramenée à une.",
+    "passive": "+15 % vitesse, +10 % esquive, +10 % critique, -6 PV max.",
+    "stats": {"speed": 15, "dodge": 10, "crit": 10, "max_hp": -6},
+    "weapon": "shuriken",
+    "unlock": "z2_m4"
+  },
+  "mecano": {
+    "name": "Mécano",
+    "sprite": "res://assets/sprites/characters/mecano.png",
+    "desc": "Ingénieur bricoleur. Répare tout avec du scotch, y compris ses sentiments.",
+    "passive": "Démarre avec 1 drone, +10 de récolte, +3 dégâts techno, -10 % dégâts.",
+    "stats": {"drones": 1, "harvest": 10, "tech": 3, "damage": -10},
+    "weapon": "lance_mines",
+    "unlock": "z3_m4"
+  },
+  "capitaine": {
+    "name": "Capitaine Néon",
+    "sprite": "res://assets/sprites/characters/capitaine.png",
+    "desc": "Pirate des réseaux. Son trésor ? Un disque dur plein de mèmes de 2009.",
+    "passive": "+25 chance, +20 % de données ramassées, boutique -10 %, -5 % dégâts.",
+    "stats": {"luck": 25, "data_gain": 20, "shop_discount": 10, "damage": -5},
+    "weapon": "pompe_plasma",
+    "unlock": "z4_m4"
+  }
+}

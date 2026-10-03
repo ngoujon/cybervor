@@ -1,0 +1,37 @@
+# Godot 4+
+.godot/
+/android/
+*.translation
+
+# Builds et exports (publiés sur le serveur, pas dans le dépôt)
+server/game/build/
+tools/release/dist/
+*.exe
+*.pck
+*.zip
+*.x86_64
+
+# Bande-annonce : segments bruts et vidéo finale (trop lourds)
+tools/trailer/segments/
+tools/trailer/*.mp4
+*.avi
+
+# Originaux HD des visuels (sauvegarde locale du pipeline 16 bits)
+tools/art_hd/
+
+# Secrets et données
+server/.env
+tools/release/deploy.local.env
+.env
+*.db
+*.sqlite*
+
+# Python
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Divers
+_dbg_*.gd
+.DS_Store
+Thumbs.db

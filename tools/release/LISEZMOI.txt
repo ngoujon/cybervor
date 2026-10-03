@@ -1,0 +1,37 @@
+CYBERVOR — survivor d'arène néon
+======================================
+
+Lancer : double-cliquer sur Cybervor.exe
+
+MODES
+- Campagne : 5 zones × 4 missions, avec dialogues humoristiques.
+- Multijoueur : créez une partie (coopération ou arène PvP) sur le serveur, vos amis la rejoignent
+  depuis la liste des parties ouvertes. En coop, les cristaux sont partagés.
+- Survie infinie : un boss toutes les 5 vagues.
+- Arène PvP : 1v1, 2v2, 3v3 ou 4v4 contre des joueurs et/ou des IA
+  (IA Débutante, Normale, Experte ou Impitoyable).
+- Difficulté : Facile, Normal, Difficile ou Cauchemar (plus c'est dur, plus ça rapporte).
+
+COMMANDES
+- ZQSD / WASD / flèches / manette : se déplacer (les drones d'armes tirent tout seuls)
+- Espace : esquive propre à chaque héros (dash, blink, saut, phase, roquette, grappin)
+- 1 à 5 : sorts actifs (choisis à chaque niveau, 1 parmi 3 ; passifs illimités)
+- Échap : menu / pause (ou ferme la fenêtre ouverte)
+- Entrée : chat d'équipe (multijoueur)
+- F1 : signaler un bug ou envoyer une suggestion
+- F2 : amis et messages
+
+MENUS
+La barre en haut à gauche donne accès à : Social, Signaler, Paramètres, Quitter le jeu.
+Cliquez sur votre héros en haut à droite pour modifier votre profil (pseudo, personnalisation).
+Bugs & suggestions : consultez les signalements des autres joueurs, votez « Moi aussi » et commentez.
+Paramètres : volumes (général, musique, effets, interface, dialogues), affichage, contrôles, réseau.
+
+EN LIGNE
+Le jeu est préconfiguré pour le serveur officiel (vps-3962b7dc.vps.ovh.net) : amis, messagerie,
+parties multijoueur et sauvegarde en ligne fonctionnent dès le lancement.
+Sans connexion, le jeu reste entièrement jouable ; les rapports de bugs sont gardés et envoyés
+automatiquement à la prochaine connexion.
+Site : https://vps-3962b7dc.vps.ovh.net/cybervore/
+
+Sauvegarde : %APPDATA%\Godot\app_userdata\Cybervor\

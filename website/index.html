@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cybervor — survivor néon déjanté</title>
+<meta name="description" content="Cybervor : un survivor d'arène néon en pixel art 16 bits, en coop jusqu'à 4, avec campagne humoristique, arène PvP du 1v1 au 4v4 et battle pass. Gratuit pour Windows.">
+<meta property="og:title" content="Cybervor — survivor néon déjanté">
+<meta property="og:description" content="Survivez à des hordes de bugs en solo, en coop ou en PvP. Gratuit pour Windows.">
+<meta property="og:image" content="img/poster.webp">
+<meta name="theme-color" content="#0d0620">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0620; --bg2:#160b33; --panel:#1d1042; --line:#3a2470;
+  --cyan:#5ff7ff; --pink:#ff5fd2; --gold:#ffd166; --green:#7dff9b; --text:#f2ecff; --muted:#a99cc9;
+  --r:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 Nunito,system-ui,sans-serif;overflow-x:hidden}
+img{max-width:100%;display:block}
+img[src*="img/h_"],img[src*="img/b_"],img[src*="img/e_"]{image-rendering:pixelated}
+a{color:var(--cyan)}
+h1,h2,h3{font-family:Bungee,Nunito,sans-serif;font-weight:400;line-height:1.15;margin:0 0 .5em}
+h2{font-size:clamp(28px,4.2vw,46px);background:linear-gradient(90deg,var(--cyan),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+h3{font-size:20px;color:var(--gold)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+section{padding:90px 0;position:relative}
+.lead{color:var(--muted);font-size:19px;max-width:760px;margin:0 0 36px}
+.center{text-align:center}.center .lead{margin-left:auto;margin-right:auto}
+
+/* navigation */
+nav{position:sticky;top:0;z-index:50;background:rgba(13,6,32,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:22px;height:64px}
+nav .brand img{height:36px;width:auto}
+nav .links{display:flex;gap:20px;margin-left:auto}
+nav .links a{color:var(--text);text-decoration:none;font-weight:600;font-size:15px;opacity:.85}
+nav .links a:hover{opacity:1;color:var(--cyan)}
+@media (max-width:860px){nav .links{display:none}}
+
+/* boutons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:800;text-decoration:none;font-size:17px;border:2px solid transparent;transition:transform .15s,box-shadow .15s;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-main{background:linear-gradient(90deg,var(--pink),#b35cff);color:#fff;box-shadow:0 0 28px rgba(255,95,210,.45)}
+.btn-main:hover{box-shadow:0 0 42px rgba(255,95,210,.7)}
+.btn-ghost{border-color:var(--cyan);color:var(--cyan);background:rgba(95,247,255,.06)}
+.btn-sm{padding:9px 18px;font-size:15px}
+nav .btn{margin-left:8px}
+@media (max-width:860px){nav .btn{margin-left:auto}}
+
+/* héros */
+.hero{min-height:min(calc(100vh - 64px),860px);display:flex;align-items:center;padding:60px 0;
+  background:linear-gradient(180deg,rgba(13,6,32,.25),rgba(13,6,32,.55) 55%,var(--bg)),url(img/hero.webp) center/cover no-repeat}
+.hero .wrap{width:100%}
+.hero .logo{width:min(640px,92%);filter:drop-shadow(0 8px 30px rgba(255,95,210,.5));animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.hero p.tag{font-size:clamp(19px,2.3vw,26px);font-weight:800;max-width:640px;text-shadow:0 2px 12px #000;margin:18px 0 28px}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+@media (max-width:520px){.btn{padding:12px 18px;font-size:15px}nav .brand img{height:28px}section{padding:60px 0}}
+.hero .meta{margin-top:22px;color:#e4dcff;font-weight:600;text-shadow:0 2px 8px #000}
+.pill{display:inline-block;padding:4px 12px;border-radius:999px;background:rgba(29,16,66,.85);border:1px solid var(--line);margin:4px 6px 0 0;font-size:14px}
+.status-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--muted);margin-right:6px;vertical-align:middle}
+.status-dot.on{background:var(--green);box-shadow:0 0 10px var(--green)}
+
+/* vidéo */
+.video{border-radius:var(--r);overflow:hidden;border:2px solid var(--line);box-shadow:0 0 60px rgba(95,247,255,.15);background:#000}
+.video video{width:100%;display:block;aspect-ratio:16/9}
+
+/* cartes */
+.grid{display:grid;gap:20px}
+.g3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:900px){.g3{grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))}}
+.g6{grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr))}
+.card{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.card p{margin:0;color:var(--muted)}
+.card .ico{font-size:30px;margin-bottom:8px}
+.feature{transition:border-color .2s,transform .2s}
+.feature:hover{border-color:var(--cyan);transform:translateY(-3px)}
+
+/* campagne */
+.zones{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media (max-width:980px){.zones{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.zones{grid-template-columns:1fr}}
+.zone{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+.zone img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.zone div{padding:14px}
+.zone b{display:block;color:var(--gold);font-size:15px}
+.zone span{color:var(--muted);font-size:14px;line-height:1.45;display:block;margin-top:4px}
+.chat{margin-top:34px;display:grid;gap:12px;max-width:820px}
+.bubble{display:flex;gap:14px;align-items:flex-start}
+.bubble .who{flex:0 0 auto;font-family:Bungee;font-size:13px;padding:6px 10px;border-radius:10px;background:var(--panel);border:1px solid var(--line)}
+.bubble.mamie .who{color:var(--pink)}.bubble.hero-l .who{color:var(--cyan)}
+.bubble p{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:4px 16px 16px 16px;padding:10px 16px}
+
+/* héros & boss */
+.char{text-align:center;padding:18px 14px}
+.char img{height:120px;width:auto;image-rendering:pixelated;margin:0 auto 10px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.5));transition:transform .2s}
+.char:hover img{transform:scale(1.08) rotate(-3deg)}
+.char h3{font-size:16px;margin-bottom:6px}
+.char p{font-size:14px;line-height:1.45}
+.bosses{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:40px}
+.boss{text-align:center;width:180px}
+.boss img{height:150px;width:auto;image-rendering:pixelated;margin:0 auto;filter:drop-shadow(0 0 18px rgba(255,95,210,.45))}
+.boss b{font-family:Bungee;font-size:14px;color:var(--pink)}
+
+/* modes */
+.mode img{border-radius:12px;margin:-6px -6px 16px;width:calc(100% + 12px);aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line)}
+.mode ul{margin:12px 0 0;padding-left:20px;color:var(--muted)}
+.diff{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;justify-content:center}
+.diff span{padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);font-weight:700}
+
+/* galerie */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px}
+.gallery button{padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:none;cursor:zoom-in}
+.gallery img{aspect-ratio:16/9;object-fit:cover;width:100%;transition:transform .3s}
+.gallery button:hover img{transform:scale(1.05)}
+.lightbox{position:fixed;inset:0;background:rgba(5,2,15,.92);display:none;align-items:center;justify-content:center;z-index:100;padding:20px;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-height:90vh;border-radius:12px;border:2px solid var(--line)}
+
+/* serveurs */
+.servers{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))}
+.srv{display:flex;align-items:center;gap:14px}
+.srv .n{font-weight:800}
+.srv .d{color:var(--muted);font-size:14px}
+.srv .count{margin-left:auto;font-family:Bungee;color:var(--cyan)}
+
+/* téléchargement */
+.dl{background:radial-gradient(circle at 50% 0,rgba(255,95,210,.25),transparent 60%),linear-gradient(180deg,var(--bg2),var(--bg));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dlbox{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:start}
+@media (max-width:860px){.dlbox{grid-template-columns:1fr}}
+.steps{counter-reset:s;list-style:none;padding:0;margin:20px 0 0}
+.steps li{counter-increment:s;padding-left:46px;position:relative;margin-bottom:14px;color:var(--muted)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:32px;height:32px;border-radius:50%;background:var(--pink);color:#fff;font-family:Bungee;display:grid;place-items:center;font-size:14px}
+.steps b{color:var(--text)}
+kbd{background:var(--bg);border:1px solid var(--line);border-bottom-width:3px;border-radius:6px;padding:1px 7px;font-size:14px;font-family:inherit;color:var(--text)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+td{padding:8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{color:var(--muted);width:42%;padding-right:12px}
+footer{padding:40px 0;color:var(--muted);font-size:14px;text-align:center}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero .logo{animation:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="img/logo.webp" alt="Cybervor"></a>
+    <div class="links">
+      <a href="#bande-annonce">Bande-annonce</a>
+      <a href="#campagne">Campagne</a>
+      <a href="#heros">Héros</a>
+      <a href="#modes">Modes</a>
+      <a href="#serveurs">Serveurs</a>
+    </div>
+    <a class="btn btn-main btn-sm" href="#telecharger">Télécharger</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <img class="logo" src="img/logo.webp" alt="Cybervor" width="900" height="297">
+    <p class="tag">Le survivor néon complètement déjanté. Des hordes de bugs, des armes qui tirent toutes seules, une Mamie RAM et un Noyau à moustache. Survivez&nbsp;!</p>
+    <div class="ctas">
+      <a class="btn btn-main" href="Cybervor.zip" download>⬇ Télécharger pour Windows</a>
+      <a class="btn btn-ghost" href="#bande-annonce">▶ Voir la bande-annonce</a>
+    </div>
+    <div class="meta">
+      <span class="pill">Gratuit</span><span class="pill">Windows 10 / 11</span><span class="pill">Solo · Coop 4 joueurs · PvP 4v4</span><span class="pill">100 % en français</span>
+      <span class="pill" id="hero-status"><span class="status-dot"></span>Serveurs : vérification…</span>
+    </div>
+  </div>
+</header>
+
+<section id="bande-annonce">
+  <div class="wrap center">
+    <h2>Bande-annonce</h2>
+    <p class="lead">Une minute quarante de chaos néon, capturée directement dans le jeu.</p>
+    <div class="video reveal">
+      <video controls preload="metadata" poster="img/poster.webp" playsinline>
+        <source src="cybervor-bande-annonce.mp4" type="video/mp4">
+        Votre navigateur ne lit pas la vidéo : <a href="cybervor-bande-annonce.mp4">téléchargez-la</a>.
+      </video>
+    </div>
+  </div>
+</section>
+
+<section id="jeu">
+  <div class="wrap">
+    <h2>Le jeu</h2>
+    <p class="lead">Un survivor d'arène frénétique. Vous bougez, vos armes visent et tirent toutes seules. Entre les vagues, la boutique vous transforme en machine de guerre.</p>
+    <div class="grid g3">
+      <div class="card feature reveal"><div class="ico">⚔️</div><h3>12 armes, 4 rangs</h3><p>Pistolaser, railgun, bobine Tesla, orbes, marteau, lance-flammes, mines… Fusionnez deux armes identiques pour monter de rang.</p></div>
+      <div class="card feature reveal"><div class="ico">🛒</div><h3>Boutique entre les vagues</h3><p>24 objets à combiner et des améliorations à chaque niveau. Une trentaine de statistiques à faire grimper.</p></div>
+      <div class="card feature reveal"><div class="ico">🐞</div><h3>11 ennemis, 5 boss</h3><p>Kamikazes, tireurs, diviseurs, soigneurs, fantômes téléporteurs, puis des boss avec leurs propres motifs d'attaque.</p></div>
+      <div class="card feature reveal"><div class="ico">🌳</div><h3>5 arbres de compétences</h3><p>Assaut, Blindage, Technologie, Piratage et Récolte, avec prérequis et compétences ultimes.</p></div>
+      <div class="card feature reveal"><div class="ico">🎟️</div><h3>Battle pass « Surtension »</h3><p>40 paliers gratuits et premium, défis quotidiens et hebdomadaires, chapeaux, couleurs et titres.</p></div>
+      <div class="card feature reveal"><div class="ico">🎨</div><h3>Pixel art et bande-son</h3><p>Un pixel art 16 bits cyberpunk, une bande-son et des bruitages originaux. Volumes réglables piste par piste.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="campagne">
+  <div class="wrap">
+    <h2>Une campagne pleine d'humour</h2>
+    <p class="lead">Le Noyau, un processeur à l'ego en surchauffe, veut imposer au monde une « mise à jour obligatoire ». 5 zones, 20 missions, en solo ou en coop.</p>
+    <div class="zones">
+      <div class="zone reveal"><img src="img/zone_decharge.webp" alt="" loading="lazy"><div><b>La Décharge Néon</b><span>Là où finissent les vieux ordinateurs, les imprimantes rancunières et les promesses de mise à jour « rapide ».</span></div></div>
+      <div class="zone reveal"><img src="img/zone_holo.webp" alt="" loading="lazy"><div><b>Quartier Hologramme</b><span>Des pubs holographiques partout. Même dans les toilettes. Surtout dans les toilettes.</span></div></div>
+      <div class="zone reveal"><img src="img/zone_serres.webp" alt="" loading="lazy"><div><b>Serres Cybernétiques</b><span>Ici poussent des tomates connectées en Bluetooth. Elles se plaignent quand on ne les arrose pas.</span></div></div>
+      <div class="zone reveal"><img src="img/zone_glace.webp" alt="" loading="lazy"><div><b>Data Center Gelé</b><span>La climatisation a été réglée sur « pôle Nord » par erreur. Les serveurs portent des écharpes.</span></div></div>
+      <div class="zone reveal"><img src="img/zone_noyau.webp" alt="" loading="lazy"><div><b>Cœur du Réseau</b><span>Le centre de tout. Ça sent le silicium chaud et l'arrogance.</span></div></div>
+    </div>
+    <div class="chat reveal">
+      <div class="bubble mamie"><span class="who">Mamie RAM</span><p>Le Noyau a décidé que le monde entier avait besoin d'une « mise à jour obligatoire ».</p></div>
+      <div class="bubble hero-l"><span class="who">Vous</span><p>Une mise à jour ? Ça va, c'est pas si grave…</p></div>
+      <div class="bubble mamie"><span class="who">Mamie RAM</span><p>Elle dure 900 ans et redémarre la planète sans prévenir. Sans même sauvegarder les brouillons.</p></div>
+      <div class="bubble hero-l"><span class="who">Vous</span><p>…Ok, c'est grave. Je m'en occupe.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="heros">
+  <div class="wrap">
+    <h2>6 héros</h2>
+    <p class="lead">Chacun a ses statistiques, son arme de départ et son caractère. Quatre se débloquent au fil de la campagne.</p>
+    <div class="grid g6">
+      <div class="card char reveal"><img src="img/h_patatron.webp" alt="" loading="lazy"><h3>Kernel</h3><p>Androïde de combat polyvalent, réglé d'usine sur « héros ».</p></div>
+      <div class="card char reveal"><img src="img/h_volta.webp" alt="" loading="lazy"><h3>Volta</h3><p>Une pile survoltée qui a lu tout le manuel de physique… à l'envers.</p></div>
+      <div class="card char reveal"><img src="img/h_brutus.webp" alt="" loading="lazy"><h3>Brutus</h3><p>Robot bagarreur. Résout les bugs à coups de poing, et ça marche (parfois).</p></div>
+      <div class="card char reveal"><img src="img/h_glitchette.webp" alt="" loading="lazy"><h3>Glitchette</h3><p>Hackeuse féline. Elle s'était piraté neuf vies ; le patch l'a ramenée à une.</p></div>
+      <div class="card char reveal"><img src="img/h_mecano.webp" alt="" loading="lazy"><h3>Mécano</h3><p>Ingénieur bricoleur. Répare tout avec du scotch, y compris ses sentiments.</p></div>
+      <div class="card char reveal"><img src="img/h_capitaine.webp" alt="" loading="lazy"><h3>Capitaine Néon</h3><p>Pirate des réseaux. Son trésor ? Un disque dur plein de mèmes de 2009.</p></div>
+    </div>
+    <div class="bosses">
+      <div class="boss reveal"><img src="img/b_serveur.webp" alt="" loading="lazy"><b>Le Gros Serveur</b></div>
+      <div class="boss reveal"><img src="img/b_reine.webp" alt="" loading="lazy"><b>Reine Virale</b></div>
+      <div class="boss reveal"><img src="img/b_taupe.webp" alt="" loading="lazy"><b>Méca-Taupe</b></div>
+      <div class="boss reveal"><img src="img/b_hydre.webp" alt="" loading="lazy"><b>Hydre Néon</b></div>
+      <div class="boss reveal"><img src="img/b_noyau.webp" alt="" loading="lazy"><b>Le Noyau</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="modes">
+  <div class="wrap">
+    <h2>Modes de jeu</h2>
+    <p class="lead">Seul, entre amis ou les uns contre les autres.</p>
+    <div class="grid g3">
+      <div class="card mode reveal"><img src="img/s_dialogue.webp" alt="" loading="lazy"><h3>Campagne</h3><p>20 missions scénarisées, en solo ou en coop jusqu'à 4 joueurs.</p><ul><li>Dialogues humoristiques</li><li>Héros à débloquer</li><li>Un boss à la fin de chaque zone</li></ul></div>
+      <div class="card mode reveal"><img src="img/s_fight2.webp" alt="" loading="lazy"><h3>Survie infinie</h3><p>Jusqu'où tiendrez-vous ? Un boss toutes les 5 vagues.</p><ul><li>Choix de la zone</li><li>Classement en ligne</li><li>Idéal pour farmer le battle pass</li></ul></div>
+      <div class="card mode reveal"><img src="img/s_pvp.webp" alt="" loading="lazy"><h3>Arène PvP</h3><p>En équipes du 1v1 au 4v4, premier à 3 manches.</p><ul><li>Contre des joueurs et/ou des IA</li><li>4 niveaux d'IA, jusqu'à « Impitoyable »</li><li>Équipe Néon contre Équipe Virus</li></ul></div>
+    </div>
+    <div class="diff reveal">
+      <span style="color:var(--green)">Facile</span><span style="color:var(--cyan)">Normal</span><span style="color:var(--gold)">Difficile</span><span style="color:var(--pink)">Cauchemar · récompenses ×2</span>
+    </div>
+  </div>
+</section>
+
+<section id="galerie">
+  <div class="wrap">
+    <h2>Galerie</h2>
+    <div class="gallery">
+      <button aria-label="Agrandir"><img src="img/s_fight.webp" alt="Combat contre une horde" loading="lazy"></button>
+      <button aria-label="Agrandir"><img src="img/s_boss.webp" alt="Combat contre Le Gros Serveur" loading="lazy"></button>
+      <button aria-label="Agrandir"><img src="img/s_pvp.webp" alt="Arène PvP en 4v4" loading="lazy"></button>
+      <button aria-label="Agrandir"><img src="img/s_shop.webp" alt="Boutique entre les vagues" loading="lazy"></button>
+      <button aria-label="Agrandir"><img src="img/s_skills.webp" alt="Arbres de compétences" loading="lazy"></button>
+      <button aria-label="Agrandir"><img src="img/s_bp.webp" alt="Battle pass" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<section id="serveurs">
+  <div class="wrap">
+    <h2>Serveurs en ligne</h2>
+    <p class="lead">Un serveur dédié héberge toutes les parties. Dans le jeu : <b>Multijoueur → Créer une partie</b> (coopération ou arène PvP), et vos amis la rejoignent depuis la liste des parties ouvertes. Amis, messagerie et sauvegarde en ligne sont inclus.</p>
+    <div class="servers" id="servers"><div class="card">Chargement de l'état des serveurs…</div></div>
+  </div>
+</section>
+
+<section class="dl" id="telecharger">
+  <div class="wrap dlbox">
+    <div>
+      <h2>Télécharger</h2>
+      <p class="lead" style="margin-bottom:24px">Gratuit, sans compte : un identifiant invité est créé automatiquement au premier lancement. Votre progression est sauvegardée dans le cloud.</p>
+      <a class="btn btn-main" href="Cybervor.zip" download>⬇ Cybervor <span id="dl-version">0.2.0</span> pour Windows (.zip, 68 Mo)</a>
+      <ol class="steps">
+        <li><b>Décompressez</b> le fichier zip où vous voulez (sur le bureau, par exemple).</li>
+        <li><b>Lancez Cybervor.exe.</b> Le jeu n'est pas signé : si Windows SmartScreen s'affiche, cliquez sur « Informations complémentaires » puis « Exécuter quand même ».</li>
+        <li><b>Jouez !</b> Le jeu se connecte tout seul aux serveurs. Il reste jouable hors ligne.</li>
+        <li><b>Mises à jour automatiques</b> à partir de la 0.2.0 : le jeu se met à jour tout seul. Vous aviez la 0.1.0 ? Téléchargez une dernière fois et décompressez par-dessus : votre sauvegarde est conservée.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>Configuration</h3>
+      <table>
+        <tr><td>Système</td><td>Windows 10 ou 11, 64 bits</td></tr>
+        <tr><td>Carte graphique</td><td>Compatible DirectX 12 ou Vulkan</td></tr>
+        <tr><td>Espace disque</td><td>150 Mo</td></tr>
+        <tr><td>Manette</td><td>Prise en charge</td></tr>
+      </table>
+      <h3 style="margin-top:22px">Commandes</h3>
+      <table>
+        <tr><td>Se déplacer</td><td><kbd>Z</kbd><kbd>Q</kbd><kbd>S</kbd><kbd>D</kbd>, flèches ou stick</td></tr>
+        <tr><td>Propulsion</td><td><kbd>Espace</kbd></td></tr>
+        <tr><td>Pause</td><td><kbd>Échap</kbd></td></tr>
+        <tr><td>Chat (multijoueur)</td><td><kbd>Entrée</kbd></td></tr>
+        <tr><td>Signaler un bug</td><td><kbd>F1</kbd></td></tr>
+        <tr><td>Amis et messages</td><td><kbd>F2</kbd></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.webp" alt="" style="height:44px;width:auto;margin:0 auto 12px;opacity:.85">
+    Cybervor — fait avec Godot. Images, musiques et bruitages créés avec ComfyUI.<br>
+    Un bug ? Une idée ? Appuyez sur <kbd>F1</kbd> dans le jeu : on lit tout (même les plaintes sur la moustache du Noyau).
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Capture d'écran"><img alt=""></div>
+
+<script>
+// Apparition au défilement
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Galerie
+const lb = document.getElementById('lightbox');
+document.querySelectorAll('.gallery button').forEach(b => b.addEventListener('click', () => {
+  const img = b.querySelector('img');
+  lb.querySelector('img').src = img.src; lb.querySelector('img').alt = img.alt; lb.classList.add('open');
+}));
+lb.addEventListener('click', () => lb.classList.remove('open'));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+fetch('version.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(v => {
+  if (v && v.version) document.getElementById('dl-version').textContent = v.version;
+}).catch(() => {});
+
+// État des serveurs (API méta du jeu)
+const MODES = { coop: 'Coop · campagne', pvp: 'Arène PvP' };
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+async function refresh() {
+  const box = document.getElementById('servers'), hs = document.getElementById('hero-status');
+  try {
+    const r = await fetch('api/v1/servers', { cache: 'no-store' });
+    if (!r.ok) throw new Error(r.status);
+    const list = (await r.json()).servers || [];
+    const players = list.reduce((n, s) => n + (s.players || 0), 0);
+    hs.innerHTML = `<span class="status-dot on"></span>Serveur en ligne · ${list.length ? `${list.length} partie${list.length > 1 ? 's' : ''} · ${players} joueur${players > 1 ? 's' : ''}` : 'aucune partie en cours'}`;
+    box.innerHTML = list.length ? list.map(s => `
+      <div class="card srv"><span class="status-dot on"></span>
+        <div><div class="n">${esc(s.name)}</div><div class="d">${MODES[s.mode] || esc(s.mode)} · ${s.in_game ? 'partie en cours' : 'en attente de joueurs'}</div></div>
+        <span class="count">${s.players}/${s.max}</span></div>`).join('')
+      : '<div class="card"><span class="status-dot on"></span> Le serveur est en ligne mais aucune partie n&#39;est ouverte : lancez le jeu et créez la vôtre !</div>';
+  } catch (e) {
+    hs.innerHTML = '<span class="status-dot"></span>Serveurs : état indisponible';
+    box.innerHTML = '<div class="card">Impossible de joindre le serveur pour le moment.</div>';
+  }
+}
+refresh(); setInterval(refresh, 15000);
+</script>
+</body>
+</html>

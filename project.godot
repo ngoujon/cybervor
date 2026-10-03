@@ -1,0 +1,62 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Cybervor"
+config/description="Survivor coop cyber-déjanté : campagne, PvP, arbres de compétences et battle pass."
+config/version="0.4.1"
+run/main_scene="res://scenes/boot.tscn"
+config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/bg_color=Color(0.05, 0.04, 0.1, 1)
+boot_splash/show_image=true
+boot_splash/image="res://assets/splash.png"
+boot_splash/fullsize=true
+boot_splash/use_filter=true
+config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
+
+[audio]
+
+buses/default_bus_layout="res://default_bus_layout.tres"
+
+[autoload]
+
+Db="*res://scripts/autoload/db.gd"
+Settings="*res://scripts/autoload/settings.gd"
+Audio="*res://scripts/autoload/audio.gd"
+Profile="*res://scripts/autoload/profile.gd"
+Backend="*res://scripts/autoload/backend.gd"
+Net="*res://scripts/autoload/net.gd"
+Game="*res://scripts/autoload/game.gd"
+Ui="*res://scripts/autoload/ui.gd"
+Updater="*res://scripts/autoload/updater.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1600
+window/size/window_height_override=900
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+textures/canvas_textures/default_texture_filter=1
