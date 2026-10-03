@@ -35,3 +35,6 @@ __pycache__/
 _dbg_*.gd
 .DS_Store
 Thumbs.db
+
+# Jeu installé localement (export/)
+export/
